@@ -1,0 +1,164 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{gensymb}
+
+\begin{document}
+\title{Modelling Low Earth Orbit Constellations for Networking}
+\author{Joseph McGuchan}
+\maketitle
+\thispagestyle{empty}
+
+\section{Abstract}
+
+%TODO
+
+\section{Introduction}
+
+SpaceX are planning to launch a constellation of 4,425 low Earth orbit communication satellites in the next few years. The objective of this constellation, called Starlink, is to provide low-latency internet connection across the world. It will do this using lasers, which, in the vaccum of space, travel 47\% faster than in glass.
+
+The satellites in this network will be in constant motion, not just relative to the ground, but relative to one another, creating a network with a constantly changing topology and associated latencies. The question of how to structure such a network, and what the resultant properties of said network will be, has not been thoroughly explored, but it will become increasingly relevant as more and more companies build similar constellations. If these Constellations prove to provide significant gains in latency while providing competetive bandwidth, they might render previous submarine optical cables obsolete.
+
+My goals are:
+\begin{enumerate}
+	\item To create visualisations of the SpaceX conselations and test it's paths for latency.
+\end{enumerate}
+
+This network, and networks like it, are the future of the internet.
+
+%TODO
+
+\section{What is Starlink?}
+
+%TODO
+
+As of 21/11/18, there are two companies offering sattelite internet services, Excede\cite{ExcedeWebsite}, and Hughes, whose 9202 BGAN Land Portable Satellite Terminal offers connection speeds up to 464kbps\cite{HughesWebsite}. These companies largely target domestic use in rural areas which don’t have a faster coverage, and corporations, providing internet connections to airplanes and cargo ships. Currently, Sattelite Internet connection is a last resort, something turned to when conventional means of connection are not available, Starlink intends to invert this, turning sattelite internet into the premium option, 
+
+%TODO
+
+SpaceX have already sent up two test sattelites, and according the Elon Musk, they are working very well, providing a latency of only 25ms\cite{ElonMuskTweet}.
+
+%TODO
+
+\subsection{The Structure of Starlink}
+
+%TODO
+
+There is a lot we do not know about Starlink, but this is what we can infer from SpaceX’s application to the FCC\cite{FCCApplication}, and their technical attachment\cite{TechnicalAttachment}.
+
+\begin{figure}
+\label{fig:Starlink Orbits}
+\caption{The layout of Starlink}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multicolumn{6}{|c|}{SPACEX SYSTEM CONSTELLATION} \\
+\hline
+Parameter & Initial Deployment & \multicolumn{4}{|c|}{Final Deployment} \\
+& (1,600 satellites) & \multicolumn{4}{|c|}{(2,825 satellites)} \\
+\hline
+Orbital Planes & 32 & 32 & 8 & 5 & 6 \\
+Sattelites per Plane & 50 & 50 & 50 & 75 & 75 \\
+Altitude & 1150km & 1110km & 1130km & 1275km & 1325km \\
+Inclination & 53\degree & 53.8\degree & 74\degree & 80\degree & 70\degree \\
+\hline
+\end{tabular}
+\end{figure}
+
+\begin{figure}
+\label{fig:Starlink Bandwidth}
+\caption{Frequency Bands Used by the SpaceX System}
+\begin{tabular}{|c|c|}
+\hline
+Type of Link and Transmission
+Direction & 
+Frequency Ranges \\
+\hline
+User Downlink & 10.7 -- 12.7 GHz \\
+Satellite-to-User Terminal & \\
+\hline
+Gateway Downlink & 17.8 -- 18.6 GHz \\
+Satellite to Gateway & 18.8 -- 19.3 GHz \\
+\hline
+User Uplink & 14.0 -- 14.5 GHz \\
+User Terminal to Satellite & \\
+\hline
+Gateway Uplink & 27.5 -- 29.1 GHz\\
+Gateway to Satellite & 29.5 -- 30.0 GHz \\
+\hline
+TT\&C Downlink & 12.15 -- 12.25 GHz \\
+& 18.55 -- 18.60 GHz \\
+\hline
+TT\&C Uplink & 13.85 -- 14.00 GHz \\
+\hline
+\end{tabular}
+\end{figure}
+
+\subsection{Why Focus on Starlink?}
+
+Theoretically, my goals would allow me to focus on any constellation, and focusing my attention on Starlink runs the risk of creating algorithms that are specific to it, which might not perform as well on other networks. However, the vast amount of legislation on satellites makes it hard to know what a “normal” network would look like. By using Starlink we get a confirmed legal and physically possible network, on which we can build our routing algorithms.
+
+There is another reason for focusing on Starlink. As I progress through this dissertation, I will
+
+%TODO
+
+\section{Existing Research}
+
+In 
+
+\section{Modelling Sattelites in Orbit}
+
+Typically, an orbit around the surface of the earth is described by:
+
+Distance Above the Surface
+Inclination: This is the angle between the orbital plane, and the equatorial plane, (the plane on which the equator lies).
+Longditudonal Offset: If inclination > 0º, then the orbital plane and equatorial plane will intersect at a line, the angle between this line and the plane described by the great circle at longditute 0º is the longditudonal offset. In other words, the Longditudonal offset is the Londitudute of the point where this line passes through the surface of the earth.
+Eccentricity: The eccentricity coefficient describes the “squashness” of the orbit. For the time being, we will be ignoring this...
+Retrograde: A retrograde orbit is one that goes against the rotation of the earth, typically these are described by orbits with a longditudonal offset >180º. It is significantly more expensive to put a sattelite into a retrograte orbit, and is essentially never done.
+A sattelites’ position in this orbit is further described by it’s True Anomaly, this is the angle of it’s arc along it’s orbit. Where the “start” of it’s arc is the point with londgitude equal to it’s longditudonal offset.
+...
+Sattelites also have an angular velocity, this is claculated from thesattelites altitude with the formula
+...
+The position of a sattelite is calculated by taking it’s true anomaly and adding it’s angular velocity multiplied by the timestep (real timesince last frame update * some factor). The location is then calculated through a series of transformations performed on the true anomaly:
+We take a vector (r, 0, 0) where r is the distance above the surface + the radius of Earth.
+We rotate this point around (0, 1, 0) (the line through the poles) by the true anomaly.
+We rotate this point around (1, 0, 0) (the line from 0 longditude to 180 longditude through the equator) by the inclination.
+We rotate this point around (0, 1, 0) agian by the longditudonal offset.
+Because the only variable that is changed is the true anomaly, and the x, y, and z coordinates are determined by only this variable and a series of fixed variables, we do not run thesame risks normal discete physics models face when describing continuous behaviour, such as unredictable behaviour when sped up, at extreme forces, or the steady moving of orbits.
+
+However, on experimentation, it has been shown that this method was flawed, being able to simulate only 500 sattelites in motion before slowing down. Because of this, we changed to a precomputed method. In this method, orbits are precomputed as a number of points, and the position of sattelites is calculated by interpolating adgacent points, this sacrifices some accuracy, but castly increases the computation speed.
+
+\section{Variables}
+While we can learn a lot from SpaceX's applications, there are still a number of variables that are left undetermined. 
+
+\begin{description}
+\item[Distribution on Orbit]
+SpaceX only specifies which orbital planes it requires, and how many satellites will be on each plane, it does not specify where sattelites will be positioned on those planes. This forces us to speculate as to how sattelites will be distributed. It is relatively safe to assume that sattelites will be evenly distributed.
+	
+\item[Phase Offset]
+As we do not know for certain how satellites will be positioned in orbits, we also do not know how they will be positioned relative to other orbits. Phase offset can be described with a number from 0 to 1, where 0 indicates that a sattelite i in orbit j will cross the equator at the same time as satellite i in orbit j+1, and 1 indicates that satellite i,j will cross the equator at the same time as i+1, j+1. This number will have to be some fraction of the total number of orbits, to garuntee that the first and last orbits are properly aligned.
+
+The SpaceX constellation can be described by 5 phase offsets, one for obital sphere.
+
+Each of the orbital spheres can also be offset from each other,
+
+\item{Link usage}
+
+
+\end{description}
+
+\subsection{Analysis of Variables}
+For each of these variables, I modeled a variety of different possibilities, examining the latency of connections with each of these.
+
+\section{Conclusion}
+
+
+\begin{thebibliography}{9}
+	\bibitem{ExedeWebsite} \url{https://www.exede.com}
+	\bibitem{HughesWebsite} \url{https://www.hughes.com}
+	\bibitem{ElonMuskTweet} \url{https://twitter.com/elonmusk/status/1000453321121923072}
+	\bibitem{FCCApplication} \url{licensing.fcc.gov/cgi-bin/ws.exe/prod/ib/forms/reports/related_filing.hts?f_key=-289550&f_number=SATLOA2016111500118}
+	\bibitem{TechnicalAttachment} \url{https://licensing.fcc.gov/myibfs/download.do?attachment_key=1158350}
+	\bibitem{OriginalReport} \url{http://nrg.cs.ucl.ac.uk/mjh/starlink/}
+	\bibitem{StuffInSpace} \url{http://stuffin.space/}
+	\bibitem{PropertiesOfGlass} \url{http://ece466.groups.et.byu.net/notes/smf28.pdf}
+\end{thebibliography}
+\end{document}
