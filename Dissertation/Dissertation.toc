@@ -8,11 +8,11 @@
 \contentsline {subsection}{\numberline {2.1}Starting Point}{7}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}The Structure of Starlink}{7}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Modelling Sattelites in Orbit}{8}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Variables}{9}{subsection.2.4}
-\contentsline {section}{\numberline {3}Implementation}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Repository Overview}{11}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Difficulties of modelling orbits}{11}{subsection.3.2}
+\contentsline {subsection}{\numberline {2.4}Variables}{10}{subsection.2.4}
+\contentsline {section}{\numberline {3}Implementation}{12}{section.3}
+\contentsline {subsection}{\numberline {3.1}Repository Overview}{12}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Difficulties of modelling orbits}{12}{subsection.3.2}
 \contentsline {section}{\numberline {4}Evaluation}{12}{section.4}
 \contentsline {subsection}{\numberline {4.1}Analysis of Variables}{12}{subsection.4.1}
 \contentsline {section}{\numberline {5}Conclusion}{12}{section.5}
-\contentsline {section}{\numberline {A}Appendix A}{12}{appendix.A}
+\contentsline {section}{\numberline {A}Appendix A}{13}{appendix.A}

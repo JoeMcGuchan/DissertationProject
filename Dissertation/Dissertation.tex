@@ -127,7 +127,9 @@ Inclination & 53\degree & 53.8\degree & 74\degree & 80\degree & 70\degree \\
 \end{tabular}
 \end{figure}
 
-In it's application to the FCC SpaceX was required to state any notable debris that might not burn up if a sattelite were to descend from orbit. Amoung the components listed where 5 mirror 
+In it's application to the FCC SpaceX was required to state any notable debris that might not burn up if a sattelite were to descend from orbit. Amoung the components listed where 5 silicon carbide “communication components”, silicon carbide is used in mirrors for laser communication links, and we can therefore conclude that SpaceX's satellites will have, at most, 5 avilable links to form with nearby sattelites.
+
+We also know information about how Starlink sattelites will communicate with ground stations, a base station may only connect with a sattelite at an inclination less than 40\degree from the vertical using Radio Frequency (not laser) connections. Connections will be stronger to sattelites directly overhead, however as Starlink does not provide much information in exactly how their intra-satellite communications work, speculations on bandwidth will not prove to be helpful.
 
 \subsection{Modelling Sattelites in Orbit}
 
@@ -138,11 +140,11 @@ Typically, an orbit around the surface of the earth is described by:
 \item[Inclination]
 This is the angle between the orbital plane, and the equatorial plane, (the plane on which the equator lies).
 \item[Longditudonal Offset]
-If inclination > 0º, then the orbital plane and equatorial plane will intersect at a line, the angle between this line and the plane described by the great circle at longditute 0º is the longditudonal offset. In other words, the Longditudonal offset is the Londitudute of the point where this line passes through the surface of the earth.
+If inclination is greater than 0\degree, then the orbital plane and equatorial plane will intersect at a line, the angle between this line and the plane described by the great circle at longditute 0\degree is the longditudonal offset. In other words, the Longditudonal offset is the Londitudute of the point where this line passes through the surface of the earth.
 \item[Eccentricity]
 The eccentricity coefficient describes the “squashness” of the orbit. For the time being, we will be ignoring this...
 \item[Retrograde]
-A retrograde orbit is one that goes against the rotation of the earth, typically these are described by orbits with a longditudonal offset >180º. It is significantly more expensive to put a sattelite into a retrograte orbit, and is essentially never done.
+A retrograde orbit is one that goes against the rotation of the earth, typically these are described by orbits with a longditudonal offset greater than 180\degree. It is significantly more expensive to put a sattelite into a retrograte orbit, and is essentially never done.
 \end{description}
 
 Furthermore, an individual satellite's position in an orbit can be described by:
@@ -200,7 +202,7 @@ Is shorthand for:
 \item[Phase Offset]
 As we do not know for certain how satellites will be positioned in orbits, we also do not know how they will be positioned relative to other orbits. The phase offset of an obit $o_{i,j}$, $po_{i,j}$, can be described as a number from 0 to 1, where, $\forall k$, 0 indicates that  $x_{i,j,k}$ will cross the equator at the same time as $x_{i,j+1,k}$, and 1 indicates that satellite $x_{i,j,k}$ will cross the equator at the same time as $x_{i,j+1,k+1}$. This number will have to be some fraction of the total number of orbits, to garuntee that the first and last orbits are properly aligned.
 
-Each of the orbital spheres can also be offset from each other. The phase offset of each sphere will be described relative to central sphere (initial deployment) $s_0$, so the offset of $s_i$, $ps_i$, is 0 when $x_{i,0,0}$ crosses the equator at the same time as $x_{0,0,0}$, %TODO
+Each of the orbital spheres can also be offset from each other. The phase offset of spheres will be described very differently: $ps_i$ will be a 2D vector that decribes the longditude and latitude of $x_{i,0,0}$ when $x_{0,0,0}$ crosses the equator.
 
 \item[Link usage]
 Each satellite will have a maximum of 5 links, however, we do not as of yet know which arrangements of links are the most optimal.
@@ -215,12 +217,9 @@ In his study Mark Handley uses two links to connect $x_{i,j,k}$ to $x_{i,j,k+1}$
 \item[FiveFree] In which all 5 links are free links, connecting dynamically to the closest nodes.
 \end{description}
 
-\item[Response to Failiure]
-One thing not examined by Mark Handley's study is how the SpaceX network should be expected to respond to failure.
+\item[Response to Conjestion]
+Very little is known about how much load Starlink expects to receive or how it will respond to congestion. We know that Starlink will be quite a resiliant network, with a great number of alternative parths available with similar latencies, so systems that predict hotspots on the network and route to avoid them might prove quite effective. However the exact benefit of these systems is yet to be examined.
 \end{description}
-
-
-
 
 \section{Implementation}
 
