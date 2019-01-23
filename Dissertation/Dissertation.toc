@@ -1,17 +1,18 @@
 \contentsline {section}{\numberline {1}Introduction}{4}{section.1}
-\contentsline {subsection}{\numberline {1.1}Why Focus on Starlink?}{5}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Existing Research}{5}{subsection.1.2}
-\contentsline {section}{\numberline {2}Preparation}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}Starting Point}{5}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}What is Starlink?}{5}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}The Structure of Starlink}{6}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Modelling Sattelites in Orbit}{6}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Variables}{8}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Why Create a Visualisation?}{9}{subsection.2.6}
-\contentsline {section}{\numberline {3}Implementation}{10}{section.3}
-\contentsline {subsection}{\numberline {3.1}Repository Overview}{10}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Difficulties of modelling orbits}{10}{subsection.3.2}
-\contentsline {section}{\numberline {4}Evaluation}{10}{section.4}
-\contentsline {subsection}{\numberline {4.1}Analysis of Variables}{10}{subsection.4.1}
-\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}
-\contentsline {section}{\numberline {A}Appendix A}{11}{appendix.A}
+\contentsline {subsection}{\numberline {1.1}What is Starlink?}{5}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Why Focus on Starlink?}{5}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Why Create a Visualisation?}{6}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Existing Research}{6}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}What I Will Be Using}{6}{subsection.1.5}
+\contentsline {section}{\numberline {2}Preparation}{7}{section.2}
+\contentsline {subsection}{\numberline {2.1}Starting Point}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}The Structure of Starlink}{7}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Modelling Sattelites in Orbit}{8}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Variables}{9}{subsection.2.4}
+\contentsline {section}{\numberline {3}Implementation}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Repository Overview}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Difficulties of modelling orbits}{11}{subsection.3.2}
+\contentsline {section}{\numberline {4}Evaluation}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Analysis of Variables}{12}{subsection.4.1}
+\contentsline {section}{\numberline {5}Conclusion}{12}{section.5}
+\contentsline {section}{\numberline {A}Appendix A}{12}{appendix.A}

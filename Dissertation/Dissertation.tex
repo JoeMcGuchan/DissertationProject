@@ -45,30 +45,45 @@ Modelling Low Earth Orbit Constellations for Networking
 
 \section{Introduction}
 
-SpaceX are planning to launch a constellation of 4,425 low Earth orbit communication satellites in the next few years. The objective of this constellation, called Starlink, is to provide low-latency internet connection across the world. It will do this using lasers, which, in the vaccum of space, travel 47\% faster than in glass.
+SpaceX are planning to launch a constellation of 4,425 low Earth orbit communication satellites in the next few years. The objective of this constellation, called Starlink, is to provide low-latency internet connection across the world.
 
-The satellites in this network will be in constant motion, not just relative to the ground, but relative to one another, creating a network with a constantly changing topology and associated latencies. The question of how to structure such a network, and what the resultant properties of said network will be, has not been thoroughly explored, but it will become increasingly relevant as more and more companies build similar constellations. If these Constellations prove to provide significant gains in latency while providing competetive bandwidth, they might render previous submarine optical cables obsolete.
+The satellites in this network will be in constant motion, not just relative to the ground, but relative to one another, creating a network with a constantly changing topology and associated latencies. The question of how to structure such a network, and what the resultant latencies of said network will be, has not been thoroughly explored, but it will become increasingly relevant as more and more companies build similar constellations. If these Constellations prove to provide significant gains in latency while providing competetive bandwidth, they might render previous submarine optical cables obsolete.
 
 My goals are:
 \begin{enumerate}
-	\item To create visualisations of the SpaceX conselations and test it's paths for latency.
+	\item To create visualisations of the SpaceX conselation.
+	\item To experiment with different topologies of the SpaceX network and test their associated latencies. 
 \end{enumerate}
 
-This network, and networks like it, are the future of the internet.
+\subsection{What is Starlink?}
 
-%TODO
+The purpouse of Starlink is to provide low latency internet connections, as of 21/11/18, there are two companies offering sattelite internet services, Excede\cite{ExcedeWebsite}, and Hughes, whose 9202 BGAN Land Portable Satellite Terminal offers connection speeds up to 464kbps\cite{HughesWebsite}. These companies largely target domestic use in rural areas which don’t have a faster coverage, and corporations, providing internet connections to airplanes and cargo ships. Currently, Sattelite Internet connection is a last resort, something turned to when conventional means of connection are not available, Starlink intends to invert this, turning sattelite internet into the premium option. 
+
+The difference between Starlink and currently existing brands is that current brands use geostationary sattelites \cite{HughesPressRelease}, while Starlink will use LEO satellites. The significantly shorter distance will create muchshorter paths for singnals. On top of this, SpaceX will be utilising laser communication between satellites, as opposed to the competetiors who have little to no intra-satellite communication. In the vaccum of space, lights travels 47\% faster than in glass \cite{PropertiesOfGlass}. Therefore, in theory, a LEO network utilising lasers whould achieve latencies far lower than that by even the best terrestrial fiberoptic connections over long distances.
+
 \subsection{Why Focus on Starlink?}
 
-Theoretically, my goals would allow me to focus on any constellation, and focusing my attention on Starlink runs the risk of creating algorithms that are specific to it, which might not perform as well on other networks. However, the vast amount of legislation on satellites makes it hard to know what a “normal” network would look like. By using Starlink we get a confirmed legal and physically possible network, on which we can build our routing algorithms.
+Starlink is only one of a number of different LEO internet networks that have been proposed, so why should I focus on it's topology? Ideally, I would like the conclusions of my study to be generalisable to many other LEO consellations. However, constellations are approved by the FCC on a case-by-case basis, using a complicated and changing system of legislations, it's not easy to know what a normal network looks like. By analysing the properties of a network of my own design, I run a much greater risk of coming to conclusions that cannot be generalised, as I am not working on an FCC-approved constellation.
 
-There is another reason for focusing on Starlink. As I progress through this dissertation, I will
+What about the constellations of other companies? %TODO WHEN GOVERNMENT FUNDING RETURNS
 
-%TODO
+By analysing the properties of Starlink, we are analysing a network that is confirmed legally and scientifically plausible.
+
+But there is another reason to investigate Starlink. As the largest of most high-profile attempts to build a LEO internet backbone, Starlink represents themost significant competitor to other emerging sattelite communications networks and the one more likely to become dominant in future years. By theorising about it's properties now, we can prepare ourselves for the changes Starlink might pose to communications in the upcoming years.
+
+\subsection{Why Create a Visualisation?}
+When it comes to understanding a network such as starlink, a visual description is incredibly valuable. By visualising the network we can develop an intuition for how it operates, and use that intuition to develop ideas for new algoritms and structures for testing.
+
+Creating a visualisation also poses a minimal additional cost on my part, as to accurately model the latencies between base stations I will need to simulate satellite positions and links anyway.
 
 \subsection{Existing Research}
 
-In %TODO
+My initial proposal for the project was inspired by the findings of an existing study done  by Mark Handley, since proposing the project, Mark Handley has made his results publicly available\cite{OriginalReport}, so my new goal will be to replicate and expand upon his findings.
 
+\subsection{What I Will Be Using}
+To create the visualisation I will be using the open-source game engine Godot. Using a game engine struck me as the simplest way to create a visualisation tool, and Godot, being powerful, open-source, and capable of runningeasily on many devices, seemed like the ideal choice.
+
+For the parts of code related to visualisation I will be using godots build in script GDScript, which is easy to use and specifically designed to intergrate well with the godot engine. For parts of the code related to simulation I will use C\#, which godot is compatable with, and which offers significance performance improvements over gdscript.
 
 \section{Preparation}
 
@@ -76,13 +91,9 @@ In %TODO
 
 \subsection{Starting Point}
 
-%TODO
+Most of the information I will be using for the structure of the SpaceX network comes from their application to the FCC on March 29th, 2018\cite{FCCApplication}, and their technical attachment\cite{TechnicalAttachment}, which outlines the various orbital spheres, planes within each sphere, and various other details of the constellation. I will also be building on insights gleaned from Handley's original research.
 
-\subsection{What is Starlink?}
 
-%TODO
-
-As of 21/11/18, there are two companies offering sattelite internet services, Excede\cite{ExcedeWebsite}, and Hughes, whose 9202 BGAN Land Portable Satellite Terminal offers connection speeds up to 464kbps\cite{HughesWebsite}. These companies largely target domestic use in rural areas which don’t have a faster coverage, and corporations, providing internet connections to airplanes and cargo ships. Currently, Sattelite Internet connection is a last resort, something turned to when conventional means of connection are not available, Starlink intends to invert this, turning sattelite internet into the premium option, 
 
 %TODO
 
@@ -92,9 +103,11 @@ SpaceX have already sent up two test sattelites, and according the Elon Musk, th
 
 \subsection{The Structure of Starlink}
 
-%TODO
+There is a lot we do not know about Starlink, but this is what we can infer from SpaceX’s application to the FCC\cite{FCCApplication}, 
 
-There is a lot we do not know about Starlink, but this is what we can infer from SpaceX’s application to the FCC\cite{FCCApplication}, and their technical attachment\cite{TechnicalAttachment}.
+
+Starlink is a constellation of 4,425 LEO sattelites with a further proposed. %TODO when govern funding back
+We will be examining only the 4,425 sattelites proposed for the first implemantation of Starlink, as these intend to provide a viable network by temselves, and additional sattelites might overwhelm my visualisation techniques. 
 
 \begin{figure}
 \label{fig:Starlink Orbits}
@@ -113,6 +126,8 @@ Inclination & 53\degree & 53.8\degree & 74\degree & 80\degree & 70\degree \\
 \hline
 \end{tabular}
 \end{figure}
+
+In it's application to the FCC SpaceX was required to state any notable debris that might not burn up if a sattelite were to descend from orbit. Amoung the components listed where 5 mirror 
 
 \subsection{Modelling Sattelites in Orbit}
 
@@ -204,10 +219,7 @@ In his study Mark Handley uses two links to connect $x_{i,j,k}$ to $x_{i,j,k+1}$
 One thing not examined by Mark Handley's study is how the SpaceX network should be expected to respond to failure.
 \end{description}
 
-\subsection{Why Create a Visualisation?}
-When it comes to understanding a network such as starlink, a visual description is incredibly valuable. By visualising the network we can develop an intuition for how it operates, and use that intuition to develop ideas for new algoritms and structures for testing.
 
-To create the visualisation I will be using the open-source game engine Godot. Using a game engine struck me as the simplest way to create a visualisation tool, and Godot, being powerful, open-source, and capable of runningeasily on many devices, seemed like the ideal choice. %TODO
 
 
 \section{Implementation}
@@ -228,7 +240,7 @@ For each of these variables, I modeled a variety of different possibilities, exa
 
 %TODO
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 	%using the vancouver system https://en.wikipedia.org/wiki/Vancouver_system
 	\bibitem{ExedeWebsite} \url{https://www.exede.com}
 	\bibitem{HughesWebsite} \url{https://www.hughes.com}
@@ -238,8 +250,10 @@ For each of these variables, I modeled a variety of different possibilities, exa
 	\bibitem{OriginalReport} \url{http://nrg.cs.ucl.ac.uk/mjh/starlink/}
 	\bibitem{StuffInSpace} \url{http://stuffin.space/}
 	\bibitem{PropertiesOfGlass} \url{http://ece466.groups.et.byu.net/notes/smf28.pdf}
+	\bibitem{HughesPressRelease} \url{https://www.hughes.com/who-we-are/resources/press-releases/hughes-high-throughput-satellite-successfully-launched-setting?locale=en}
+	\bibitem{EchoStar} \url{https://space.skyrocket.de/doc_sdat/jupiter-2.htm}
+	\bibitem{KABand} \url{file:///home/joe/Downloads/R12-ITURKA.BAND-C-0008!!PDF-E.pdf}
 \end{thebibliography}
-
 \appendix
 
 \section{Appendix A}
