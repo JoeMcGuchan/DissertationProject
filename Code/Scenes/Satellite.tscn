@@ -19,7 +19,7 @@ script = ExtResource( 1 )
 
 layers = 1
 material_override = null
-cast_shadow = 1
+cast_shadow = 0
 extra_cull_margin = 0.0
 use_in_baked_light = false
 lod_min_distance = 0.0
@@ -30,5 +30,6 @@ mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
 script = ExtResource( 2 )
+_sections_unfolded = [ "Geometry", "material" ]
 
 
