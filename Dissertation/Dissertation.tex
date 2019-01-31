@@ -76,7 +76,9 @@ When it comes to understanding a network such as starlink, a visual description 
 
 Creating a visualisation also poses a minimal additional cost on my part, as to accurately model the latencies between base stations I will need to simulate satellite positions and links anyway.
 
-\subsection{Existing Research}
+\subsection{Mark Handley's Work}
+
+%TODO
 
 My initial proposal for the project was inspired by the findings of an existing study done  by Mark Handley, since proposing the project, Mark Handley has made his results publicly available\cite{OriginalReport}, so my new goal will be to replicate and expand upon his findings.
 
@@ -88,6 +90,8 @@ For the parts of code related to visualisation I will be using godots build in s
 \section{Preparation}
 
 %TODO
+
+
 
 \subsection{Starting Point}
 
@@ -101,10 +105,13 @@ SpaceX have already sent up two test sattelites, and according the Elon Musk, th
 
 %TODO
 
+\subsection{The Properties of Orbits}
+
+	%TODO DRAW A DIAGRAM
+
 \subsection{The Structure of Starlink}
 
 There is a lot we do not know about Starlink, but this is what we can infer from SpaceX’s application to the FCC\cite{FCCApplication}, 
-
 
 Starlink is a constellation of 4,425 LEO sattelites with a further proposed. %TODO when govern funding back
 We will be examining only the 4,425 sattelites proposed for the first implemantation of Starlink, as these intend to provide a viable network by temselves, and additional sattelites might overwhelm my visualisation techniques. 
@@ -151,7 +158,7 @@ Furthermore, an individual satellite's position in an orbit can be described by:
 
 \begin{description}
 \item[True Anomaly]
-This is the angle of it’s arc along it’s orbit. Where the “start” of it’s arc is the point with londgitude equal to it’s longditudonal offset.
+The angle between the line drawn from the origin to the satellite, and the line drawn from the origin to the point on the sattelite's orbit of longditude 0.
 \item[Phase Offset]
 This is the satellite's true anomaly at time 0.
 \end{description}

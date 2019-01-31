@@ -1,0 +1,6 @@
+/home/joe/Documents/Code/Dissertation/.mono/temp/obj/Tools/Dissertation.csprojResolveAssemblyReference.cache
+/home/joe/Documents/Code/Dissertation/.mono/temp/obj/Tools/Dissertation.csproj.CoreCompileInputs.cache
+/home/joe/Documents/Code/Dissertation/.mono/temp/bin/Tools/Dissertation.dll
+/home/joe/Documents/Code/Dissertation/.mono/temp/bin/Tools/Dissertation.pdb
+/home/joe/Documents/Code/Dissertation/.mono/temp/obj/Tools/Dissertation.dll
+/home/joe/Documents/Code/Dissertation/.mono/temp/obj/Tools/Dissertation.pdb

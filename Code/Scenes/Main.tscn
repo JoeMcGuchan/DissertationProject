@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/WorldEnvironment.cs" type="Script" id=2]
+[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
 
 background_mode = 1
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
-background_energy = 0.0
+background_energy = 1.0
 background_canvas_max_layer = 0
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 1.0
@@ -46,7 +48,6 @@ ssao_radius2 = 0.0
 ssao_intensity2 = 1.0
 ssao_bias = 0.01
 ssao_light_affect = 0.0
-ssao_ao_channel_affect = 0.0
 ssao_color = Color( 0, 0, 0, 1 )
 ssao_quality = 0
 ssao_blur = 3
@@ -80,19 +81,9 @@ adjustment_enabled = false
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
-_sections_unfolded = [ "Ambient Light", "Auto Exposure", "Background", "Fog", "Tonemap" ]
+_sections_unfolded = [ "Ambient Light", "Background", "Fog", "Glow", "Tonemap" ]
 
-[sub_resource type="SphereMesh" id=2]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-flip_faces = false
-radius = 6.371
-height = 12.742
-radial_segments = 64
-rings = 32
-is_hemisphere = false
-
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=2]
 
 render_priority = 0
 flags_transparent = false
@@ -103,9 +94,6 @@ flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
 flags_albedo_tex_force_srgb = false
-flags_do_not_receive_shadows = false
-flags_disable_ambient_light = false
-flags_ensure_correct_normals = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 0
@@ -116,14 +104,13 @@ params_depth_draw_mode = 0
 params_line_width = 1.0
 params_point_size = 1.0
 params_billboard_mode = 0
-params_billboard_keep_scale = false
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.0784314, 0.254902, 0.788235, 1 )
+albedo_color = Color( 0, 0.414062, 1, 1 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
-roughness = 1.0
+roughness = 0.0
 roughness_texture_channel = 0
 emission_enabled = false
 normal_enabled = false
@@ -145,33 +132,33 @@ uv2_offset = Vector3( 0, 0, 0 )
 uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
-distance_fade_mode = 0
+distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
-[node name="Universe" type="Spatial"]
+[sub_resource type="SphereMesh" id=3]
+
+material = SubResource( 2 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+radius = 6.371
+height = 12.742
+radial_segments = 64
+rings = 32
+is_hemisphere = false
+
+[node name="Main" type="Spatial" index="0"]
+
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+
 environment = SubResource( 1 )
-_sections_unfolded = [ "environment" ]
+script = ExtResource( 2 )
+timeFactor = 50.0
+precision = 50
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.2523 )
-keep_aspect = 1
-cull_mask = 1048575
-environment = null
-h_offset = 0.0
-v_offset = 0.0
-doppler_tracking = 0
-projection = 0
-current = false
-fov = 70.0
-size = 1.0
-near = 0.05
-far = 100.0
-_sections_unfolded = [ "Transform" ]
+[node name="Earth" type="MeshInstance" parent="." index="1"]
 
-[node name="The Earth" type="MeshInstance" parent="."]
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -181,8 +168,13 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 skeleton = NodePath("..")
-material/0 = SubResource( 3 )
-_sections_unfolded = [ "material", "mesh" ]
+material/0 = null
+_sections_unfolded = [ "material" ]
+
+[node name="Camera" parent="." index="2" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26094, 0, 14.4727 )
+
 
