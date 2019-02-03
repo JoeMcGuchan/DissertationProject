@@ -24,7 +24,6 @@ public class OrbitalSphere : Spatial
 	public float inclination;
 	public int sattelitesPerOrbit;
 	public float phaseOffset;
-	public int linksPerSat;
 	
 	public LinkingMethod linkingMethod;
 	
@@ -36,6 +35,10 @@ public class OrbitalSphere : Spatial
 		rotation = 0;
 		
 		timeFactor = worldEnvironment.timeFactor;
+		
+		linkingMethod.Initialise(this);
+		
+		public LinkingMethod links;
 		
 //		//AGAIN, THIS NEEDS TO BE BROUGHT INTO THE LINKING METHOD
 //		Satellite thisSat;
@@ -77,6 +80,8 @@ public class OrbitalSphere : Spatial
 		{
 			orbits[i].updateSattelites();
 		}
+		
+		linkingMethod.Update(this);
 	}
 
 	public void Init(
@@ -86,7 +91,7 @@ public class OrbitalSphere : Spatial
 		float inclinationNew,
 		int sattelitesPerOrbitNew,
 		float phaseOffsetNew,
-		int linksPerSatNew,
+		LinkingMethod linkingMethodNew,
 		Constellation constellationNew,
 		WorldEnvironment worldEnvironmentNew
 	) {
@@ -96,7 +101,7 @@ public class OrbitalSphere : Spatial
 		inclination = inclinationNew;
 		sattelitesPerOrbit = sattelitesPerOrbitNew;
 		phaseOffset = phaseOffsetNew;
-		linksPerSat = linksPerSatNew;
+		linkingMethod = linkingMethodNew;
 		constellation = constellationNew;
 		worldEnvironment = worldEnvironmentNew;
 	}

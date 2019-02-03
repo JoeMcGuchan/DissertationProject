@@ -15,6 +15,8 @@ public class Constellation : Spatial
         // Initialization here
     }
 	
+	//Gives all the data to the Constellation, but doesn't
+	//do the work of creating it just yet
 	public void Init(
 		OrbitalSphere[] orbitalSpheresNew, 
 		int numOfSpheresNew,
