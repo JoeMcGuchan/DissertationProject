@@ -42,6 +42,7 @@ public class Satellite : Spatial
 	
 	public void CreateLinks(int numOfLinks)
 	{
+		links = new ImmediateGeometry[numOfLinks];
 		for (int n = 0; n < numOfLinks; n++)
 		{
 			ImmediateGeometry newLink = new ImmediateGeometry();
