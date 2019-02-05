@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract class LinkingMethod : Godot.Object
+public abstract class LinkingMethod : Node
 {
     // This abstract class describes the way that a sattelite forms
 	// links with it's nieghtbors
@@ -125,7 +125,4 @@ public abstract class LinkingMethod : Godot.Object
 	int mod(int x, int m) {
     	return (x%m + m)%m;
 	}
-	
-	//this method is used by an orbital sphere to initialise the positions of all it's orbits
-	public 
 }

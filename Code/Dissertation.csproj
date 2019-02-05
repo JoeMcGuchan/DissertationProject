@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Scripts\Constellation.cs" />
-    <Compile Include="Scripts\LinkingMethods\FourFixedOneFree.cs" />
     <Compile Include="Scripts\LinkingMethods\LinkingMethod.cs" />
     <Compile Include="Scripts\Main.cs" />
     <Compile Include="Scripts\Orbit.cs" />

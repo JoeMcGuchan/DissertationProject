@@ -11,9 +11,6 @@ var direction = Vector3()
 const FLY_SPEED = 5
 const FLY_ACCEL = 20
 
-#have we frozen the camera?
-var frozen = false
-
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -25,7 +22,7 @@ func _physics_process(delta):
 	fly(delta)
 
 func _input(event):
-	if event is InputEventMouseMotion and !frozen:
+	if event is InputEventMouseMotion:
 		camera_change = event.relative
 			
 func fly(delta):
@@ -33,7 +30,7 @@ func fly(delta):
 	direction = Vector3()
 	
 	# get the rotation of the camera
-	var aim = $Head/Camera.get_global_transform().basis
+	var aim = $Head.get_global_transform().basis
 	
 	# check input and change direction
 	if Input.is_action_pressed("move_forward"):
@@ -45,16 +42,11 @@ func fly(delta):
 	if Input.is_action_pressed("move_right"):
 		direction += aim.x
 	if Input.is_action_pressed("move_down"):
-		direction -= aim.y
+		direction -= Vector3(0,1,0)
 	if Input.is_action_pressed("move_up"):
-		direction += aim.y
-	if Input.is_action_just_pressed("ui_cancel"):
-		if (frozen):
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			frozen = false
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			frozen = true
+		direction += Vector3(0,1,0)
+	if Input.is_action_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 	if Input.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
 	
