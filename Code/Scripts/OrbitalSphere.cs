@@ -24,7 +24,6 @@ public class OrbitalSphere : Spatial
 	public float inclination;
 	public int sattelitesPerOrbit;
 	public float phaseOffset;
-	public int linksPerSat;
 	
 	public LinkingMethod linkingMethod;
 	
@@ -37,35 +36,7 @@ public class OrbitalSphere : Spatial
 		
 		timeFactor = worldEnvironment.timeFactor;
 		
-//		//AGAIN, THIS NEEDS TO BE BROUGHT INTO THE LINKING METHOD
-//		Satellite thisSat;
-//		Satellite fSat;
-//		Satellite bSat;
-//		Satellite rSat;
-//		Satellite lSat;
-//
-//		for (int j = 0; j < numOfOrbits; j++)
-//		{
-//			for (int k = 0; k < sattelitesPerOrbit; k++)
-//			{
-//				thisSat = orbits[j].satellites[k];
-//				thisSatPos = thisSat.Translation;
-//				fSat = orbits[j].satellites[mod(k+1,sattelitesPerOrbit)];
-//				bSat = orbits[j].satellites[mod(k-1,sattelitesPerOrbit)];
-//				lSat = orbits[mod(j+1,numOfOrbits)].satellites[mod(k+1,sattelitesPerOrbit)];
-//				rSat = orbits[mod(j-1,numOfOrbits)].satellites[mod(k-1,sattelitesPerOrbit)];
-//				thisSat.setLinks(
-//					new Sattelite[] {fSat, bSat, lSat, rSat, thisSat},
-//					new float[] {
-//						thisSatPos.DistanceTo(fSat.Translation),
-//						thisSatPos.DistanceTo(bSat.Translation),
-//						thisSatPos.DistanceTo(lSat.Translation),
-//						thisSatPos.DistanceTo(rSat.Translation),
-//						0f
-//						}
-//				);
-//			}
-//		}	
+		linkingMethod.Initialise(this);
     }
 
 	public override void _Process(float delta) 
@@ -77,6 +48,8 @@ public class OrbitalSphere : Spatial
 		{
 			orbits[i].updateSattelites();
 		}
+		
+		linkingMethod.Update(this);
 	}
 
 	public void Init(
@@ -86,7 +59,7 @@ public class OrbitalSphere : Spatial
 		float inclinationNew,
 		int sattelitesPerOrbitNew,
 		float phaseOffsetNew,
-		int linksPerSatNew,
+		LinkingMethod linkingMethodNew,
 		Constellation constellationNew,
 		WorldEnvironment worldEnvironmentNew
 	) {
@@ -96,7 +69,7 @@ public class OrbitalSphere : Spatial
 		inclination = inclinationNew;
 		sattelitesPerOrbit = sattelitesPerOrbitNew;
 		phaseOffset = phaseOffsetNew;
-		linksPerSat = linksPerSatNew;
+		linkingMethod = linkingMethodNew;
 		constellation = constellationNew;
 		worldEnvironment = worldEnvironmentNew;
 	}
