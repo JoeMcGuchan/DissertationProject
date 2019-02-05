@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract class LinkingMethod : Godot.Object
+public abstract class LinkingMethod
 {
     // This abstract class describes the way that a sattelite forms
 	// links with it's nieghtbors

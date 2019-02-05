@@ -53,6 +53,7 @@
     <Compile Include="Scripts\ConstellationDescription.cs" />
 	<Compile Include="Scripts\ConstellationDescriptionDatabase.cs" />
     <Compile Include="Scripts\LinkingMethods\LinkingMethod.cs" />
+	<Compile Include="Scripts\LinkingMethods\FourFixedOneFree.cs" />
     <Compile Include="Scripts\Main.cs" />
     <Compile Include="Scripts\Orbit.cs" />
     <Compile Include="Scripts\OrbitalSphere.cs" />
