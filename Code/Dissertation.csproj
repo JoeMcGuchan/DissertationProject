@@ -49,7 +49,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include=".cs" />
     <Compile Include="Scripts\Constellation.cs" />
     <Compile Include="Scripts\LinkingMethods\FourFixedOneFree.cs" />
     <Compile Include="Scripts\LinkingMethods\LinkingMethod.cs" />

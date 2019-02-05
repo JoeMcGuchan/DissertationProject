@@ -126,9 +126,6 @@ public abstract class LinkingMethod : Godot.Object
     	return (x%m + m)%m;
 	}
 	
-	//this method is used by an orbital sphere to initialise the links on all it's sats
-	public abstract Initialise(ObritalSphere sphere);
-	
-	//this method is used by a sphere to update the links on all it's sats
-	public abstract Update(ObritalSphere sphere);
+	//this method is used by an orbital sphere to initialise the positions of all it's orbits
+	public 
 }
