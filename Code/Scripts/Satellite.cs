@@ -23,21 +23,30 @@ public class Satellite : Spatial
 		orbit = newOrbit;
 	}
 	
-//	public override void _Ready()
-//	{
-//		numOfLinks = orbit.orbitalSphere.linksPerSat;
-//
-//		for (int n = 0; n < numOfLinks; n++)
-//		{
-//			ImmediateGeometry newLink = new ImmediateGeometry();
-//			links[n] = newLink;
-//			AddChild(newLink);
-//		}
-//	}
-//
-//	public void setLinks(Satellite[] linkSatsNew, float[] linkDistsNew)
-//	{
-//		linkSats = linkSatsNew;
-//		linkDists = linkDistsNew;
-//	}
+	public void SetLinks(Satellite[] linkSats, float[] linkDists)
+	{
+		for (int i = 0; i < numOfLinks; i++) {SetLink(i,linkSats[i],linkDists[i]);}
+	}
+	
+	public void SetLink(int i, Satellite linkSat, float linkDist)
+	{
+		linkSats[i] = linkSat;
+		linkDists[i] = linkDist;
+		
+		ImmediateGeometry link = links[i];
+		link.Begin(Mesh.PrimitiveType.Lines);
+		link.AddVertex(new Vector3(0,0,0));
+		link.AddVertex(ToLocal(linkSat.Translation));
+		link.End();
+	}
+	
+	public void CreateLinks(int numOfLinks)
+	{
+		for (int n = 0; n < numOfLinks; n++)
+		{
+			ImmediateGeometry newLink = new ImmediateGeometry();
+			links[n] = newLink;
+			AddChild(newLink);
+		}
+	}
 }
