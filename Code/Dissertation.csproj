@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Scripts\Constellation.cs" />
+    <Compile Include="Scripts\ConstellationDescription.cs" />
+	<Compile Include="Scripts\ConstellationDescriptionDatabase.cs" />
     <Compile Include="Scripts\LinkingMethods\LinkingMethod.cs" />
     <Compile Include="Scripts\Main.cs" />
     <Compile Include="Scripts\Orbit.cs" />

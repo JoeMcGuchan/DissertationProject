@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract class LinkingMethod : Node
+public abstract class LinkingMethod : Godot.Object
 {
     // This abstract class describes the way that a sattelite forms
 	// links with it's nieghtbors
@@ -122,7 +122,13 @@ public abstract class LinkingMethod : Node
 	}
 	
 	//the c sharp mod function is crap for negative ints so I redefnined it
-	int mod(int x, int m) {
-    	return (x%m + m)%m;
+	protected int mod(int x, int m) {
+		return (x%m + m)%m;
 	}
+	
+	//this method is used by an orbital sphere to initialise the links on all it's sats
+	public abstract void Initialise(OrbitalSphere sphere);
+	
+	//this method is used by a sphere to update the links on all it's sats
+	public abstract void Update(OrbitalSphere sphere);
 }

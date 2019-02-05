@@ -10,3 +10,9 @@
 /home/joe/Documents/Code/2018DissertationProject/Code/.mono/temp/obj/Tools/Dissertation.pdb
 /home/joe/Documents/Code/2018DissertationProject/Code/.mono/temp/bin/Tools/Dissertation.dll
 /home/joe/Documents/Code/2018DissertationProject/Code/.mono/temp/bin/Tools/Dissertation.pdb
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\bin\Tools\Dissertation.dll
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\bin\Tools\Dissertation.pdb
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\obj\Tools\Dissertation.csprojAssemblyReference.cache
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\obj\Tools\Dissertation.csproj.CoreCompileInputs.cache
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\obj\Tools\Dissertation.dll
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\obj\Tools\Dissertation.pdb
