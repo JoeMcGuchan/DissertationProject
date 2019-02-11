@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=1]
 
-[node name="KinematicBody" type="KinematicBody"]
+[node name="KinematicBody" type="KinematicBody" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.730053, 0 )
 input_ray_pickable = true

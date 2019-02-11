@@ -17,12 +17,12 @@ public class Orbit : Spatial
 	
 	public float longditudonalOffset;
 	
-	public Vector3[] orbitPoints;
+	public Transform[] orbitPoints;
 
     public override void _Ready()
     {
 		precision = worldEnvironment.precision;
-		numOfSatellites = orbitalSphere.sattelitesPerOrbit;
+		numOfSatellites = orbitalSphere.satellitesPerOrbit;
 		
 		ComputeOrbitPoints();
     }
@@ -46,24 +46,43 @@ public class Orbit : Spatial
 		float distanceAboveCore = orbitalSphere.distanceAboveCore;
 		float inclination = orbitalSphere.inclination;
 		float phaseOffset = orbitalSphere.phaseOffset;
-		orbitPoints = new Vector3[precision];
+		orbitPoints = new Transform[precision];
 		for (int i = 0; i < precision; i++) 
 		{
 			float trueAnomaly = (float) Math.PI * 2 * (i + phaseOffset) / precision;
 			
-			// we start with a point in the x direction
-			var newPos = new Vector3(distanceAboveCore, 0, 0);
-	
+//			// we start with a point in the x direction
+//			var newPos = new Vector3(distanceAboveCore, 0, 0);
+//
+//			// first we treat our equatorial plane as our orbital plane
+//			newPos = newPos.Rotated(new Vector3(0,1,0),trueAnomaly);
+//
+//			// then we apply our inclination
+//			newPos = newPos.Rotated(new Vector3(1,0,0),inclination);
+//
+//			// finally we apply our offset
+//			newPos = newPos.Rotated(new Vector3(0,1,0),longditudonalOffset);
+//
+			// we start with our neutral basis
+			Basis basis = new Basis(new Vector3(1,0,0), new Vector3(0,1,0), new Vector3(0,0,1));
+			
 			// first we treat our equatorial plane as our orbital plane
-			newPos = newPos.Rotated(new Vector3(0,1,0),trueAnomaly);
+			basis = basis.Rotated(new Vector3(0,1,0),trueAnomaly);
 	
 			// then we apply our inclination
-			newPos = newPos.Rotated(new Vector3(1,0,0),inclination);
+			basis = basis.Rotated(new Vector3(1,0,0),inclination);
 	
 			// finally we apply our offset
-			newPos = newPos.Rotated(new Vector3(0,1,0),longditudonalOffset);
+			basis = basis.Rotated(new Vector3(0,1,0),longditudonalOffset);
+			
+			// now x should be pointing in direction of sattelite, so we transform like thus
+			Vector3 pos = basis.Xform(new Vector3(distanceAboveCore, 0, 0));
 		
-			orbitPoints[i] = newPos;
+			orbitPoints[i] = new Transform
+			(
+				basis,
+				pos
+			);
 		}
 	}
 	
@@ -87,8 +106,16 @@ public class Orbit : Spatial
 			int val1 = arrayValue;
 			int val2 = (arrayValue + 1) % precision;
 			
-			satellites[i].Translation = orbitPoints[val1].LinearInterpolate(orbitPoints[val2],arrayDisplacement);
-		
+			Transform t1 = orbitPoints[val1];
+			Transform t2 = orbitPoints[val2];
+			
+			satellites[i].Transform = new Transform(
+				t1.basis.x.LinearInterpolate(t2.basis.x,arrayDisplacement),
+				t1.basis.y.LinearInterpolate(t2.basis.y,arrayDisplacement),
+				t1.basis.z.LinearInterpolate(t2.basis.z,arrayDisplacement),
+				t1.origin.LinearInterpolate(t2.origin,arrayDisplacement)
+			);
+	
 			arrayPos = (arrayPos + arrayGap) % precisionf;
 		}
 	}

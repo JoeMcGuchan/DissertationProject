@@ -8,13 +8,17 @@ public class ConstellationDescriptionDatabase
 
 	public ConstellationDescriptionDatabase() {
 		int[][] updownleftright = new int[][] {
-			new int[] {1,0},
-			new int[] {-1,0},
 			new int[] {0,1},
-			new int[] {0,-1}
+			new int[] {1,0},
+			new int[] {0,-1},
+			new int[] {-1,0}
 		};
 
 		LinkingMethod simpleLinking = new FourFixedOneFree(updownleftright);
+	
+		LinkingMethod noLinking = new NoLinks();
+		
+		LinkingMethod fourFixed = new FourFixed(updownleftright, 1.5f);
 
 		constellationDescriptions = new ConstellationDescription[]
 		{
@@ -37,24 +41,44 @@ public class ConstellationDescriptionDatabase
 				/*phaseOffsets*/ new float[] {0, 0, 0, 0, 0},
 				/*linkingMethods*/ new LinkingMethod[] 
 				{
-					simpleLinking,
-					simpleLinking,
-					simpleLinking,
-					simpleLinking,
-					simpleLinking
+					noLinking,
+					noLinking,
+					noLinking,
+					noLinking,
+					noLinking
 				},
 				/*numOfSpheres*/ 5
 			),
 			new ConstellationDescription
 			(
-				/*orbitalPlaness*/ new int[] {2}, 
-				/*sattelitesPerPlanes*/ new int[] {8},
+				/*orbitalPlaness*/ new int[] {25}, 
+				/*sattelitesPerPlanes*/ new int[] {50},
 				/*altitudes*/ new int[] {1150},
-				/*inclinations*/ new float[] {80},
+				/*inclinations*/ new float[] {70},
 				/*phaseOffsets*/ new float[] {0},
-				/*linkingMethods*/ new LinkingMethod[] {simpleLinking},
+				/*linkingMethods*/ new LinkingMethod[] {fourFixed},
+				/*numOfSpheres*/ 1
+			),
+			new ConstellationDescription
+			(
+				/*orbitalPlaness*/ new int[] {48}, 
+				/*sattelitesPerPlanes*/ new int[] {50},
+				/*altitudes*/ new int[] {1150},
+				/*inclinations*/ new float[] {60},
+				/*phaseOffsets*/ new float[] {0},
+				/*linkingMethods*/ new LinkingMethod[] {new OneFreeNotClosest()},
 				/*numOfSpheres*/ 1	
-			)
+			),
+			new ConstellationDescription
+			(
+				/*orbitalPlaness*/ new int[] {1, 32}, 
+				/*sattelitesPerPlanes*/ new int[] {100, 50},
+				/*altitudes*/ new int[] {42164, 1150},
+				/*inclinations*/ new float[] {0, 53},
+				/*phaseOffsets*/ new float[] {0, 0},
+				/*linkingMethods*/ new LinkingMethod[] {noLinking, noLinking},
+				/*numOfSpheres*/ 2
+			),
 		};
 	}
 

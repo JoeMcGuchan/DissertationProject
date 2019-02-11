@@ -68,7 +68,7 @@ public class ConstellationDescription
 				{
 					Satellite newSat = satteliteScene.Instance() as Satellite;
 
-					newSat.Init(i, j, k, newOrbit);
+					newSat.Init(i, j, k, newOrbit, worldEnvironment);
 
 					newSats[k] = newSat;
 					newOrbit.AddChild(newSat);

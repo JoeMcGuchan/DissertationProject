@@ -22,7 +22,7 @@ public class OrbitalSphere : Spatial
 
 	public int numOfOrbits;
 	public float inclination;
-	public int sattelitesPerOrbit;
+	public int satellitesPerOrbit;
 	public float phaseOffset;
 	
 	public LinkingMethod linkingMethod;
@@ -36,6 +36,8 @@ public class OrbitalSphere : Spatial
 		
 		timeFactor = worldEnvironment.timeFactor;
 		
+		updateSattelites();
+		
 		linkingMethod.Initialise(this);
     }
 
@@ -43,13 +45,18 @@ public class OrbitalSphere : Spatial
 	{
 		float timeStep = timeFactor * delta;
 		rotation = (rotation + timeStep * angularVelocity) % (2 * (float) Math.PI);
-
+		
+		updateSattelites();
+		
+		linkingMethod.Update(this);
+	}
+	
+	public void updateSattelites()
+	{
 		for (int i = 0; i < numOfOrbits; i++) 
 		{
 			orbits[i].updateSattelites();
 		}
-		
-		linkingMethod.Update(this);
 	}
 
 	public void Init(
@@ -67,7 +74,7 @@ public class OrbitalSphere : Spatial
 		numOfOrbits = numOfOrbitsNew;
 		distanceAboveCore = distanceAboveCoreNew;
 		inclination = inclinationNew;
-		sattelitesPerOrbit = sattelitesPerOrbitNew;
+		satellitesPerOrbit = sattelitesPerOrbitNew;
 		phaseOffset = phaseOffsetNew;
 		linkingMethod = linkingMethodNew;
 		constellation = constellationNew;

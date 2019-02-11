@@ -51,13 +51,17 @@
   <ItemGroup>
     <Compile Include="Scripts\Constellation.cs" />
     <Compile Include="Scripts\ConstellationDescription.cs" />
-	<Compile Include="Scripts\ConstellationDescriptionDatabase.cs" />
+    <Compile Include="Scripts\ConstellationDescriptionDatabase.cs" />
+    <Compile Include="Scripts\LinkingMethods\FourFixed.cs" />
     <Compile Include="Scripts\LinkingMethods\LinkingMethod.cs" />
-	<Compile Include="Scripts\LinkingMethods\FourFixedOneFree.cs" />
+    <Compile Include="Scripts\LinkingMethods\FourFixedOneFree.cs" />
+    <Compile Include="Scripts\LinkingMethods\OneFreeNotClosest.cs" />
+    <Compile Include="Scripts\LinkingMethods\NoLinks.cs" />
     <Compile Include="Scripts\Main.cs" />
     <Compile Include="Scripts\Orbit.cs" />
     <Compile Include="Scripts\OrbitalSphere.cs" />
     <Compile Include="Scripts\Satellite.cs" />
+    <Compile Include="Scripts\Tests\Test.cs" />
     <Compile Include="Scripts\WorldEnvironment.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

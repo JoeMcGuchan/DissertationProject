@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/OrbitalSphere.cs" type="Script" id=1]
 
-[node name="OrbitalSphere" type="Spatial" index="0"]
+[node name="OrbitalSphere" type="Spatial"]
 
 script = ExtResource( 1 )
 

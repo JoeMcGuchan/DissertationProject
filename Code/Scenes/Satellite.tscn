@@ -10,7 +10,7 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[node name="Satellite" type="Spatial" index="0"]
+[node name="Satellite" type="Spatial"]
 
 script = ExtResource( 1 )
 
@@ -28,5 +28,6 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 
