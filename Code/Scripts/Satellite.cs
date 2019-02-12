@@ -7,6 +7,9 @@ public class Link
 	public ImmediateGeometry Line;
 	public Satellite Sat;
 	public float Dist;
+	
+	//used for algoritms
+	public bool marked = false;
 }
 
 public class Satellite : Spatial
@@ -26,6 +29,9 @@ public class Satellite : Spatial
 	//Uniqe id [i,j,k] indicates the kth sat in the 
 	//jth orbit of the ith sphere.
 	public int[] id;
+	
+	//used for algorithms
+	public bool marked = false;
 	
 	public override void _Ready()
 	{

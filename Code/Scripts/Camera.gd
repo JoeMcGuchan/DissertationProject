@@ -11,6 +11,8 @@ var direction = Vector3()
 const FLY_SPEED = 5
 const FLY_ACCEL = 20
 
+signal run_test;
+
 #have we frozen the camera?
 var frozen = false
 
@@ -48,6 +50,8 @@ func fly(delta):
 		direction -= aim.y
 	if Input.is_action_pressed("move_up"):
 		direction += aim.y
+	if Input.is_action_pressed("test"):
+		emit_signal("run_test")
 	if Input.is_action_just_pressed("ui_cancel"):
 		if (frozen):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

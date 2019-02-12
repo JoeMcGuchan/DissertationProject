@@ -177,4 +177,6 @@ _sections_unfolded = [ "material" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26094, 0, 14.4727 )
 
+[connection signal="run_test" from="Camera" to="." method="RunTest"]
+
 

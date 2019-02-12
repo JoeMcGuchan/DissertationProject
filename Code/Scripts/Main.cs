@@ -6,6 +6,8 @@ public class Main : Spatial
 	WorldEnvironment worldEnvironment;
 	
 	public Constellation constellation;
+	
+	Test test1;
 
     public override void _Ready()
     {
@@ -17,6 +19,14 @@ public class Main : Spatial
 		
 		constellation = constellationDescription.Create(worldEnvironment);
 		
+		test1 = new ConnectedComponents("TestResults\\ConnectedComponents");
+		
 		AddChild(constellation);
 	}
+	
+	private void RunTest()
+	{
+		test1.Run(constellation);
+	}
 }
+
