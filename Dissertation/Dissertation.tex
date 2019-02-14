@@ -2,6 +2,11 @@
 \usepackage{hyperref}
 \usepackage{gensymb}
 \usepackage{imakeidx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{graphicx}
+\graphicspath{ {./Images/} }
+
 \makeindex
 
 \begin{document}
@@ -117,6 +122,7 @@ Starlink is a constellation of 4,425 LEO sattelites with a further proposed. %TO
 We will be examining only the 4,425 sattelites proposed for the first implemantation of Starlink, as these intend to provide a viable network by temselves, and additional sattelites might overwhelm my visualisation techniques. 
 
 \begin{figure}
+\begin{center}
 \label{fig:Starlink Orbits}
 \caption{The layout of Starlink}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -132,6 +138,7 @@ Altitude & 1150km & 1110km & 1130km & 1275km & 1325km \\
 Inclination & 53\degree & 53.8\degree & 74\degree & 80\degree & 70\degree \\
 \hline
 \end{tabular}
+\end{center}
 \end{figure}
 
 In it's application to the FCC SpaceX was required to state any notable debris that might not burn up if a sattelite were to descend from orbit. Amoung the components listed where 5 silicon carbide “communication components”, silicon carbide is used in mirrors for laser communication links, and we can therefore conclude that SpaceX's satellites will have, at most, 5 avilable links to form with nearby sattelites.
@@ -232,8 +239,181 @@ Very little is known about how much load Starlink expects to receive or how it w
 
 \subsection{Repository Overview}
 
-\subsection{Difficulties of modelling orbits}
-On Implementation, I found that my planned method  of implimenting orbits was flawed, being able to simulate only 500 sattelites in motion before slowing down. Because of this, I changed to a precomputed method. In this method, orbits are precomputed as a number of points, and the position of sattelites is calculated by interpolating adgacent points, this sacrifices some accuracy, but castly increases the computation speed.
+\subsection{Difficulties of Modelling Orbits}
+On Implementation, I found that my planned method  of implimenting orbits was flawed, being able to simulate only 500 sattelites in motion before slowing down. Because of this, I changed to a precomputed method. In this method, orbits are precomputed as a number of points, and the position of sattelites is calculated by interpolating adgacent points, this sacrifices some accuracy, but vastly increases the computation speed.
+
+\subsection{Initial Observations of Network}
+The first and most interesting observation when modelling the network was the way satellites wrap around the network. At any given point on the ground, there will be some satellites above you movign North-East, and some moving South-East. No satellites will be moving west as that is retrograde motion, which is expensive and unnessecary. Satellites on the same orbit will remain in a fixed poition relative to one another,  while sattelites moving in the same direction, but on different orbits, will move only slowly relative to one another. This means it is easy for a Northernly moving satellite to form stable links with other Northernly moving satellites. On the other hand, it is very difficult for a northernly moving satellite to form links with southernly moving satellites, as these satellites will be moving rather quickly relative to one another.
+
+Because of this, an orbital sphere will contain two grids, one moving north and one moving south, with strong connectivity in the grid, but poor connectivity between the grids. It is worth noting however, that this grids are never technically dissconnected, as it is always possible to send a signal from one grid to another grid by routing it around the other side of the Earth.
+
+\begin{figure}
+\label{Upward and Downward Moving Satellites}
+\caption{An orbital sphere where a gradient has been applied to the orbits}
+\includegraphics[width=\textwidth]{UpwardAndDowardMovingSatellites}
+\end{figure}
+
+This figure illustrates the concept. I have applied a gradient from black to red to all of the orbits, so that orbit 1 will be black, and orbit 17 will be red, with orbits 2 to 15 steadily growing more red, and 17 to 32 growing more black. Here we can clearly see how satellites from orbit 1 move southward underneath satellites from orbit 17.
+
+\begin{figure}
+\label{Looking up at Upward and Downward Satellites}
+\caption{Looking up from inside the earth in the same model}
+\includegraphics[width=\textwidth]{LookingUpAtUpwardAndDownwardSatellites}
+\end{figure}
+
+However in the next figure we see how, when looking at the poles, the orbits have "sorted" themselves.
+
+%TODO Path connecting north and southward grid
+
+\subsection{The Motion of the Player}
+
+One of the few pieces of code written in godot's native language GDScript is the code that controls user interaction with software. It made sense to write this in GDScript as GDScript is a much simpler language than C\#, and becase a very simple tutorial of first person motion was available in GDScript\cite{FirstPersonMotion}. However this code required some adaptation to make it work in 3D, primarily the removal of a number of unnesary features, and the addition of the ability to move up and down.
+
+The code works using a "head" which is attached to a "neck". Left-right motions of the mouse are translated to left-right rotations of the neck, while up-down motions of the mouse are translated into up-down rotations of the head. By keeping the neck and head seperate the player cannot turn themselves upside down or anything, which would be very disorientating. Motion is done relative to the head.
+
+\begin{figure}
+\begin{center}
+\label{fig:Keybindings}
+\caption{Keybindings.}
+\begin{tabular}{ | c | c  | }
+	\hline
+	Move Forward & W, Up Arrow \\
+	Move Backward & S, Down Arrow\\
+	Move Up & Q, Comma Key\\
+	Move Down & E, Full Stop Key\\
+	Move Left & A, Left Arrow \\
+	Move Right & D, Right Arrow \\
+	Restart Simualtion & R \\
+	Toggle Free Mouse & Esc \\
+	Activate Test & Space \\
+	\hline
+\end{tabular}
+\end{center}
+\end{figure}
+
+I also added the ability to free the mouse, to allow for repositioning the window and quitting the game.
+
+%TODO Add other user features?
+
+\subsection{Inputs}
+Constellations in my database are described in the a simple format that allows for much portability, this figure contains how to describe one theory or how the spaceX constellation might be arranged.
+
+\begin{figure}
+\label{fig:Starlink Within Program}
+\caption{An example for how a constellation might be described.}
+\begin{center}
+\begin{tabular}{ | c | c  | c | c | c | c | }
+	\hline
+	Number of Orbital Spheres & \multicolumn{5}{| c |}{5} \\
+	\hline
+	\hline
+	Sphere Number & 1 & 2 & 3 & 4 & 5\\ 
+	\hline
+	Altuitude & 1150km & 1110km & 1130km & 1275km & 1325km \\
+	Inlication & 53\degree & 53.8\degree & 74\degree & 80\degree & 7-\degree \\
+	Number of Orbits & 32 & 32 & 8 & 5 & 6 \\
+	Sattellites per Orbit & 50 & 50 & 50 & 75 & 75 \\
+	Offset Between Orbits & & & & &\\
+	Offset of Sphere & & & & &\\
+	Linking Method & X & X & X & X & X \\
+	\hline
+
+\end{tabular}
+\[
+X = FourFixedOneFree
+\begin{pmatrix}
+	1 & 1 \\
+	0 & 1
+\end{pmatrix}
+\]
+\end{center}
+\end{figure}
+
+Notice the addition of offsets and linking methods, these are neccesary to fully describe a consellation, but are not given in an FCC application.
+
+\subsection{Describing Linking Methods}
+
+A large proprtion of time in the project was devoted to devising linking methods.
+
+%TODO
+
+\subsection{Finding the Nearest Satellite}
+
+One of the more suprisingly difficult tasks was locating a nearest satellite to a given satellite. As I know I was going to have to do this many times, I wanted a way to calculate the nearest satellite as quickly as possible.
+
+Fortuately, the fact that within an orbital sphere all satellites are arranged in a grid proved extremely useful here. This figure gives the closeness to a point given the orbit and satellite numbers of the satellites in a sphere. As you can see this function increases smoothly to two peaks representing the closest point on the northward moving and southward moving grids.
+
+%TODO Graph showing closeness as a function of j and k
+
+Because of this a very simple algorithm can be developed to calculate the closest satellite to a point without having to search all satellites.
+
+\begin{lstlisting}
+closest_satellite(Point p, OrbitalSphere X, int j, int k)
+  looping = true
+  while(looping)
+    sat_middle = X.get(j,k)
+    sat_above = X.get(j,k+1 mod X.max_k)
+    if p.distance_to(sat_above) < p.distance_to(sat_middle)
+      k = k+1 mod X.max_k
+    else 
+      sat_below = X.get(j,k-1 mod X.max_k)
+      if p.distance_to(sat_below) < p.distance_to(sat_middle)
+        k = k-1 mod X.max_k
+      else
+        sat_right = X.get(j+1 mod X.max_j,k)
+        if p.distance_to(sat_right) < p.distance_to(sat_middle)
+          j = j+1 mod X.max_j
+        else
+          sat_left = X.get(j-1 mod X.max_j,k)
+          if p.distance_to(sat_left) < p.distance_to(sat_middle)
+            j = j-1 mod X.max_j
+          else
+            looping = false
+  return X.get(j,k)
+\end{lstlisting}
+
+With a few optimisations this algorithm can run extrmely fast.
+
+However, this algorithm can only one of the two peaks on the closeness function, so to get a true measure we have to run this algorithm twice on two points on oppoise sides of the sphere and pick the closest result.
+
+Now we can ask our linking method to use it's free length to connect to a satellite in a different sphere to it, or on the same sphere traelling in the opposite direction.
+
+However, this method hits a number of flaws. Firstly the links that are formed are not bideirectional, and also, close to the poles satellites form links across polar circle. This is because for any given area on the equator, the satellites moving south and the satellites moving north will end up at opposide sides of the circles at the poles.
+
+%TODO Image illustrating this
+
+Because of this, a more computationally expensive approach had to be taken.
+
+%TODO more expensive approach
+
+\subsection{Tests}
+
+The first test I did was a very simple test to calculate the connected components on the graph. This psudocode gives the test.
+
+\begin{lstlisting}
+connected_components(Constellation C)
+  components = 0
+  x = C.Sattelites
+    for s in x
+      if not s.marked
+        components += 1
+        bfs(s)
+  unmark_all(x)
+  return components
+
+bfs(Sattelite s)
+  q = new Queue
+  q.add(s)
+  while not q.empty()
+    x = q.dequeue()
+    if not x.marked
+      x.marked = true
+      for y in x.linked_sattelites
+        q.add(y)
+  return			
+\end{lstlisting}
+
+This very straightforward test runs in in O(E) time, however when used on the network it becomes plainly apparent that it is not an extremely useful measure. The fact my model assumes that all stallites will be evenly spaces around the orbit (a very reasonable assumtion) renders it so that satellites are either all in range of one another, or not. It is extremely unlikely that a constellation with ever be at risk of breaking into components. However this test did serve as a good way to test my ability to write tests on the network, and output to files.
 
 \section{Evaluation}
 
@@ -241,6 +421,14 @@ On Implementation, I found that my planned method  of implimenting orbits was fl
 For each of these variables, I modeled a variety of different possibilities, examining the latency of connections with each of these.
 
 %TODO
+
+\subsection{Godot as a Simulation Environment}
+
+One of the larger mistakes I think I made during this Dissertation was to choose Godot as the environment through which I would create my simulation. Godot being an open-source software hs little to no impact on the overall quality of my work, and the lack of proper support for the still relativey new engine, alongside some deficiencies in the debugging ability and a few bugs in the C\# interaction made coding significantly harder. While in my pitch I argued I was using Godot because it was free and easy-to-use, in reality I was simply using it because ti was familiar to me, If I has taken some extra time at the start of my progect to familiarise myself with a more powerful engine, I could have saved time in the long run.
+
+\subsection{Direction and Focus}
+
+Maintaining a consistent goal has been challenging during such an open-ended project. If I were to do this project again I would more carefully choose my orbjectives %TODO
 
 \section{Conclusion}
 
@@ -259,6 +447,7 @@ For each of these variables, I modeled a variety of different possibilities, exa
 	\bibitem{HughesPressRelease} \url{https://www.hughes.com/who-we-are/resources/press-releases/hughes-high-throughput-satellite-successfully-launched-setting?locale=en}
 	\bibitem{EchoStar} \url{https://space.skyrocket.de/doc_sdat/jupiter-2.htm}
 	\bibitem{KABand} \url{file:///home/joe/Downloads/R12-ITURKA.BAND-C-0008!!PDF-E.pdf}
+	\bibitem{FirstPersonMotion} \url{https://github.com/turtletooth/GodotFirstPersonController}
 \end{thebibliography}
 \appendix
 

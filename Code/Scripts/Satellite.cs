@@ -91,7 +91,6 @@ public class Satellite : Spatial
 		link.Clear();
 		link.Begin(Mesh.PrimitiveType.Lines);
 		link.AddVertex(new Vector3(0,0,0));
-		link.SetColor(color);
 		link.AddVertex(ToLocal(linkSat.Translation));
 		link.End();
 	}
@@ -117,12 +116,20 @@ public class Satellite : Spatial
 	
 	public void ColorByOrbit()
 	{
-		Color white = new Color("ffffff");
+		Color white = new Color("000000");
 		Color red = new Color("ff0000");
 		float interpolationFactor = (float) Math.Abs(((float) id[1] * 2f) / (orbit.orbitalSphere.numOfOrbits) - 1f);
 		color = white.LinearInterpolate(red, interpolationFactor);
 		SpatialMaterial newMaterial = new SpatialMaterial();
 		newMaterial.AlbedoColor = color;
 		satMesh.MaterialOverride = newMaterial;
+		
+		SpatialMaterial linkMat = new SpatialMaterial();
+		linkMat.AlbedoColor = new Color("eeeeee");
+		
+		for (int n = 0; n < numOfLinks; n++)
+		{
+			Links[n].Line.MaterialOverride = linkMat;
+		}
 	}
 }

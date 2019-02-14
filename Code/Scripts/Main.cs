@@ -15,7 +15,7 @@ public class Main : Spatial
 		
 		ConstellationDescriptionDatabase constellationDescriptionDatabase = new ConstellationDescriptionDatabase();
 		
-		ConstellationDescription constellationDescription = constellationDescriptionDatabase.GetConstellation(2);
+		ConstellationDescription constellationDescription = constellationDescriptionDatabase.GetConstellation(5);
 		
 		constellation = constellationDescription.Create(worldEnvironment);
 		

@@ -80,7 +80,8 @@ public class ConstellationDescription
 					newSats,
 					newOrbitalSphere, 
 					worldEnvironment,
-					longditudonalOffset
+					longditudonalOffset,
+					phaseOffset * j
 				);
 
 				orbits[j] = newOrbit;
@@ -93,7 +94,6 @@ public class ConstellationDescription
 				distanceAboveCore,
 				inclination,
 				sattelitesPerPlane,
-				phaseOffset,
 				linkingMethod,
 				newConstellation,
 				worldEnvironment

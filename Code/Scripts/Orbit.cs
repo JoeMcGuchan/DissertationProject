@@ -13,9 +13,11 @@ public class Orbit : Spatial
 	//for efficency
 	int precision;
 	int numOfSatellites;
-	public WorldEnvironment worldEnvironment;
 	
+	public float phaseOffset;
 	public float longditudonalOffset;
+	
+	public WorldEnvironment worldEnvironment;
 	
 	public Transform[] orbitPoints;
 
@@ -31,13 +33,15 @@ public class Orbit : Spatial
 		Satellite[] satellitesNew, 
 		OrbitalSphere orbitalSphereNew, 
 		WorldEnvironment worldEnvironemntNew,
-		float longditudonalOffsetNew
+		float longditudonalOffsetNew,
+		float phaseOffsetNew
 	) {
 		worldEnvironment = worldEnvironemntNew;
 
 		satellites = satellitesNew;
 		orbitalSphere = orbitalSphereNew;
 		longditudonalOffset = longditudonalOffsetNew;
+		phaseOffset = phaseOffsetNew;
 	}
 	
 	public void ComputeOrbitPoints() 
@@ -45,7 +49,6 @@ public class Orbit : Spatial
 
 		float distanceAboveCore = orbitalSphere.distanceAboveCore;
 		float inclination = orbitalSphere.inclination;
-		float phaseOffset = orbitalSphere.phaseOffset;
 		orbitPoints = new Transform[precision];
 		for (int i = 0; i < precision; i++) 
 		{

@@ -9,19 +9,20 @@ public class ConstellationDescriptionDatabase
 	public ConstellationDescriptionDatabase() {
 		int[][] updownleftright = new int[][] {
 			new int[] {0,1},
-			new int[] {1,0},
+			new int[] {1,-1},
 			new int[] {0,-1},
-			new int[] {-1,0}
+			new int[] {-1,1}
 		};
 
 		LinkingMethod simpleLinking = new FourFixedOneFree(updownleftright);
 	
 		LinkingMethod noLinking = new NoLinks();
-		
 		LinkingMethod fourFixed = new FourFixed(updownleftright, 1.5f);
+		LinkingMethod justOrbits = new JustOrbits(1.5f);
 
 		constellationDescriptions = new ConstellationDescription[]
 		{
+			/*SINGLE ORBIT*/
 			new ConstellationDescription
 			(
 				/*orbitalPlaness*/ new int[] {1}, 
@@ -32,6 +33,7 @@ public class ConstellationDescriptionDatabase
 				/*linkingMethods*/ new LinkingMethod[] {simpleLinking},
 				/*numOfSpheres*/ 1
 			),
+			/*STARLINK*/
 			new ConstellationDescription
 			(
 				/*orbitalPlaness*/ new int[] {32, 32, 8, 5, 6}, 
@@ -49,6 +51,7 @@ public class ConstellationDescriptionDatabase
 				},
 				/*numOfSpheres*/ 5
 			),
+			/*BROKEN ORBITS*/
 			new ConstellationDescription
 			(
 				/*orbitalPlaness*/ new int[] {30},
@@ -59,6 +62,7 @@ public class ConstellationDescriptionDatabase
 				/*linkingMethods*/ new LinkingMethod[] {fourFixed},
 				/*numOfSpheres*/ 1
 			),
+			/*CLOSEST LINKS AT WORK*/
 			new ConstellationDescription
 			(
 				/*orbitalPlaness*/ new int[] {48}, 
@@ -69,6 +73,7 @@ public class ConstellationDescriptionDatabase
 				/*linkingMethods*/ new LinkingMethod[] {new OneFreeNotClosest()},
 				/*numOfSpheres*/ 1	
 			),
+			/*GEOSTATIONARY VS SPHERE*/
 			new ConstellationDescription
 			(
 				/*orbitalPlaness*/ new int[] {1, 32}, 
@@ -78,6 +83,17 @@ public class ConstellationDescriptionDatabase
 				/*phaseOffsets*/ new float[] {0, 0},
 				/*linkingMethods*/ new LinkingMethod[] {noLinking, noLinking},
 				/*numOfSpheres*/ 2
+			),
+			/*FIRST SPHERE*/
+			new ConstellationDescription
+			(
+				/*orbitalPlaness*/ new int[] {32}, 
+				/*sattelitesPerPlanes*/ new int[] {50},
+				/*altitudes*/ new int[] {1150},
+				/*inclinations*/ new float[] {53},
+				/*phaseOffsets*/ new float[] {7f/32f},
+				/*linkingMethods*/ new LinkingMethod[] {justOrbits},
+				/*numOfSpheres*/ 1
 			),
 		};
 	}

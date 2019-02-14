@@ -8,7 +8,7 @@
 
 background_mode = 1
 background_sky_custom_fov = 0.0
-background_color = Color( 0, 0, 0, 1 )
+background_color = Color( 1, 1, 1, 1 )
 background_energy = 1.0
 background_canvas_max_layer = 0
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -106,7 +106,7 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0, 0.414062, 1, 1 )
+albedo_color = Color( 0.640625, 0.640625, 0.640625, 1 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -154,7 +154,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 environment = SubResource( 1 )
 script = ExtResource( 2 )
-timeFactor = 80.0
+timeFactor = 1.0
 precision = 50
 
 [node name="Earth" type="MeshInstance" parent="." index="1"]
@@ -176,6 +176,34 @@ _sections_unfolded = [ "material" ]
 [node name="Camera" parent="." index="2" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26094, 0, 14.4727 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 0.970002, 0.243096, 0, -0.243096, 0.970002, 0.110806, 8.51045, 6.62355 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.1
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.1
+directional_shadow_split_2 = 0.2
+directional_shadow_split_3 = 0.5
+directional_shadow_blend_splits = false
+directional_shadow_normal_bias = 0.8
+directional_shadow_bias_split_scale = 0.25
+directional_shadow_depth_range = 0
+directional_shadow_max_distance = 200.0
+_sections_unfolded = [ "Shadow" ]
 
 [connection signal="run_test" from="Camera" to="." method="RunTest"]
 
