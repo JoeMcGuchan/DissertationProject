@@ -8,6 +8,8 @@ public class Constellation : Spatial
 	public OrbitalSphere[] orbitalSpheres;
 	public int numOfSpheres;
 	public WorldEnvironment worldEnvironment;
+	
+	public ColouringMethod colouringMethod;
 
     public override void _Ready()
     {
@@ -25,5 +27,7 @@ public class Constellation : Spatial
 		worldEnvironment = worldEnvironmentNew;
 		numOfSpheres = numOfSpheresNew;
 		orbitalSpheres = orbitalSpheresNew;
+		
+		colouringMethod = new HighlightLinkFive();
 	}
 }

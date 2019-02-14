@@ -10,7 +10,8 @@ public class ConstellationDescription
 	public int[] sattelitesPerPlanes;
 	public int[] altitudes;
 	public float[] inclinations;
-	public float[] phaseOffsets;
+	public int[] phaseOffsets;
+	public float[] timeOffsets;
 	public LinkingMethod[] linkingMethods;
 	public int numOfSpheres;
 
@@ -19,7 +20,8 @@ public class ConstellationDescription
 		int[] sattelitesPerPlanesNew,
 		int[] altitudesNew,
 		float[] inclinationsNew,
-		float[] phaseOffsetsNew,
+		int[] phaseOffsetsNew,
+		float[] timeOffsetsNew,
 		LinkingMethod[] linkingMethodsNew,
 		int numOfSpheresNew
 	) {
@@ -28,6 +30,7 @@ public class ConstellationDescription
 		altitudes = altitudesNew;
 		inclinations = inclinationsNew;
 		phaseOffsets = phaseOffsetsNew;
+		timeOffsets = timeOffsetsNew;
 		linkingMethods = linkingMethodsNew;
 		numOfSpheres = numOfSpheresNew;
 	}
@@ -53,7 +56,7 @@ public class ConstellationDescription
 			int sattelitesPerPlane = sattelitesPerPlanes[i];
 			float distanceAboveCore = altitudes[i] / 1000 + worldEnvironment.sizeOfEarth;
 			float inclination = inclinations[i] * (float) Math.PI * 2 / 360;
-			float phaseOffset = phaseOffsets[i];
+			int phaseOffset = phaseOffsets[i];
 			LinkingMethod linkingMethod = linkingMethods[i];
 
 			Orbit[] orbits = new Orbit[orbitalPlanes];
@@ -81,7 +84,7 @@ public class ConstellationDescription
 					newOrbitalSphere, 
 					worldEnvironment,
 					longditudonalOffset,
-					phaseOffset * j
+					((float) phaseOffset) * j / orbitalPlanes
 				);
 
 				orbits[j] = newOrbit;
@@ -94,6 +97,7 @@ public class ConstellationDescription
 				distanceAboveCore,
 				inclination,
 				sattelitesPerPlane,
+				phaseOffset,
 				linkingMethod,
 				newConstellation,
 				worldEnvironment

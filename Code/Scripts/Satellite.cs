@@ -24,7 +24,7 @@ public class Satellite : Spatial
 	public MeshInstance satMesh;
 	
 	//TODO have colour functioning properly
-	Color color;
+	ColouringMethod colouringMethod;
 	
 	//Uniqe id [i,j,k] indicates the kth sat in the 
 	//jth orbit of the ith sphere.
@@ -44,8 +44,8 @@ public class Satellite : Spatial
 		int j,
 		int k,
 		Orbit newOrbit,
-		WorldEnvironment newWorldEnvironment) 
-	{
+		WorldEnvironment newWorldEnvironment
+	) {
 		worldEnvironment = newWorldEnvironment;
 		
 		id = new int[] {i, j, k};
@@ -110,26 +110,8 @@ public class Satellite : Spatial
 			Links[n] = link;
 			AddChild(line);
 		}
-
-		ColorByOrbit();
-	}
-	
-	public void ColorByOrbit()
-	{
-		Color white = new Color("000000");
-		Color red = new Color("ff0000");
-		float interpolationFactor = (float) Math.Abs(((float) id[1] * 2f) / (orbit.orbitalSphere.numOfOrbits) - 1f);
-		color = white.LinearInterpolate(red, interpolationFactor);
-		SpatialMaterial newMaterial = new SpatialMaterial();
-		newMaterial.AlbedoColor = color;
-		satMesh.MaterialOverride = newMaterial;
 		
-		SpatialMaterial linkMat = new SpatialMaterial();
-		linkMat.AlbedoColor = new Color("eeeeee");
-		
-		for (int n = 0; n < numOfLinks; n++)
-		{
-			Links[n].Line.MaterialOverride = linkMat;
-		}
+		colouringMethod = orbit.orbitalSphere.constellation.colouringMethod;
+		colouringMethod.ColourSat(this);
 	}
 }

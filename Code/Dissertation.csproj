@@ -49,6 +49,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Scripts\ColouringMehod\ColouringMethod.cs" />
+    <Compile Include="Scripts\ColouringMehod\OrbitGradient.cs" />
+	<Compile Include="Scripts\ColouringMehod\HighlightLinkFive.cs" />
     <Compile Include="Scripts\Constellation.cs" />
     <Compile Include="Scripts\ConstellationDescription.cs" />
     <Compile Include="Scripts\ConstellationDescriptionDatabase.cs" />
@@ -56,7 +59,7 @@
     <Compile Include="Scripts\LinkingMethods\LinkingMethod.cs" />
     <Compile Include="Scripts\LinkingMethods\FourFixedOneFree.cs" />
     <Compile Include="Scripts\LinkingMethods\OneFreeNotClosest.cs" />
-	<Compile Include="Scripts\LinkingMethods\JustOrbits.cs" />
+    <Compile Include="Scripts\LinkingMethods\JustOrbits.cs" />
     <Compile Include="Scripts\LinkingMethods\NoLinks.cs" />
     <Compile Include="Scripts\Main.cs" />
     <Compile Include="Scripts\Orbit.cs" />

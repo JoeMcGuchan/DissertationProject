@@ -23,6 +23,7 @@ public class OrbitalSphere : Spatial
 	public int numOfOrbits;
 	public float inclination;
 	public int satellitesPerOrbit;
+	public int phaseOffset;
 	
 	public LinkingMethod linkingMethod;
 	
@@ -64,6 +65,7 @@ public class OrbitalSphere : Spatial
 		float distanceAboveCoreNew,
 		float inclinationNew,
 		int sattelitesPerOrbitNew,
+		int phaseOffsetNew,
 		LinkingMethod linkingMethodNew,
 		Constellation constellationNew,
 		WorldEnvironment worldEnvironmentNew
@@ -73,6 +75,7 @@ public class OrbitalSphere : Spatial
 		distanceAboveCore = distanceAboveCoreNew;
 		inclination = inclinationNew;
 		satellitesPerOrbit = sattelitesPerOrbitNew;
+		phaseOffset = phaseOffsetNew;
 		linkingMethod = linkingMethodNew;
 		constellation = constellationNew;
 		worldEnvironment = worldEnvironmentNew;

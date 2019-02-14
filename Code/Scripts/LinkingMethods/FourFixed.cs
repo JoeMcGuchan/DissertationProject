@@ -9,6 +9,7 @@ public class FourFixed : LinkingMethod
 	
 	int NumOfOrbits;
 	int SatellitesPerOrbit;
+	int phaseOffset;
 	
 	float MaxDist;
 	
@@ -22,6 +23,7 @@ public class FourFixed : LinkingMethod
 	{
 		NumOfOrbits = sphere.numOfOrbits;
 		SatellitesPerOrbit = sphere.satellitesPerOrbit;
+		phaseOffset = sphere.phaseOffset;
 		for (int j = 0; j < NumOfOrbits; j++)
 		{
 			for (int k = 0; k < SatellitesPerOrbit; k++)
@@ -30,17 +32,21 @@ public class FourFixed : LinkingMethod
 				Vector3 thisSatPos = thisSat.Translation;
 
 				thisSat.CreateLinks(4);
-
+				
 				int fSatPosx = mod(j+FixedLinks[0][0],NumOfOrbits);
 				int rSatPosx = mod(j+FixedLinks[1][0],NumOfOrbits);
 				int bSatPosx = mod(j+FixedLinks[2][0],NumOfOrbits);
 				int lSatPosx = mod(j+FixedLinks[3][0],NumOfOrbits);
-
+				
 				int fSatPosy = mod(k+FixedLinks[0][1],SatellitesPerOrbit);
 				int rSatPosy = mod(k+FixedLinks[1][1],SatellitesPerOrbit);
 				int bSatPosy = mod(k+FixedLinks[2][1],SatellitesPerOrbit);
 				int lSatPosy = mod(k+FixedLinks[3][1],SatellitesPerOrbit);
-
+				
+				//apply translation to account for phase offset
+				if (j == 0) {lSatPosy = mod(lSatPosy-phaseOffset,SatellitesPerOrbit);}
+				if (j == NumOfOrbits-1) {rSatPosy = mod(rSatPosy+phaseOffset,SatellitesPerOrbit);}
+				
 				Satellite fSat = sphere.orbits[fSatPosx].satellites[fSatPosy];
 				Satellite rSat = sphere.orbits[rSatPosx].satellites[rSatPosy];
 				Satellite bSat = sphere.orbits[bSatPosx].satellites[bSatPosy];
