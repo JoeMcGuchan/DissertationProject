@@ -8,13 +8,18 @@ public class NoLinks : LinkingMethod
 
 	}
 	
-	public override void Initialise(OrbitalSphere sphere)
+	public override void Initialise(Constellation constellation)
 	{
 
 	}
 	
-	public override void Update(OrbitalSphere sphere)
+	public override void UpdateConstellation(Constellation constellation)
 	{
 
+	}
+	
+	public override void UpdateOrbit(Orbit orbit)
+	{
+		
 	}
 }

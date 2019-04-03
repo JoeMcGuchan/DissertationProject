@@ -242,6 +242,22 @@ Very little is known about how much load Starlink expects to receive or how it w
 \subsection{Difficulties of Modelling Orbits}
 On Implementation, I found that my planned method  of implimenting orbits was flawed, being able to simulate only 500 sattelites in motion before slowing down. Because of this, I changed to a precomputed method. In this method, orbits are precomputed as a number of points, and the position of sattelites is calculated by interpolating adgacent points, this sacrifices some accuracy, but vastly increases the computation speed.
 
+\subsection{Representing Links}
+
+There are 3 primary ways to represent a graph for algorithms:
+
+\begin{description}
+\item[Adgacency Matrix] An NxN matrix of values representing all possible connections. Obviously inefficent for a sparse set of connections like this.
+\item[Adgacency List] Associate each Satellite with a list of the verticies it is connected to. Space efficient, but creates difficulty in running dijkstra's algorithm.
+\item[Edge List] Create a list of edges that refer to varticies. This is useful for algorithms that require iterating through all edges like dijkstra's algorithm. But to find the adgacent satellites to any given satellite requires searching through the whole list.
+\end{description}
+
+Furthermroe, to draw a link, Godot demands that it be a "child" (not in the class inheritance sense) of one node in the scene. And I also want the abilty to describe new linking methods, and have different spheres use different linking methods.
+
+My solution was to use the method pattern. I would have an abstract class called "LinkingMethod" that implemented many different options for linking, and had three abstract methods. Inititialise, which runs on a constellation of satellites and creates the links, UpdateOrbit, which is ran every step by every orbit (to exploit multithreatding) and updates the associated links, and UpdateConstellation which is ran every step for the whole constellation.
+
+I use both the adgacency list and edge list methods. Links are initialised with satellites, and %TODO 
+
 \subsection{Initial Observations of Network}
 The first and most interesting observation when modelling the network was the way satellites wrap around the network. At any given point on the ground, there will be some satellites above you movign North-East, and some moving South-East. No satellites will be moving west as that is retrograde motion, which is expensive and unnessecary. Satellites on the same orbit will remain in a fixed poition relative to one another,  while sattelites moving in the same direction, but on different orbits, will move only slowly relative to one another. This means it is easy for a Northernly moving satellite to form stable links with other Northernly moving satellites. On the other hand, it is very difficult for a northernly moving satellite to form links with southernly moving satellites, as these satellites will be moving rather quickly relative to one another.
 

@@ -1,0 +1,374 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/UI.cs" type="Script" id=1]
+
+
+
+
+[node name="UI" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Visibility" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 202.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Left" type="VBoxContainer" parent="MarginContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 194.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor" ]
+
+[node name="Time_Factor" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Left" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 194.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer/Left/Time_Factor" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 74.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 1.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "custom_icons" ]
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Left/Time_Factor" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_top = 5.0
+margin_right = 153.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Time Factor"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_colors" ]
+
+[node name="Number_Of_Orbits" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Left" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 28.0
+margin_right = 194.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer/Left/Number_Of_Orbits" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 74.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 1.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "custom_icons" ]
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Left/Number_Of_Orbits" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_top = 5.0
+margin_right = 193.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Number Of Orbits"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_colors" ]
+
+[node name="Satellites_Per_Orbit" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Left" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 56.0
+margin_right = 194.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer/Left/Satellites_Per_Orbit" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 74.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 1.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "custom_icons" ]
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Left/Satellites_Per_Orbit" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_top = 5.0
+margin_right = 194.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Satellies Per Orbit"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_colors" ]
+
+[node name="Inclination" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Left" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 84.0
+margin_right = 194.0
+margin_bottom = 108.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer/Left/Inclination" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 74.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 90.0
+step = 0.1
+page = 0.0
+value = 1.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "custom_icons" ]
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Left/Inclination" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_top = 5.0
+margin_right = 139.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Inlination"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_colors" ]
+
+[node name="LinkingMethod" type="ItemList" parent="MarginContainer/HBoxContainer/Left" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 112.0
+margin_right = 194.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+items = [  ]
+select_mode = 0
+allow_reselect = false
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+
+[node name="ColouringMethod" type="ItemList" parent="MarginContainer/HBoxContainer/Left" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 116.0
+margin_right = 194.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+items = [  ]
+select_mode = 0
+allow_reselect = false
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/Left/Time_Factor/SpinBox" to="." method="OnTimeFactorValueChanged"]
+
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/Left/Number_Of_Orbits/SpinBox" to="." method="OnNumberOfOrbitsValueChanged"]
+
+

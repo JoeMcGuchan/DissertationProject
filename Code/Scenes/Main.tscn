@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
-[ext_resource path="res://Scripts/WorldEnvironment.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/ConstellationSimulation/WorldEnvironment.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
@@ -154,7 +154,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 environment = SubResource( 1 )
 script = ExtResource( 2 )
-timeFactor = 1.0
+timeFactor = 30.0
 precision = 50
 
 [node name="Earth" type="MeshInstance" parent="." index="1"]

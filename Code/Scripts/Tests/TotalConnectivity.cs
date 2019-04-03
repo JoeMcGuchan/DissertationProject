@@ -5,12 +5,12 @@ public class TotalConnectivity : Test
 {
     // Simple test, returns the total connectivity of the graph
 
-	public TotalConnectivity(String filePath)
+	public void Init(String filePath)
 	{
-		Init(filePath);
+		CreateFile(filePath);
 	}
 	
-	public override void Run(Constellation constellation)
+	public override void Run()
 	{
 		WriteLine("Run number " + RunNumber++);
 	}

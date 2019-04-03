@@ -54,7 +54,7 @@ public class ConstellationDescription
 
 			int orbitalPlanes = orbitalPlaness[i];
 			int sattelitesPerPlane = sattelitesPerPlanes[i];
-			float distanceAboveCore = altitudes[i] / 1000 + worldEnvironment.sizeOfEarth;
+			float distanceAboveCore = altitudes[i] / 1000 + worldEnvironment.SizeOfEarth;
 			float inclination = inclinations[i] * (float) Math.PI * 2 / 360;
 			int phaseOffset = phaseOffsets[i];
 			LinkingMethod linkingMethod = linkingMethods[i];
@@ -71,7 +71,7 @@ public class ConstellationDescription
 				{
 					Satellite newSat = satteliteScene.Instance() as Satellite;
 
-					newSat.Init(i, j, k, newOrbit, worldEnvironment);
+					newSat.Init(k, newOrbit, worldEnvironment);
 
 					newSats[k] = newSat;
 					newOrbit.AddChild(newSat);
@@ -84,7 +84,8 @@ public class ConstellationDescription
 					newOrbitalSphere, 
 					worldEnvironment,
 					longditudonalOffset,
-					((float) phaseOffset) * j / orbitalPlanes
+					((float) phaseOffset) * j / orbitalPlanes,
+					j
 				);
 
 				orbits[j] = newOrbit;
@@ -100,7 +101,8 @@ public class ConstellationDescription
 				phaseOffset,
 				linkingMethod,
 				newConstellation,
-				worldEnvironment
+				worldEnvironment,
+				i
 			);
 
 			orbitalSpheresNew[i] = newOrbitalSphere;

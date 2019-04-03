@@ -24,6 +24,7 @@ public class FourFixed : LinkingMethod
 		NumOfOrbits = sphere.numOfOrbits;
 		SatellitesPerOrbit = sphere.satellitesPerOrbit;
 		phaseOffset = sphere.phaseOffset;
+		
 		for (int j = 0; j < NumOfOrbits; j++)
 		{
 			for (int k = 0; k < SatellitesPerOrbit; k++)

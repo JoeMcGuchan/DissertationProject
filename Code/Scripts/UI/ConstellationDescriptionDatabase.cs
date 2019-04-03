@@ -9,16 +9,16 @@ public class ConstellationDescriptionDatabase
 	public ConstellationDescriptionDatabase() {
 		int[][] updownleftright = new int[][] {
 			new int[] {0,1},
-			new int[] {1,-1},
+			new int[] {1,0},
 			new int[] {0,-1},
-			new int[] {-1,1}
+			new int[] {1,0}
 		};
 
-		LinkingMethod simpleLinking = new FourFixedOneFree(updownleftright,1.5f);
+		LinkingMethod simpleLinking = new NoLinks();
 	
 		LinkingMethod noLinking = new NoLinks();
-		LinkingMethod fourFixed = new FourFixed(updownleftright, 20f);
-		LinkingMethod justOrbits = new JustOrbits(1.5f);
+		LinkingMethod fourFixed = new NoLinks();
+		LinkingMethod justOrbits = new NoLinks();
 
 		constellationDescriptions = new ConstellationDescription[]
 		{
@@ -57,10 +57,10 @@ public class ConstellationDescriptionDatabase
 			new ConstellationDescription
 			(
 				/*orbitalPlaness*/ new int[] {30},
-				/*sattelitesPerPlanes*/ new int[] {25},
+				/*sattelitesPerPlanes*/ new int[] {31},
 				/*altitudes*/ new int[] {1150},
 				/*inclinations*/ new float[] {70},
-				/*phaseOffsets*/ new int[] {0},
+				/*phaseOffsets*/ new int[] {15},
 				/*timeOffset*/ new float[] {0f},
 				/*linkingMethods*/ new LinkingMethod[] {fourFixed},
 				/*numOfSpheres*/ 1
@@ -74,8 +74,8 @@ public class ConstellationDescriptionDatabase
 				/*inclinations*/ new float[] {60},
 				/*phaseOffsets*/ new int[] {0},
 				/*timeOffset*/ new float[] {0f},
-				/*linkingMethods*/ new LinkingMethod[] {new OneFreeNotClosest()},
-				/*numOfSpheres*/ 1	
+				/*linkingMethods*/ new LinkingMethod[] {new NoLinks()},
+				/*numOfSpheres*/ 1
 			),
 			/*GEOSTATIONARY VS SPHERE*/
 			new ConstellationDescription

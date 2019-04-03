@@ -21,18 +21,18 @@ public class HighlightLinkFive : ColouringMethod
 	
 	public override void ColourSat(Satellite sat)
     {
-		sat.satMesh.MaterialOverride = SatMat;
-		
-		for (int n = 0; n < sat.numOfLinks; n++)
-		{
-			if (n < 4)
-			{
-				sat.Links[n].Line.MaterialOverride = LinkMat1;
-			}
-			else
-			{
-				sat.Links[n].Line.MaterialOverride = LinkMat2;
-			}
-		}
+//		sat.SatMesh.MaterialOverride = SatMat;
+//
+//		for (int n = 0; n < sat.NumOfLinks; n++)
+//		{
+//			if (n < 4)
+//			{
+//				sat.Links[n].Line.MaterialOverride = LinkMat1;
+//			}
+//			else
+//			{
+//				sat.Links[n].Line.MaterialOverride = LinkMat2;
+//			}
+//		}
 	}
 }

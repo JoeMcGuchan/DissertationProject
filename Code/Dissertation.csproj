@@ -51,24 +51,26 @@
   <ItemGroup>
     <Compile Include="Scripts\ColouringMehod\ColouringMethod.cs" />
     <Compile Include="Scripts\ColouringMehod\OrbitGradient.cs" />
-	<Compile Include="Scripts\ColouringMehod\HighlightLinkFive.cs" />
-    <Compile Include="Scripts\Constellation.cs" />
-    <Compile Include="Scripts\ConstellationDescription.cs" />
-    <Compile Include="Scripts\ConstellationDescriptionDatabase.cs" />
-    <Compile Include="Scripts\LinkingMethods\FourFixed.cs" />
+    <Compile Include="Scripts\ColouringMehod\HighlightMarked.cs" />
+    <Compile Include="Scripts\ColouringMehod\HighlightLinkFive.cs" />
+    <Compile Include="Scripts\ConstellationSimulation\Constellation.cs" />
+    <Compile Include="Scripts\ConstellationSimulation\Link.cs" />
+    <Compile Include="Scripts\ConstellationSimulation\Orbit.cs" />
+    <Compile Include="Scripts\ConstellationSimulation\OrbitalSphere.cs" />
+    <Compile Include="Scripts\ConstellationSimulation\Satellite.cs" />
+    <Compile Include="Scripts\ConstellationSimulation\WorldEnvironment.cs" />
     <Compile Include="Scripts\LinkingMethods\LinkingMethod.cs" />
-    <Compile Include="Scripts\LinkingMethods\FourFixedOneFree.cs" />
-    <Compile Include="Scripts\LinkingMethods\OneFreeNotClosest.cs" />
-    <Compile Include="Scripts\LinkingMethods\JustOrbits.cs" />
     <Compile Include="Scripts\LinkingMethods\NoLinks.cs" />
-    <Compile Include="Scripts\Main.cs" />
-    <Compile Include="Scripts\Orbit.cs" />
-    <Compile Include="Scripts\OrbitalSphere.cs" />
-    <Compile Include="Scripts\Satellite.cs" />
+    <Compile Include="Scripts\LinkingMethods\SomeFixedSomeFree.cs" />
+    <Compile Include="Scripts\Tests\ClosestToPoint.cs" />
     <Compile Include="Scripts\Tests\ConnectedComponents.cs" />
+    <Compile Include="Scripts\Tests\ShortestPath.cs" />
     <Compile Include="Scripts\Tests\Test.cs" />
     <Compile Include="Scripts\Tests\TotalConnectivity.cs" />
-    <Compile Include="Scripts\WorldEnvironment.cs" />
+    <Compile Include="Scripts\UI\ConstellationDescription.cs" />
+    <Compile Include="Scripts\UI\ConstellationDescriptionDatabase.cs" />
+    <Compile Include="Scripts\UI\UI.cs" />
+    <Compile Include="Scripts\Main.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

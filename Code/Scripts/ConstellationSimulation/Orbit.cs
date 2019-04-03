@@ -7,52 +7,57 @@ public class Orbit : Spatial
 	// Contains all the information needed to define
 	// an orbit
 	
-	public OrbitalSphere orbitalSphere;
-	public Satellite[] satellites;
-	//note: this is rechnically redundant, but I've included it here 
-	//for efficency
-	int precision;
-	int numOfSatellites;
+	public OrbitalSphere OrbitalSphere;
+	public Satellite[] Satellites;
+	public int NumOfSatellites;
 	
-	public float phaseOffset;
-	public float longditudonalOffset;
+	public float PhaseOffset;
+	public float LongditudonalOffset;
 	
-	public WorldEnvironment worldEnvironment;
+	public WorldEnvironment ThisWorldEnvironment;
 	
-	public Transform[] orbitPoints;
+	public Transform[] OrbitPoints;
+	
+	public int ID;
 
     public override void _Ready()
     {
-		precision = worldEnvironment.precision;
-		numOfSatellites = orbitalSphere.satellitesPerOrbit;
+		NumOfSatellites = OrbitalSphere.SatellitesPerOrbit;
 		
 		ComputeOrbitPoints();
     }
+	
+	public override void _Process(float delta)
+	{
+		UpdateSattelites();	
+	}
 	
 	public void Init(
 		Satellite[] satellitesNew, 
 		OrbitalSphere orbitalSphereNew, 
 		WorldEnvironment worldEnvironemntNew,
 		float longditudonalOffsetNew,
-		float phaseOffsetNew
+		float phaseOffsetNew,
+		int id
 	) {
-		worldEnvironment = worldEnvironemntNew;
+		ThisWorldEnvironment = worldEnvironemntNew;
 
-		satellites = satellitesNew;
-		orbitalSphere = orbitalSphereNew;
-		longditudonalOffset = longditudonalOffsetNew;
-		phaseOffset = phaseOffsetNew;
+		Satellites = satellitesNew;
+		OrbitalSphere = orbitalSphereNew;
+		LongditudonalOffset = longditudonalOffsetNew;
+		PhaseOffset = phaseOffsetNew;
+		ID = id;
 	}
 	
 	public void ComputeOrbitPoints() 
 	{
-
-		float distanceAboveCore = orbitalSphere.distanceAboveCore;
-		float inclination = orbitalSphere.inclination;
-		orbitPoints = new Transform[precision];
+		int precision = ThisWorldEnvironment.Precision;
+		float DistanceAboveCore = OrbitalSphere.DistanceAboveCore;
+		float Inclination = OrbitalSphere.Inclination;
+		OrbitPoints = new Transform[precision];
 		for (int i = 0; i < precision; i++) 
 		{
-			float trueAnomaly = (float) Math.PI * 2 * (i + phaseOffset) / precision;
+			float trueAnomaly = (float) Math.PI * 2 * (i + PhaseOffset) / precision;
 			
 //			// we start with a point in the x direction
 //			var newPos = new Vector3(distanceAboveCore, 0, 0);
@@ -73,15 +78,15 @@ public class Orbit : Spatial
 			basis = basis.Rotated(new Vector3(0,1,0),trueAnomaly);
 	
 			// then we apply our inclination
-			basis = basis.Rotated(new Vector3(1,0,0),inclination);
+			basis = basis.Rotated(new Vector3(1,0,0),Inclination);
 	
 			// finally we apply our offset
-			basis = basis.Rotated(new Vector3(0,1,0),longditudonalOffset);
+			basis = basis.Rotated(new Vector3(0,1,0),LongditudonalOffset);
 			
 			// now x should be pointing in direction of sattelite, so we transform like thus
-			Vector3 pos = basis.Xform(new Vector3(distanceAboveCore, 0, 0));
+			Vector3 pos = basis.Xform(new Vector3(DistanceAboveCore, 0, 0));
 		
-			orbitPoints[i] = new Transform
+			OrbitPoints[i] = new Transform
 			(
 				basis,
 				pos
@@ -89,37 +94,34 @@ public class Orbit : Spatial
 		}
 	}
 	
-	public void updateSattelites() 
+	public void UpdateSattelites() 
 	{
-		float trueAnomaly = orbitalSphere.rotation;
-		
-		//cast to float to get modulo to work
-		float precisionf = (float) precision;
+		float trueAnomaly = OrbitalSphere.RotationOfOrbit;
 		
 		//translate true anomaly into displacement in the array
-		float arrayPos = trueAnomaly * precision / (2 * (float) Math.PI);
-		float arrayGap = precisionf / (float) numOfSatellites;		
+		float arrayPos = trueAnomaly * ThisWorldEnvironment.Precision / (2 * (float) Math.PI);
+		float arrayGap = ((float) ThisWorldEnvironment.Precision) / (float) NumOfSatellites;		
 		
-		for (int i = 0; i < numOfSatellites; i++) 
+		for (int i = 0; i < NumOfSatellites; i++) 
 		{
 
 			int arrayValue = (int) Math.Floor(arrayPos);
 			float arrayDisplacement = arrayPos % 1.0f;
 			
 			int val1 = arrayValue;
-			int val2 = (arrayValue + 1) % precision;
+			int val2 = (arrayValue + 1) % ThisWorldEnvironment.Precision;
 			
-			Transform t1 = orbitPoints[val1];
-			Transform t2 = orbitPoints[val2];
+			Transform t1 = OrbitPoints[val1];
+			Transform t2 = OrbitPoints[val2];
 			
-			satellites[i].Transform = new Transform(
+			Satellites[i].Transform = new Transform(
 				t1.basis.x.LinearInterpolate(t2.basis.x,arrayDisplacement),
 				t1.basis.y.LinearInterpolate(t2.basis.y,arrayDisplacement),
 				t1.basis.z.LinearInterpolate(t2.basis.z,arrayDisplacement),
 				t1.origin.LinearInterpolate(t2.origin,arrayDisplacement)
 			);
 	
-			arrayPos = (arrayPos + arrayGap) % precisionf;
+			arrayPos = (arrayPos + arrayGap) %  ((float) ThisWorldEnvironment.Precision);
 		}
 	}
 }
