@@ -21,6 +21,8 @@ public class SomeFixedSomeFree : LinkingMethod
 	// Free links
 	public List<Link> FreeLinks;
 	
+	public Constellation ThisConstellation;
+	
 	public SomeFixedSomeFree(
 		int[] numOfFreeLinks,
 		int[] numOfFixedLinksHalved,
@@ -34,6 +36,10 @@ public class SomeFixedSomeFree : LinkingMethod
 	//this method is used by an orbital sphere to initialise the links on all it's sats
 	public override void Initialise(Constellation constellation)
 	{
+		var linkScene = ResourceLoader.Load("res://Scenes//Link.tscn") as PackedScene;
+		
+		ThisConstellation = constellation;
+		
 		FixedLinks = new List<Link>();
 		MovingLinks = new List<Link>[constellation.NumOfSpheres][];
 		FreeLinks = new List<Link>();
@@ -44,27 +50,41 @@ public class SomeFixedSomeFree : LinkingMethod
 			
 			MovingLinks[x] = new List<Link>[sphere.NumOfOrbits];
 			
-			for (int i = 0; i < NumOfFixedLinksHalved[x]; i++)
+			for (int y = 0; y < sphere.NumOfOrbits; y++)
 			{
-				int forwardOffset = FixedLinkOffsets[x][i][0];
-				int sideOffset = FixedLinkOffsets[x][i][1];
+				MovingLinks[x][y] = new List<Link>();
+				Orbit orbit = sphere.Orbits[y];
 				
-				for (int y = 0; y < sphere.NumOfOrbits; y++)
+				for (int i = 0; i < NumOfFixedLinksHalved[x]; i++)
 				{
-					MovingLinks[x][y] = new List<Link>();
+					int forwardOffset = FixedLinkOffsets[x][i][0];
+					int sideOffset = FixedLinkOffsets[x][i][1];
 					
-					Orbit orbit = sphere.Orbits[y];
-					
-					for (int z = 0; z < orbit.NumOfSatellites; z++)
+					for (int z = 0; z < sphere.SatellitesPerOrbit; z++)
 					{
+						
 						Satellite sat = orbit.Satellites[z];
 						
-						int ynew = mod(y+sideOffset,sphere.NumOfOrbits);
-						int znew = mod(z+forwardOffset,orbit.NumOfSatellites);
+						int ynew = y+sideOffset;
+						int znew = z+forwardOffset;
+						
+						//apply translation to account for phase offset
+						if (ynew < 0) 
+						{
+							znew = mod(znew-sphere.PhaseOffset,sphere.SatellitesPerOrbit);
+						}
+						else if (ynew >= sphere.NumOfOrbits) 
+						{
+							znew = mod(znew+sphere.PhaseOffset,sphere.SatellitesPerOrbit);
+						} else {
+							znew = mod(znew,sphere.SatellitesPerOrbit);
+						}
+						
+						ynew = mod(ynew,sphere.NumOfOrbits);
 						
 						Satellite sat2 = sphere.Orbits[ynew].Satellites[znew];
 						
-						Link link = new Link();
+						Link link = linkScene.Instance() as Link;
 						
 						link.Init(sat, sat2);
 						
@@ -95,5 +115,24 @@ public class SomeFixedSomeFree : LinkingMethod
 		{
 			link.Update();
 		}
+	}
+	
+	public override List<Link> GetAllLinks()
+	{
+		List<Link> allLinks = new List<Link>();
+		
+		allLinks.AddRange(FixedLinks);
+		
+		allLinks.AddRange(FreeLinks);
+		
+		for (int i = 0; i < ThisConstellation.NumOfSpheres; i++)
+		{
+			for (int j = 0; j < ThisConstellation.OrbitalSpheres[i].NumOfOrbits; j++)
+			{
+				allLinks.AddRange(MovingLinks[i][j]);
+			}
+		}
+		
+		return allLinks;
 	}
 }

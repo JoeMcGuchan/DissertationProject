@@ -6,7 +6,7 @@ public class Main : Spatial
 	WorldEnvironment WorldEnvironment;
 	Node UI;
 	
-	public Constellation Constellation;
+	public Constellation ThisConstellation;
 	public ConstellationDescription ThisConstellationDescription;
 	
 	Test test1;
@@ -19,7 +19,7 @@ public class Main : Spatial
 		
 		ConstellationDescriptionDatabase ConstellationDescriptionDatabase = new ConstellationDescriptionDatabase();
 		
-		ThisConstellationDescription = ConstellationDescriptionDatabase.GetConstellation(2);
+		ThisConstellationDescription = ConstellationDescriptionDatabase.GetConstellation(0);
 		
 		Load(ThisConstellationDescription);
 		
@@ -28,7 +28,7 @@ public class Main : Spatial
 		//UI.Connect("ConstellationChanged", this, nameof(Refresh));
 		
 		test1 = new ClosestToPoint();
-		((ClosestToPoint) test1).Init("TestResults\\ClosestToPoint",Constellation,new Vector3(0,2,2));
+		((ClosestToPoint) test1).Init("TestResults\\ClosestToPoint",ThisConstellation,new Vector3(0,2,2));
 	}
 	
 	private void RunTest()
@@ -40,14 +40,18 @@ public class Main : Spatial
 	{
 		ThisConstellationDescription = ConstellationDescriptionNew;
 		
-		if (!(Constellation is null))
+		if (!(ThisConstellation is null))
 		{
-			Constellation.QueueFree();
+			ThisConstellation.QueueFree();
 		}
 		
-		Constellation = ThisConstellationDescription.Create(WorldEnvironment);
+		ThisConstellation = ThisConstellationDescription.Create(WorldEnvironment);
 		
-		AddChild(Constellation);
+		AddChild(ThisConstellation);
+		
+		ThisConstellation.ApplyLinking();
+		
+		ThisConstellation.ApplyColouringMethod();
 	}
 	
 	private void Refresh()

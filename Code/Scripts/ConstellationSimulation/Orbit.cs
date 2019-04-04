@@ -9,7 +9,6 @@ public class Orbit : Spatial
 	
 	public OrbitalSphere OrbitalSphere;
 	public Satellite[] Satellites;
-	public int NumOfSatellites;
 	
 	public float PhaseOffset;
 	public float LongditudonalOffset;
@@ -22,14 +21,14 @@ public class Orbit : Spatial
 
     public override void _Ready()
     {
-		NumOfSatellites = OrbitalSphere.SatellitesPerOrbit;
-		
 		ComputeOrbitPoints();
+
     }
 	
 	public override void _Process(float delta)
 	{
-		UpdateSattelites();	
+		UpdateSattelites();
+		OrbitalSphere.Constellation.ThisLinkingMethod.UpdateOrbit(this);
 	}
 	
 	public void Init(
@@ -97,12 +96,13 @@ public class Orbit : Spatial
 	public void UpdateSattelites() 
 	{
 		float trueAnomaly = OrbitalSphere.RotationOfOrbit;
+		int satellitesPerSphere = OrbitalSphere.SatellitesPerOrbit;
 		
 		//translate true anomaly into displacement in the array
 		float arrayPos = trueAnomaly * ThisWorldEnvironment.Precision / (2 * (float) Math.PI);
-		float arrayGap = ((float) ThisWorldEnvironment.Precision) / (float) NumOfSatellites;		
+		float arrayGap = ((float) ThisWorldEnvironment.Precision) / (float) satellitesPerSphere;
 		
-		for (int i = 0; i < NumOfSatellites; i++) 
+		for (int i = 0; i < satellitesPerSphere; i++) 
 		{
 
 			int arrayValue = (int) Math.Floor(arrayPos);

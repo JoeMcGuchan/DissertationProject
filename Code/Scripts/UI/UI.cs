@@ -11,14 +11,13 @@ public class UI : Node
 
 	public void Init(ConstellationDescription ConstellationDescriptionNew, WorldEnvironment WorldEnvironemntNew)
 	{
-		Console.WriteLine(ConstellationDescriptionNew.numOfSpheres);
 		ThisConstellationDescription = ConstellationDescriptionNew;
 		ThisWorldEnvironment = WorldEnvironemntNew;
 	}
 
 	public void OnNumberOfOrbitsValueChanged(int numOfObrits)
 	{
-		ThisConstellationDescription.orbitalPlaness[0] = numOfObrits;
+		ThisConstellationDescription.OrbitalPlanesPerSphere[0] = numOfObrits;
 		EmitSignal("ConstellationChanged");
 	}
 

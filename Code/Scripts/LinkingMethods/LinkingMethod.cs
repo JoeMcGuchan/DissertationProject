@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+using System.Collections.Generic;
+
 public abstract class LinkingMethod
 {
     // This abstract class describes the way that a sattelite forms
@@ -21,4 +23,6 @@ public abstract class LinkingMethod
 	public abstract void UpdateConstellation(Constellation constellation);
 	
 	public abstract void UpdateOrbit(Orbit orbit);
+	
+	public abstract List<Link> GetAllLinks();
 }

@@ -11,8 +11,6 @@ public class Link : Spatial
 	public Satellite Sat2;
 	public float Dist;
 	
-	ColouringMethod ColouringMethod;
-	
 	//used for algoritms
 	public bool Marked = false;
 	
@@ -31,11 +29,14 @@ public class Link : Spatial
 		
 		Line = new ImmediateGeometry();
 		
+		AddChild(Line);
+		
 		Update();
 	}
 	
 	public void Update()
 	{
+		Dist = Sat1.Translation.DistanceTo(Sat2.Translation);
 		Draw();
 	}
 	

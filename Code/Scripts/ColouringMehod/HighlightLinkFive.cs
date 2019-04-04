@@ -35,4 +35,6 @@ public class HighlightLinkFive : ColouringMethod
 //			}
 //		}
 	}
+	
+	public override void ColourLink(Link l) {}
 }

@@ -31,26 +31,30 @@ public class ClosestToPoint : Test
 	
 	public override void Run()
 	{
-//		WriteLine("Run number " + RunNumber++);
-//
-//		CurrentDistance = float.MaxValue;
-//
-//		foreach (Satellite sat in AllSatellites)
-//		{
-//			Vector3 point = sat.Translation;
-//			float dist = point.DistanceTo(ClosePoint);
-//
-//			if (dist < CurrentDistance)
-//			{
-//				CurrentDistance = dist;
-//				ClosestSatCurrent = sat;
-//			}
-//		}
-//
-//		WriteLine("Closest sat to: "+ClosePoint+" is ["+ClosestSatCurrent.ID[0]
-//			+","+ClosestSatCurrent.ID[1]
-//			+","+ClosestSatCurrent.ID[2]+
-//			"] at distance "+CurrentDistance);
+		WriteLine("Run number " + RunNumber++);
+
+		CurrentDistance = float.MaxValue;
+
+		foreach (Satellite sat in AllSatellites)
+		{
+			Vector3 point = sat.Translation;
+			float dist = point.DistanceTo(ClosePoint);
+
+			if (dist < CurrentDistance)
+			{
+				CurrentDistance = dist;
+				ClosestSatCurrent = sat;
+			}
+			
+			sat.Marked = false;
+		}
+		
+		ClosestSatCurrent.Marked = true;
+
+		WriteLine("Closest sat to: "+ClosePoint+" is ["+ClosestSatCurrent.ID
+			+","+ClosestSatCurrent.Orbit.ID
+			+","+ClosestSatCurrent.Orbit.OrbitalSphere.ID+
+			"] at distance "+CurrentDistance);
 	}
 	
 	

@@ -30,4 +30,6 @@ public class OrbitGradient : ColouringMethod
 //			sat.Links[n].Line.MaterialOverride = LinkMat;
 //		}
 	}
+	
+	public override void ColourLink(Link l) {}
 }

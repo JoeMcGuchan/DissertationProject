@@ -6,33 +6,40 @@ using System;
 
 public class ConstellationDescription
 {
-	public int[] orbitalPlaness; 
-	public int[] sattelitesPerPlanes;
-	public int[] altitudes;
-	public float[] inclinations;
-	public int[] phaseOffsets;
-	public float[] timeOffsets;
-	public LinkingMethod[] linkingMethods;
-	public int numOfSpheres;
+	public int NumOfSpheres;
+	
+	public int[] OrbitalPlanesPerSphere; 
+	public int[] SattelitesPerPlanePerSphere;
+	public int[] Altitudes;
+	public float[] Inclinations;
+	public int[] PhaseOffsets;
+	public float[] TimeOffsets;
+	
+	public LinkingMethod ThisLinkingMethod;
+	public ColouringMethod ThisColouringMethod;
 
 	public ConstellationDescription(
-		int[] orbitalPlanessNew, 
-		int[] sattelitesPerPlanesNew,
+		int numOfSpheresNew,
+		int[] orbitalPlanesPerSphereNew, 
+		int[] sattelitesPerPlanePerSphereNew,
 		int[] altitudesNew,
 		float[] inclinationsNew,
 		int[] phaseOffsetsNew,
 		float[] timeOffsetsNew,
-		LinkingMethod[] linkingMethodsNew,
-		int numOfSpheresNew
+		LinkingMethod linkingMethodsNew,
+		ColouringMethod colouringMethodNew
 	) {
-		orbitalPlaness = orbitalPlanessNew; 
-		sattelitesPerPlanes = sattelitesPerPlanesNew;
-		altitudes = altitudesNew;
-		inclinations = inclinationsNew;
-		phaseOffsets = phaseOffsetsNew;
-		timeOffsets = timeOffsetsNew;
-		linkingMethods = linkingMethodsNew;
-		numOfSpheres = numOfSpheresNew;
+		NumOfSpheres = numOfSpheresNew;
+		
+		OrbitalPlanesPerSphere = orbitalPlanesPerSphereNew; 
+		SattelitesPerPlanePerSphere = sattelitesPerPlanePerSphereNew;
+		Altitudes = altitudesNew;
+		Inclinations = inclinationsNew;
+		PhaseOffsets = phaseOffsetsNew;
+		TimeOffsets = timeOffsetsNew;
+		
+		ThisLinkingMethod = linkingMethodsNew;
+		ThisColouringMethod = colouringMethodNew;
 	}
 
 	// creates a constellation from the inputs
@@ -46,18 +53,17 @@ public class ConstellationDescription
 
 		Constellation newConstellation = constellationScene.Instance() as Constellation;
 
-		OrbitalSphere[] orbitalSpheresNew = new OrbitalSphere[numOfSpheres];
+		OrbitalSphere[] orbitalSpheresNew = new OrbitalSphere[NumOfSpheres];
 
-		for (int i = 0; i < numOfSpheres; i++) 
+		for (int i = 0; i < NumOfSpheres; i++) 
 		{
 			OrbitalSphere newOrbitalSphere = orbitalSphereScene.Instance() as OrbitalSphere;
 
-			int orbitalPlanes = orbitalPlaness[i];
-			int sattelitesPerPlane = sattelitesPerPlanes[i];
-			float distanceAboveCore = altitudes[i] / 1000 + worldEnvironment.SizeOfEarth;
-			float inclination = inclinations[i] * (float) Math.PI * 2 / 360;
-			int phaseOffset = phaseOffsets[i];
-			LinkingMethod linkingMethod = linkingMethods[i];
+			int orbitalPlanes = OrbitalPlanesPerSphere[i];
+			int sattelitesPerPlane = SattelitesPerPlanePerSphere[i];
+			float distanceAboveCore = Altitudes[i] / 1000 + worldEnvironment.SizeOfEarth;
+			float inclination = Inclinations[i] * (float) Math.PI * 2 / 360;
+			int phaseOffset = PhaseOffsets[i];
 
 			Orbit[] orbits = new Orbit[orbitalPlanes];
 
@@ -99,7 +105,7 @@ public class ConstellationDescription
 				inclination,
 				sattelitesPerPlane,
 				phaseOffset,
-				linkingMethod,
+				ThisLinkingMethod,
 				newConstellation,
 				worldEnvironment,
 				i
@@ -111,8 +117,10 @@ public class ConstellationDescription
 
 		newConstellation.Init(
 			orbitalSpheresNew, 
-			numOfSpheres,
-			worldEnvironment
+			NumOfSpheres,
+			worldEnvironment,
+			ThisLinkingMethod,
+			ThisColouringMethod
 		);
 
 		return newConstellation;
