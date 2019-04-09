@@ -22,6 +22,8 @@ public abstract class LinkingMethod
 	//this method is used by a sphere to update the links on all it's sats
 	public abstract void UpdateConstellation(Constellation constellation);
 	
+	public abstract void UpdateBaseStation(BaseStation baseStation);
+	
 	public abstract void UpdateOrbit(Orbit orbit);
 	
 	public abstract List<Link> GetAllLinks();

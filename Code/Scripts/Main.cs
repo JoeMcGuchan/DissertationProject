@@ -47,6 +47,8 @@ public class Main : Spatial
 		
 		ThisConstellation = ThisConstellationDescription.Create(WorldEnvironment);
 		
+		ThisConstellation.AddBaseStation(0,0);
+		
 		AddChild(ThisConstellation);
 		
 		ThisConstellation.ApplyLinking();

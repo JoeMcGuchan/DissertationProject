@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Constellation : Spatial
 {
+	public List<BaseStation> BaseStations;
+	
     // This represents a collection of orbital spheres
 	public OrbitalSphere[] OrbitalSpheres;
 	public int NumOfSpheres;
@@ -38,6 +40,18 @@ public class Constellation : Spatial
 		
 		ThisLinkingMethod = linkingMethodNew;
 		ThisColouringMethod = colouringMethodNew;
+		
+		BaseStations = new List<BaseStation>();
+	}
+	
+	public void AddBaseStation(float lng, float lat) {
+		var baseStationScene = ResourceLoader.Load("res://Scenes//BaseStation.tscn") as PackedScene;
+		BaseStation baseStation = baseStationScene.Instance() as BaseStation;
+		
+		baseStation.Init(lng,lat,ThisLinkingMethod,this,ThisWorldEnvironment);
+		
+		AddChild(baseStation);
+		BaseStations.Add(baseStation);
 	}
 	
 	//called when 

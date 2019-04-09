@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scripts/UI/Camera.gd" type="Script" id=1]
 
-
 [node name="KinematicBody" type="KinematicBody" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.730053, 0 )

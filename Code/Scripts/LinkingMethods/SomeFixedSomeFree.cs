@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class SomeFixedSomeFree : LinkingMethod
 {
+	float MaxBaseAngle;
+	
     public int[] NumOfFreeLinks;
 	
 	// we use HALF as each satellite has one link in and
@@ -21,7 +23,16 @@ public class SomeFixedSomeFree : LinkingMethod
 	// Free links
 	public List<Link> FreeLinks;
 	
+	// Links to / from base stations
+	public List<Link> BaseStationLinks;
+	
 	public Constellation ThisConstellation;
+	
+	//Redundant but useful for efficiency;
+	public List<Satellite> AllSats;
+	
+	PackedScene SatLinkScene;
+	PackedScene DownLinkScene;
 	
 	public SomeFixedSomeFree(
 		int[] numOfFreeLinks,
@@ -36,13 +47,19 @@ public class SomeFixedSomeFree : LinkingMethod
 	//this method is used by an orbital sphere to initialise the links on all it's sats
 	public override void Initialise(Constellation constellation)
 	{
-		var linkScene = ResourceLoader.Load("res://Scenes//Link.tscn") as PackedScene;
+		MaxBaseAngle = (float) Math.PI * 40 * 2 / 360;
+		
+		SatLinkScene = ResourceLoader.Load("res://Scenes//SatLink.tscn") as PackedScene;
+		DownLinkScene = ResourceLoader.Load("res://Scenes//DownLink.tscn") as PackedScene;
 		
 		ThisConstellation = constellation;
 		
 		FixedLinks = new List<Link>();
 		MovingLinks = new List<Link>[constellation.NumOfSpheres][];
 		FreeLinks = new List<Link>();
+		BaseStationLinks = new List<Link>();
+		
+		AllSats = new List<Satellite>();
 		
 		for (int x = 0; x < constellation.NumOfSpheres; x++)
 		{
@@ -84,7 +101,7 @@ public class SomeFixedSomeFree : LinkingMethod
 						
 						Satellite sat2 = sphere.Orbits[ynew].Satellites[znew];
 						
-						Link link = linkScene.Instance() as Link;
+						SatLink link = SatLinkScene.Instance() as SatLink;
 						
 						link.Init(sat, sat2);
 						
@@ -96,6 +113,8 @@ public class SomeFixedSomeFree : LinkingMethod
 						{
 							MovingLinks[x][y].Add(link);
 						}
+						
+						AllSats.Add(sat);
 					}
 				}
 			}
@@ -105,8 +124,40 @@ public class SomeFixedSomeFree : LinkingMethod
 	//this method is used by a sphere to update the links on all it's sats
 	public override void UpdateConstellation(Constellation constellation)
 	{
-
+		BaseStationLinks.Clear();
+		
+		foreach (BaseStation b in constellation.BaseStations)
+		{
+			UpdateBaseStation(b);
+		}
 	}
+	
+	public override void UpdateBaseStation(BaseStation baseStation) 
+	{
+		baseStation.ClearLinks();
+		AddLinksToBaseStation(baseStation);
+	}
+	
+	public void AddLinksToBaseStation(BaseStation baseStation)
+	{
+		foreach (Satellite s in AllSats)
+		{
+			float angle = (s.Translation - baseStation.Translation).AngleTo(baseStation.Translation);
+			
+			if (angle < MaxBaseAngle)
+			{
+				DownLink link = DownLinkScene.Instance() as DownLink;
+				
+				Console.WriteLine(link);
+				Console.WriteLine(s);
+				Console.WriteLine(baseStation);
+				
+				link.Init(s,baseStation);
+				
+				BaseStationLinks.Add(link);
+			}
+		}
+	} 
 	
 	//Update each of the moving links in the orbit
 	public override void UpdateOrbit(Orbit orbit)
@@ -124,6 +175,8 @@ public class SomeFixedSomeFree : LinkingMethod
 		allLinks.AddRange(FixedLinks);
 		
 		allLinks.AddRange(FreeLinks);
+		
+		allLinks.AddRange(BaseStationLinks);
 		
 		for (int i = 0; i < ThisConstellation.NumOfSpheres; i++)
 		{

@@ -19,6 +19,8 @@ public class HighlightLinkFive : ColouringMethod
 		LinkMat2.AlbedoColor = new Color("ff0000");
 	}
 	
+	public override void ColourBaseStation(BaseStation b) {}
+	
 	public override void ColourSat(Satellite sat)
     {
 //		sat.SatMesh.MaterialOverride = SatMat;

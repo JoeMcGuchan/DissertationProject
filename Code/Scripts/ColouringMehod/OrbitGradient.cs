@@ -17,6 +17,8 @@ public class OrbitGradient : ColouringMethod
 		LinkMat.AlbedoColor = new Color("333333");
 	}
 	
+	public override void ColourBaseStation(BaseStation b) {}
+	
 	public override void ColourSat(Satellite sat)
     {
 //		float interpolationFactor = (float) Math.Abs(((float) sat.ID[1] * 2f) / (sat.Orbit.orbitalSphere.numOfOrbits) - 1f);

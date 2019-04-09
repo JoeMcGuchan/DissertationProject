@@ -11,6 +11,8 @@ public class NoLinks : LinkingMethod
 	
 	public override void UpdateConstellation(Constellation constellation) {}
 	
+	public override void UpdateBaseStation(BaseStation baseStation) {}
+	
 	public override void UpdateOrbit(Orbit orbit) {}
 	
 	public override List<Link> GetAllLinks() {return new List<Link>();}

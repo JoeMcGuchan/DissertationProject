@@ -58,18 +58,6 @@ public class Orbit : Spatial
 		{
 			float trueAnomaly = (float) Math.PI * 2 * (i + PhaseOffset) / precision;
 			
-//			// we start with a point in the x direction
-//			var newPos = new Vector3(distanceAboveCore, 0, 0);
-//
-//			// first we treat our equatorial plane as our orbital plane
-//			newPos = newPos.Rotated(new Vector3(0,1,0),trueAnomaly);
-//
-//			// then we apply our inclination
-//			newPos = newPos.Rotated(new Vector3(1,0,0),inclination);
-//
-//			// finally we apply our offset
-//			newPos = newPos.Rotated(new Vector3(0,1,0),longditudonalOffset);
-//
 			// we start with our neutral basis
 			Basis basis = new Basis(new Vector3(1,0,0), new Vector3(0,1,0), new Vector3(0,0,1));
 			

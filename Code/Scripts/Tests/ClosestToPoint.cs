@@ -11,12 +11,16 @@ public class ClosestToPoint : Test
 	float CurrentDistance;
 	Satellite ClosestSatCurrent;
 	
+	Constellation ThisConstellation;
+	
 	public void Init(String filePath, Constellation constellation, Vector3 point)
 	{
 		CreateFile(filePath);
 		
 		AllSatellites = GetAllSatsList(constellation);
 		ClosePoint = point;
+		
+		ThisConstellation = constellation;
 	}
 	
 	public void SetPoint(Vector3 point)
@@ -55,6 +59,8 @@ public class ClosestToPoint : Test
 			+","+ClosestSatCurrent.Orbit.ID
 			+","+ClosestSatCurrent.Orbit.OrbitalSphere.ID+
 			"] at distance "+CurrentDistance);
+			
+		ThisConstellation.ApplyColouringMethod();
 	}
 	
 	

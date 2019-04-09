@@ -2,9 +2,7 @@
 
 [ext_resource path="res://Scripts/ConstellationSimulation/OrbitalSphere.cs" type="Script" id=1]
 
-
-
-[node name="OrbitalSphere" type="Spatial"]
+[node name="OrbitalSphere" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 

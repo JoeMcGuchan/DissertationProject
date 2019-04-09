@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/ConstellationSimulation/WorldEnvironment.cs" type="Script" id=2]
-[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Images/USGS_majplatecolor.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Environment" id=1]
 
@@ -107,6 +108,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 0.640625, 0.640625, 0.640625, 1 )
+albedo_texture = ExtResource( 3 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -159,6 +161,7 @@ Precision = 50
 
 [node name="Earth" type="MeshInstance" parent="." index="1"]
 
+transform = Transform( -0.0624976, 0, -0.998045, 0, 1, 0, 0.998045, 0, -0.0624976, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -173,7 +176,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "material" ]
 
-[node name="Camera" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Camera" parent="." index="2" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26094, 0, 14.4727 )
 

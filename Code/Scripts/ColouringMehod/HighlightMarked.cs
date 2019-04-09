@@ -23,11 +23,23 @@ public class HighlightMarked : ColouringMethod
     {
 		if (sat.Marked)
 		{
-			sat.SatMesh.MaterialOverride = RedMat;
+			sat.ThisMesh.MaterialOverride = RedMat;
 		}
 		else
 		{
-			sat.SatMesh.MaterialOverride = GreyMat;
+			sat.ThisMesh.MaterialOverride = GreyMat;
+		}
+	}
+	
+	public override void ColourBaseStation(BaseStation b) 
+	{
+		if (b.Marked)
+		{
+			b.ThisMesh.MaterialOverride = RedMat;
+		}
+		else
+		{
+			b.ThisMesh.MaterialOverride = GreyMat;
 		}
 	}
 	
