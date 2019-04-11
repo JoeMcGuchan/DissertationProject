@@ -27,13 +27,20 @@ public class Main : Spatial
 		
 		//UI.Connect("ConstellationChanged", this, nameof(Refresh));
 		
-		test1 = new ClosestToPoint();
-		((ClosestToPoint) test1).Init("TestResults\\ClosestToPoint",ThisConstellation,new Vector3(0,2,2));
+		ThisConstellation.AddBaseStation(0,0);
+		
+		ThisConstellation.AddBaseStation(180,0);
+		
+		test1 = new ShortestPath("TestResults\\ClosestToPoint");
+		
+		((ShortestPath) test1).SetConstellation(ThisConstellation,ThisConstellation.BaseStations[0],ThisConstellation.BaseStations[1]);
 	}
 	
 	private void RunTest()
 	{
 		test1.Run();
+		
+		ThisConstellation.ApplyColouringMethod();
 	}
 	
 	private void Load(ConstellationDescription ConstellationDescriptionNew)
@@ -46,8 +53,6 @@ public class Main : Spatial
 		}
 		
 		ThisConstellation = ThisConstellationDescription.Create(WorldEnvironment);
-		
-		ThisConstellation.AddBaseStation(0,0);
 		
 		AddChild(ThisConstellation);
 		

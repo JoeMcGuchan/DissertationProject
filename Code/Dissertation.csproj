@@ -71,6 +71,7 @@
     <Compile Include="Scripts\Tests\ShortestPath.cs" />
     <Compile Include="Scripts\Tests\Test.cs" />
     <Compile Include="Scripts\Tests\TotalConnectivity.cs" />
+    <Compile Include="Scripts\Tests\PriorityQueue.cs" />
     <Compile Include="Scripts\UI\ConstellationDescription.cs" />
     <Compile Include="Scripts\UI\ConstellationDescriptionDatabase.cs" />
     <Compile Include="Scripts\UI\UI.cs" />

@@ -25,9 +25,9 @@ public abstract class Test
 //
 //	}
 	
-	public List<Satellite> GetAllSatsList(Constellation constellation)
+	public List<Vertex> GetAllVertsList(Constellation constellation)
 	{
-		List<Satellite> satList = new List<Satellite>();
+		List<Vertex> vList = new List<Vertex>();
 		int numOfSpheres = constellation.NumOfSpheres;
 		OrbitalSphere[] orbitalSpheres = constellation.OrbitalSpheres;
 		
@@ -45,12 +45,14 @@ public abstract class Test
 				
 				for(int k = 0; k < satellitesPerOrbit; k++)
 				{
-					satList.Add(satellites[k]);
+					vList.Add(satellites[k]);
 				}
 			}
 		}
 		
-		return satList;
+		vList.AddRange(constellation.BaseStations);
+		
+		return vList;
 	}
 	
 	public abstract void Run();

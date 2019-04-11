@@ -6,7 +6,7 @@ public class ClosestToPoint : Test
 {
     // Simple test, gets the closest satellite to a given point
 	
-	List<Satellite> AllSatellites;
+	List<Vertex> AllSatellites;
 	Vector3 ClosePoint;
 	float CurrentDistance;
 	Satellite ClosestSatCurrent;
@@ -17,7 +17,7 @@ public class ClosestToPoint : Test
 	{
 		CreateFile(filePath);
 		
-		AllSatellites = GetAllSatsList(constellation);
+		AllSatellites = GetAllVertsList(constellation);
 		ClosePoint = point;
 		
 		ThisConstellation = constellation;
