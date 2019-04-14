@@ -148,10 +148,6 @@ public class SomeFixedSomeFree : LinkingMethod
 			{
 				DownLink link = DownLinkScene.Instance() as DownLink;
 				
-				Console.WriteLine(link);
-				Console.WriteLine(s);
-				Console.WriteLine(baseStation);
-				
 				link.Init(s,baseStation);
 				
 				BaseStationLinks.Add(link);

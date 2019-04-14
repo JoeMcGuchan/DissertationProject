@@ -10,6 +10,7 @@ public class Orbit : Spatial
 	public OrbitalSphere OrbitalSphere;
 	public Satellite[] Satellites;
 	
+	//PhaseOffset is a number between 1 and 0 where 0 means no change to the orbital path and 1 means place sat 1 in the position of st 2 and so on.
 	public float PhaseOffset;
 	public float LongditudonalOffset;
 	
@@ -54,9 +55,13 @@ public class Orbit : Spatial
 		float DistanceAboveCore = OrbitalSphere.DistanceAboveCore;
 		float Inclination = OrbitalSphere.Inclination;
 		OrbitPoints = new Transform[precision];
+		
+		//TO calculate phasing take teh phase offset and multiply it by the arc between sat 1 and 0
+		float phaseing = PhaseOffset * (2 * (float) Math.PI / OrbitalSphere.SatellitesPerOrbit);
+		
 		for (int i = 0; i < precision; i++) 
 		{
-			float trueAnomaly = (float) Math.PI * 2 * (i + PhaseOffset) / precision;
+			float trueAnomaly = (float) Math.PI * 2 * i / precision + phaseing;
 			
 			// we start with our neutral basis
 			Basis basis = new Basis(new Vector3(1,0,0), new Vector3(0,1,0), new Vector3(0,0,1));

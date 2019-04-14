@@ -31,6 +31,7 @@ public class ShortestPath : Test
 	public ShortestPath(String filePath)
 	{
 		CreateFile(filePath);
+		WriteLine("Distance Numhops");
 	}
 	
 	public void SetConstellation(Constellation constellation, Vertex start, Vertex end)
@@ -118,7 +119,6 @@ public class ShortestPath : Test
 			v.Marked = true;
 		}
 		
-		WriteLine("Distance = "+Distance);
-		WriteLine("NumHops = "+NumHops);
+		WriteLine(Distance + " " + NumHops);
 	}
 }

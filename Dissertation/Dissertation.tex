@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{pgfplots}
 \graphicspath{ {./Images/} }
 
 \makeindex
@@ -281,6 +282,10 @@ However in the next figure we see how, when looking at the poles, the orbits hav
 
 %TODO Path connecting north and southward grid
 
+\subsection{Visualisation}
+
+For the earth texture I used a creative commons equirectangular map of the Earth. \cite{Map}
+
 \subsection{The Motion of the Player}
 
 One of the few pieces of code written in godot's native language GDScript is the code that controls user interaction with software. It made sense to write this in GDScript as GDScript is a much simpler language than C\#, and becase a very simple tutorial of first person motion was available in GDScript\cite{FirstPersonMotion}. However this code required some adaptation to make it work in 3D, primarily the removal of a number of unnesary features, and the addition of the ability to move up and down.
@@ -431,12 +436,54 @@ bfs(Sattelite s)
 
 This very straightforward test runs in in O(E) time, however when used on the network it becomes plainly apparent that it is not an extremely useful measure. The fact my model assumes that all stallites will be evenly spaces around the orbit (a very reasonable assumtion) renders it so that satellites are either all in range of one another, or not. It is extremely unlikely that a constellation with ever be at risk of breaking into components. However this test did serve as a good way to test my ability to write tests on the network, and output to files.
 
+\subsection{Dijkstra's Algoritm}
+
+Somewhat suprisingly, C sharp doesn't come with a priority queue, so I used one from \url{https://visualstudiomagazine.com/Articles/2012/11/01/Priority-Queues-with-C.aspx?Page=2}. And used comparisons from \url{https://github.com/BlueRaja/High-Speed-Priority-Queue-for-C-Sharp}.
+
 \section{Evaluation}
 
 \subsection{Analysis of Variables}
 For each of these variables, I modeled a variety of different possibilities, examining the latency of connections with each of these.
 
 %TODO
+
+\subsection{Movement of Satellites Relative to One Another}
+
+\begin{figure}
+\label{fig:Relative Paths of Satellites}
+\caption{An example of the paths that neightbors take relative to a satellite and it's direction of motion.}
+\begin{tikzpicture}
+\begin{axis}
+\addplot table [x=sat0x, y=sat0z, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=sat1x, y=sat1z, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=sat2x, y=sat2z, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=sat3x, y=sat3z, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=sat4x, y=sat4z, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=sat5x, y=sat5z, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=sat6x, y=sat6z, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=sat7x, y=sat7z, col sep=comma] {./Data/NearbySats.csv};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}
+\label{fig:Sideways of Satellites}
+\caption{The distance over time from a satellite to it's neighbors perpendicular to it's direction of motion and the direction towards the core of the Earth, or how far to the left or right of the satellite it's neightbors are over time.}
+\begin{tikzpicture}
+\begin{axis}
+\addplot table [x=time, y=sat0x, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=time, y=sat1x, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=time, y=sat2x, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=time, y=sat3x, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=time, y=sat4x, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=time, y=sat5x, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=time, y=sat6x, col sep=comma] {./Data/NearbySats.csv};
+\addplot table [x=time, y=sat7x, col sep=comma] {./Data/NearbySats.csv};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+For a given satellite orbiting the Earth, there are two 
 
 \subsection{Godot as a Simulation Environment}
 
@@ -464,6 +511,7 @@ Maintaining a consistent goal has been challenging during such an open-ended pro
 	\bibitem{EchoStar} \url{https://space.skyrocket.de/doc_sdat/jupiter-2.htm}
 	\bibitem{KABand} \url{file:///home/joe/Downloads/R12-ITURKA.BAND-C-0008!!PDF-E.pdf}
 	\bibitem{FirstPersonMotion} \url{https://github.com/turtletooth/GodotFirstPersonController}
+	\bibitem{Map} \url{https://commons.wikimedia.org/wiki/File:USGS_majplatecolor.png}
 \end{thebibliography}
 \appendix
 

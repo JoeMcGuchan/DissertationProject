@@ -56,4 +56,8 @@ public abstract class Test
 	}
 	
 	public abstract void Run();
+	
+	protected int mod(int x, int m) {
+		return (x%m + m)%m;
+	}	
 }

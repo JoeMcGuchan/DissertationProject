@@ -182,7 +182,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26094, 0, 14.4727 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 0.970002, 0.243096, 0, -0.243096, 0.970002, 0.110806, 8.51045, 6.62355 )
+transform = Transform( 1, 0, 0, 0, 0.970002, 0.243096, 0, -0.243096, 0.970002, -0.784172, 0, 8 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 1.0
@@ -206,7 +206,7 @@ directional_shadow_normal_bias = 0.8
 directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
-_sections_unfolded = [ "Shadow" ]
+_sections_unfolded = [ "Shadow", "Transform" ]
 
 [connection signal="run_test" from="Camera" to="." method="RunTest"]
 

@@ -5,6 +5,7 @@ public class Main : Spatial
 {
 	WorldEnvironment WorldEnvironment;
 	Node UI;
+	Spatial Player;
 	
 	public Constellation ThisConstellation;
 	public ConstellationDescription ThisConstellationDescription;
@@ -15,7 +16,7 @@ public class Main : Spatial
     {
         WorldEnvironment = (WorldEnvironment) FindNode("WorldEnvironment");
 		
-		//UI = (Node) FindNode("UI");
+		Player = (Spatial) FindNode("Camera");
 		
 		ConstellationDescriptionDatabase ConstellationDescriptionDatabase = new ConstellationDescriptionDatabase();
 		
@@ -31,9 +32,14 @@ public class Main : Spatial
 		
 		ThisConstellation.AddBaseStation(180,0);
 		
-		test1 = new ShortestPath("TestResults\\ClosestToPoint");
+		test1 = new NearbySats("TestResults\\NearbySats.csv",Player);
 		
-		((ShortestPath) test1).SetConstellation(ThisConstellation,ThisConstellation.BaseStations[0],ThisConstellation.BaseStations[1]);
+		((NearbySats) test1).SetConstellation(ThisConstellation);
+	}
+	
+	public override void _Process(float delta)
+	{
+		//test1.Run();
 	}
 	
 	private void RunTest()

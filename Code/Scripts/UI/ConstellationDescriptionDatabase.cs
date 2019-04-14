@@ -28,10 +28,10 @@ public class ConstellationDescriptionDatabase
 			new ConstellationDescription
 			(
 				1,
-				/*orbitalPlaness*/ new int[] {32}, 
-				/*sattelitesPerPlanes*/ new int[] {50},
-				/*altitudes*/ new int[] {1150},
-				/*inclinations*/ new float[] {53},
+				/*orbitalPlaness*/ new int[] {40}, 
+				/*sattelitesPerPlanes*/ new int[] {66},
+				/*altitudes*/ new int[] {550},
+				/*inclinations*/ new float[] {25},
 				/*phaseOffsets*/ new int[] {9},
 				/*timeOffset*/ new float[] {0f},
 				/*linkingMethod*/ simpleLinking,

@@ -61,7 +61,7 @@ public class ConstellationDescription
 
 			int orbitalPlanes = OrbitalPlanesPerSphere[i];
 			int sattelitesPerPlane = SattelitesPerPlanePerSphere[i];
-			float distanceAboveCore = Altitudes[i] / 1000 + worldEnvironment.SizeOfEarth;
+			float distanceAboveCore = ((float) Altitudes[i]) / 1000f + worldEnvironment.SizeOfEarth;
 			float inclination = Inclinations[i] * (float) Math.PI * 2 / 360;
 			int phaseOffset = PhaseOffsets[i];
 
@@ -90,7 +90,7 @@ public class ConstellationDescription
 					newOrbitalSphere, 
 					worldEnvironment,
 					longditudonalOffset,
-					((float) phaseOffset) * j / orbitalPlanes,
+					((float) phaseOffset) * j / (float) orbitalPlanes,
 					j
 				);
 
