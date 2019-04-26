@@ -257,7 +257,31 @@ Furthermroe, to draw a link, Godot demands that it be a "child" (not in the clas
 
 My solution was to use the method pattern. I would have an abstract class called "LinkingMethod" that implemented many different options for linking, and had three abstract methods. Inititialise, which runs on a constellation of satellites and creates the links, UpdateOrbit, which is ran every step by every orbit (to exploit multithreatding) and updates the associated links, and UpdateConstellation which is ran every step for the whole constellation.
 
-I use both the adgacency list and edge list methods. Links are initialised with satellites, and %TODO 
+Initiallly, I used adjacency lists, this lead to a number of problems.
+
+\begin{itemize}
+\item Some algorithms require a list of all edges, which is very hard to obtain with adjacency lists.
+\item When drawing edges in the visualisation, each would be drawn twice, for each vertex they were associated with.
+\item When updating links, valuessuch as the distance between two verticies had to be computed twice for each vertex.
+\end{itemize}
+
+Instead I created a new class of objects representing links, and gave each vertex a reference to the links associated with it. 
+
+In Godot, all drawn objects require a "child" (different to class inheritance) which is drawn with it. Children inherit the position and rotation of their parents, and rotating a group of objects is significantly more efficent than rotating a single object alone. Because of this, backwards and foward links, which do not change distance or position relative to the satellite, should be made children of the satellite, and they will then never have to be updated. Because of this, all links have a primary and secondary satellite. Which the link always being the child f the primary satellite.
+
+\subsection{Patterns used}
+
+Due to the extensive cusomisability of the network, I elected to use the Template Method pattern in three seperate locations.
+
+\begin{itemize}
+\item To describe different linking methods.
+\item To describe various different ways of colouring the network to highlight certain properties.
+\item To describe various tests to be applied to the network.
+\end{itemize}
+
+The Template Method parttern involed %TODO explain template method?
+
+I also utilitised
 
 \subsection{Initial Observations of Network}
 The first and most interesting observation when modelling the network was the way satellites wrap around the network. At any given point on the ground, there will be some satellites above you movign North-East, and some moving South-East. No satellites will be moving west as that is retrograde motion, which is expensive and unnessecary. Satellites on the same orbit will remain in a fixed poition relative to one another,  while sattelites moving in the same direction, but on different orbits, will move only slowly relative to one another. This means it is easy for a Northernly moving satellite to form stable links with other Northernly moving satellites. On the other hand, it is very difficult for a northernly moving satellite to form links with southernly moving satellites, as these satellites will be moving rather quickly relative to one another.

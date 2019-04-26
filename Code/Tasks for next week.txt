@@ -1,0 +1,6 @@
+Compute latencies and compare
+Double check shortest path numbers
+Experiment method 
+Deleting random satellites
+Variation in delay - leads to packet reordering
+Shortest paths between two fixed satellites over time

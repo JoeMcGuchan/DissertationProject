@@ -32,21 +32,19 @@ public class Main : Spatial
 		
 		ThisConstellation.AddBaseStation(180,0);
 		
-		test1 = new NearbySats("TestResults\\NearbySats.csv",Player);
+		test1 = new RepeatedShortestPathTest("TestResults\\RepeatedShortestPath.csv");
 		
-		((NearbySats) test1).SetConstellation(ThisConstellation);
+		((RepeatedShortestPathTest) test1).SetConstellation(ThisConstellation,ThisConstellation.BaseStations[0],ThisConstellation.BaseStations[1],60,1);
 	}
 	
 	public override void _Process(float delta)
 	{
-		//test1.Run();
+		test1.Run();
 	}
 	
 	private void RunTest()
 	{
 		test1.Run();
-		
-		ThisConstellation.ApplyColouringMethod();
 	}
 	
 	private void Load(ConstellationDescription ConstellationDescriptionNew)

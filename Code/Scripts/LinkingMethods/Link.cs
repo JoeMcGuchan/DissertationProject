@@ -49,4 +49,11 @@ public class Link : Spatial
 		Line.AddVertex(ToLocal(V2.Translation));
 		Line.End();
 	}
+	
+	public void Delete()
+	{
+		V1.Links.Remove(this);
+		V2.Links.Remove(this);
+		QueueFree();
+	}
 }

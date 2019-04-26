@@ -17,7 +17,7 @@ public class ClosestToPoint : Test
 	{
 		CreateFile(filePath);
 		
-		AllSatellites = GetAllVertsList(constellation);
+		AllSatellites = constellation.GetAllVertsList();
 		ClosePoint = point;
 		
 		ThisConstellation = constellation;

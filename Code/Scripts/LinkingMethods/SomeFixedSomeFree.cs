@@ -47,7 +47,7 @@ public class SomeFixedSomeFree : LinkingMethod
 	//this method is used by an orbital sphere to initialise the links on all it's sats
 	public override void Initialise(Constellation constellation)
 	{
-		MaxBaseAngle = (float) Math.PI * 40 * 2 / 360;
+		MaxBaseAngle = (float) Math.PI * 44.85f * 2 / 360;
 		
 		SatLinkScene = ResourceLoader.Load("res://Scenes//SatLink.tscn") as PackedScene;
 		DownLinkScene = ResourceLoader.Load("res://Scenes//DownLink.tscn") as PackedScene;
@@ -72,15 +72,16 @@ public class SomeFixedSomeFree : LinkingMethod
 				MovingLinks[x][y] = new List<Link>();
 				Orbit orbit = sphere.Orbits[y];
 				
-				for (int i = 0; i < NumOfFixedLinksHalved[x]; i++)
+				for (int z = 0; z < sphere.SatellitesPerOrbit; z++) 
 				{
-					int forwardOffset = FixedLinkOffsets[x][i][0];
-					int sideOffset = FixedLinkOffsets[x][i][1];
+					Satellite sat = orbit.Satellites[z];
 					
-					for (int z = 0; z < sphere.SatellitesPerOrbit; z++)
+					AllSats.Add(sat);
+					
+					for (int i = 0; i < NumOfFixedLinksHalved[x]; i++)
 					{
-						
-						Satellite sat = orbit.Satellites[z];
+						int forwardOffset = FixedLinkOffsets[x][i][0];
+						int sideOffset = FixedLinkOffsets[x][i][1];
 						
 						int ynew = y+sideOffset;
 						int znew = z+forwardOffset;
@@ -113,8 +114,6 @@ public class SomeFixedSomeFree : LinkingMethod
 						{
 							MovingLinks[x][y].Add(link);
 						}
-						
-						AllSats.Add(sat);
 					}
 				}
 			}
@@ -124,8 +123,6 @@ public class SomeFixedSomeFree : LinkingMethod
 	//this method is used by a sphere to update the links on all it's sats
 	public override void UpdateConstellation(Constellation constellation)
 	{
-		BaseStationLinks.Clear();
-		
 		foreach (BaseStation b in constellation.BaseStations)
 		{
 			UpdateBaseStation(b);
@@ -134,16 +131,34 @@ public class SomeFixedSomeFree : LinkingMethod
 	
 	public override void UpdateBaseStation(BaseStation baseStation) 
 	{
-		baseStation.ClearLinks();
 		AddLinksToBaseStation(baseStation);
 	}
 	
 	public void AddLinksToBaseStation(BaseStation baseStation)
 	{
-		foreach (Satellite s in AllSats)
+		List<Satellite> allSatsClone = new List<Satellite>(AllSats);
+		
+		foreach (Link l in baseStation.Links.ToArray())
 		{
-			float angle = (s.Translation - baseStation.Translation).AngleTo(baseStation.Translation);
+			Satellite s = (Satellite) l.V1;
 			
+			float angle = baseStation.Translation.AngleTo(s.Translation - baseStation.Translation);
+			
+			if (angle > MaxBaseAngle)
+			{
+				BaseStationLinks.Remove(l);
+				l.Delete();
+			} 
+			else {l.Update();}
+			
+			allSatsClone.Remove(s);
+		}
+		
+		foreach (Satellite s in allSatsClone)
+		{
+			float angle = baseStation.Translation.AngleTo(s.Translation - baseStation.Translation);
+			
+			//satellite has entered range
 			if (angle < MaxBaseAngle)
 			{
 				DownLink link = DownLinkScene.Instance() as DownLink;

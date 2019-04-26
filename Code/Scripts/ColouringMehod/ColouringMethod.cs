@@ -27,4 +27,24 @@ public abstract class ColouringMethod
 			}
 		}
 	}
+	
+	public void ColourVertexPath(VertexPath p)
+	{
+		foreach(Link l in p.Links)
+		{
+			ColourLink(l);
+		}
+		
+		foreach(Vertex v in p.Verticies)
+		{
+			if (v is BaseStation)
+			{
+				ColourBaseStation((BaseStation) v);
+			}
+			else if (v is Satellite)
+			{
+				ColourSat((Satellite) v);
+			} 
+		}
+	}
 }

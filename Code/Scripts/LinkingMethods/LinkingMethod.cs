@@ -27,4 +27,12 @@ public abstract class LinkingMethod
 	public abstract void UpdateOrbit(Orbit orbit);
 	
 	public abstract List<Link> GetAllLinks();
+	
+	public void SetMarkedAll(bool b)
+	{
+		foreach (Link l in GetAllLinks())
+		{
+			l.Marked = b;
+		}
+	}
 }

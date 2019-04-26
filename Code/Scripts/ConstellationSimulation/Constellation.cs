@@ -64,4 +64,37 @@ public class Constellation : Spatial
 	{
 		ThisLinkingMethod.Initialise(this);
 	}
+	
+	public List<Vertex> GetAllVertsList()
+	{
+		List<Vertex> vList = new List<Vertex>();
+		
+		for(int i = 0; i < NumOfSpheres; i++)
+		{
+			OrbitalSphere orbitalSphere = OrbitalSpheres[i];
+			int numOfOrbits = orbitalSphere.NumOfOrbits;
+			int satellitesPerOrbit = orbitalSphere.SatellitesPerOrbit;
+			Orbit[] orbits = orbitalSphere.Orbits;
+			
+			for(int j = 0; j < numOfOrbits; j++)
+			{
+				Orbit orbit = orbits[j];
+				Satellite[] satellites = orbit.Satellites;
+				
+				for(int k = 0; k < satellitesPerOrbit; k++)
+				{
+					vList.Add(satellites[k]);
+				}
+			}
+		}
+		
+		vList.AddRange(BaseStations);
+		
+		return vList;
+	}
+	
+	public void SetMarkedAll(bool b)
+	{
+		foreach (Vertex v in GetAllVertsList()) {v.Marked = b;}
+	}
 }

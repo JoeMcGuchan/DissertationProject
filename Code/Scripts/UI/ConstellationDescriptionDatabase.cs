@@ -37,6 +37,19 @@ public class ConstellationDescriptionDatabase
 				/*linkingMethod*/ simpleLinking,
 				/*colouringMathod*/ highlightMarked
 			),
+			/*SIMPLE SPHERE*/
+			new ConstellationDescription
+			(
+				1,
+				/*orbitalPlaness*/ new int[] {10}, 
+				/*sattelitesPerPlanes*/ new int[] {10},
+				/*altitudes*/ new int[] {550},
+				/*inclinations*/ new float[] {25},
+				/*phaseOffsets*/ new int[] {9},
+				/*timeOffset*/ new float[] {0f},
+				/*linkingMethod*/ simpleLinking,
+				/*colouringMathod*/ highlightMarked
+			),
 		};
 	}
 
