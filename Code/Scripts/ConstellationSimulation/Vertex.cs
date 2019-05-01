@@ -42,4 +42,22 @@ public class Vertex : Spatial
 		
 		Links.Clear();
 	}
+	
+	public void Delete()
+	{
+		ClearLinks();
+		QueueFree();
+	}
+	
+	public List<Vertex> GetLinkedVerticies()
+	{
+		List<Vertex> output = new List<Vertex>();
+		
+		foreach(Link l in Links)
+		{
+			if (l.V2 == this) {output.Add(l.V1);} else {output.Add(l.V2);}
+		}
+		
+		return output;
+	}
 }

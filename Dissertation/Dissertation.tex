@@ -241,7 +241,7 @@ Very little is known about how much load Starlink expects to receive or how it w
 \subsection{Repository Overview}
 
 \subsection{Difficulties of Modelling Orbits}
-On Implementation, I found that my planned method  of implimenting orbits was flawed, being able to simulate only 500 sattelites in motion before slowing down. Because of this, I changed to a precomputed method. In this method, orbits are precomputed as a number of points, and the position of sattelites is calculated by interpolating adgacent points, this sacrifices some accuracy, but vastly increases the computation speed.
+On Implementation, I found that my planned method of implimenting orbits was flawed, being able to simulate only 500 sattelites in motion before slowing down. Because of this, I changed to a precomputed method. In this method, orbits are precomputed as a number of points, and the position of sattelites is calculated by interpolating adgacent points, this sacrifices some accuracy, but vastly increases the computation speed.
 
 \subsection{Representing Links}
 
@@ -279,7 +279,7 @@ Due to the extensive cusomisability of the network, I elected to use the Templat
 \item To describe various tests to be applied to the network.
 \end{itemize}
 
-The Template Method parttern involed %TODO explain template method?
+This gave mea lot of customizability as it came %TODO
 
 I also utilitised
 
@@ -516,6 +516,12 @@ One of the larger mistakes I think I made during this Dissertation was to choose
 \subsection{Direction and Focus}
 
 Maintaining a consistent goal has been challenging during such an open-ended project. If I were to do this project again I would more carefully choose my orbjectives %TODO
+
+A number of projects in the early phrases of the project had to be abandoned not just because of inefficenfiency but because new information came about that rendered hem useless.
+
+The announcement from SpaceX on that they were significantly changing the constellation had massive impacts to the project. Firstly, the new satellites would have only four links instead of five, this implied that the satellites would not not have a "free" link but would instead be connected only to those ahead of and behind them. Because of this, I decided to drop the free links from my model, but doing so meant that a large chunk of code that had been written was discarded.
+
+The knowledge that SpaceX were willing to change their designs so abruptly also had a sigificant impact on modelling their constellation. It is likely that the second and third phases of Starlink will be similarly changed to be in similar altitudes to phase one, however without a full understanding on what these new spheres would be, or how they would connect to phase one, it was elected to instead focus slely on the first sphere's constellation. %Detail announcement
 
 \section{Conclusion}
 

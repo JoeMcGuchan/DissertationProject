@@ -88,16 +88,20 @@ public class Orbit : Spatial
 	
 	public void UpdateSattelites() 
 	{
-		float trueAnomaly = OrbitalSphere.RotationOfOrbit;
 		int satellitesPerSphere = OrbitalSphere.SatellitesPerOrbit;
 		
-		//translate true anomaly into displacement in the array
-		float arrayPos = trueAnomaly * ThisWorldEnvironment.Precision / (2 * (float) Math.PI);
+		//The angrular distance between two points in the precomputed table
 		float arrayGap = ((float) ThisWorldEnvironment.Precision) / (float) satellitesPerSphere;
 		
-		for (int i = 0; i < satellitesPerSphere; i++) 
+		foreach (Satellite s in Satellites)
 		{
+			float trueAnomaly = (OrbitalSphere.RotationOfOrbit + s.AngleOffset) % (2 * (float) Math.PI);
+			
+			//translate true anomaly into displacement in the array
+			float arrayPos = trueAnomaly * ThisWorldEnvironment.Precision / (2 * (float) Math.PI);
 
+			//translate position in array to the array position of the previous precomputed value and
+			//the amount to interpolate between these values
 			int arrayValue = (int) Math.Floor(arrayPos);
 			float arrayDisplacement = arrayPos % 1.0f;
 			
@@ -107,14 +111,19 @@ public class Orbit : Spatial
 			Transform t1 = OrbitPoints[val1];
 			Transform t2 = OrbitPoints[val2];
 			
-			Satellites[i].Transform = new Transform(
+			s.Transform = new Transform(
 				t1.basis.x.LinearInterpolate(t2.basis.x,arrayDisplacement),
 				t1.basis.y.LinearInterpolate(t2.basis.y,arrayDisplacement),
 				t1.basis.z.LinearInterpolate(t2.basis.z,arrayDisplacement),
 				t1.origin.LinearInterpolate(t2.origin,arrayDisplacement)
 			);
-	
-			arrayPos = (arrayPos + arrayGap) %  ((float) ThisWorldEnvironment.Precision);
 		}
+	}
+	
+	public void DeleteSat(Satellite sat)
+	{
+		List<Satellite> satsList = new List<Satellite>(Satellites);
+		satsList.Remove(sat);
+		Satellites = satsList.ToArray();
 	}
 }

@@ -156,7 +156,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 environment = SubResource( 1 )
 script = ExtResource( 2 )
-TimeFactor = 1.0
+TimeFactor = 20.0
 Precision = 50
 
 [node name="Earth" type="MeshInstance" parent="." index="1"]

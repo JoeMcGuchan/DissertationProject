@@ -24,37 +24,32 @@ public class Main : Spatial
 		
 		Load(ThisConstellationDescription);
 		
-		//UI.Call("Init",ThisConstellationDescription,WorldEnvironment);
-		
-		//UI.Connect("ConstellationChanged", this, nameof(Refresh));
-		
-		ThisConstellation.AddBaseStation(0,0);
-		
-		ThisConstellation.AddBaseStation(180,0);
-		
-		test1 = new RepeatedShortestPathTest("TestResults\\RepeatedShortestPath.csv");
-		
-		((RepeatedShortestPathTest) test1).SetConstellation(ThisConstellation,ThisConstellation.BaseStations[0],ThisConstellation.BaseStations[1],60,1);
+		test1 = new ConnectedComponentsRemovingSatellites(
+			"./TestResults/ConnectedComponentsRemovingSatellites.csv",
+			ThisConstellation,
+			33,
+			3,
+			10,
+			5,
+			100,
+			this
+		);
 	}
 	
 	public override void _Process(float delta)
 	{
 		test1.Run();
+		
 	}
 	
 	private void RunTest()
 	{
-		test1.Run();
+		//test1.Run();
 	}
 	
 	private void Load(ConstellationDescription ConstellationDescriptionNew)
 	{
 		ThisConstellationDescription = ConstellationDescriptionNew;
-		
-		if (!(ThisConstellation is null))
-		{
-			ThisConstellation.QueueFree();
-		}
 		
 		ThisConstellation = ThisConstellationDescription.Create(WorldEnvironment);
 		
@@ -65,8 +60,10 @@ public class Main : Spatial
 		ThisConstellation.ApplyColouringMethod();
 	}
 	
-	private void Refresh()
+	public void Refresh()
 	{
+		ThisConstellation.QueueFree();
+		
 		Load(ThisConstellationDescription);
 	}
 }

@@ -26,6 +26,10 @@ public abstract class LinkingMethod
 	
 	public abstract void UpdateOrbit(Orbit orbit);
 	
+	public abstract void DeleteLink(Link l);
+	
+	public abstract void DeleteSat(Satellite s);
+	
 	public abstract List<Link> GetAllLinks();
 	
 	public void SetMarkedAll(bool b)

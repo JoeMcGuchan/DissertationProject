@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic; 
+using System.Linq;
 
 public class Constellation : Spatial
 {
@@ -67,28 +68,31 @@ public class Constellation : Spatial
 	
 	public List<Vertex> GetAllVertsList()
 	{
-		List<Vertex> vList = new List<Vertex>();
+		List<Vertex> vList = GetAllSatsList().Cast<Vertex>().ToList();
 		
-		for(int i = 0; i < NumOfSpheres; i++)
+		vList.AddRange(BaseStations);
+		
+		return vList;
+	}
+	
+	public List<Satellite> GetAllSatsList()
+	{
+		List<Satellite> vList = new List<Satellite>();
+		
+		foreach (OrbitalSphere orbitalSphere in OrbitalSpheres)
 		{
-			OrbitalSphere orbitalSphere = OrbitalSpheres[i];
-			int numOfOrbits = orbitalSphere.NumOfOrbits;
-			int satellitesPerOrbit = orbitalSphere.SatellitesPerOrbit;
 			Orbit[] orbits = orbitalSphere.Orbits;
 			
-			for(int j = 0; j < numOfOrbits; j++)
+			foreach (Orbit orbit in orbits)
 			{
-				Orbit orbit = orbits[j];
 				Satellite[] satellites = orbit.Satellites;
 				
-				for(int k = 0; k < satellitesPerOrbit; k++)
+				foreach (Satellite satellite in satellites)
 				{
-					vList.Add(satellites[k]);
+					vList.Add(satellite);
 				}
 			}
 		}
-		
-		vList.AddRange(BaseStations);
 		
 		return vList;
 	}
@@ -96,5 +100,38 @@ public class Constellation : Spatial
 	public void SetMarkedAll(bool b)
 	{
 		foreach (Vertex v in GetAllVertsList()) {v.Marked = b;}
+	}
+	
+	//disable p percent of all satellites
+	public void DisableSatellitesProportion(double p)
+	{
+		Random rnd = new Random();
+		
+		foreach (Satellite s in GetAllSatsList())
+		{
+			if (rnd.NextDouble() < p)
+			{
+				DeleteSat(s);
+			}
+		}
+	}
+	
+	public void DisableSatellitesNumber(int n)
+	{
+		Random rnd = new Random();
+		
+		List<Satellite> allSats = GetAllSatsList();
+		
+		for (int i = 0; i < n; i++)
+		{
+			int x = rnd.Next(allSats.Count);
+			DeleteSat(allSats[x]);
+			allSats.RemoveAt(x);
+		}
+	}
+	
+	public void DeleteSat(Satellite s)
+	{
+		ThisLinkingMethod.DeleteSat(s);
 	}
 }

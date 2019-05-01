@@ -15,5 +15,9 @@ public class NoLinks : LinkingMethod
 	
 	public override void UpdateOrbit(Orbit orbit) {}
 	
+	public override void DeleteLink(Link l) {}
+	
+	public override void DeleteSat(Satellite s) {} 
+	
 	public override List<Link> GetAllLinks() {return new List<Link>();}
 }

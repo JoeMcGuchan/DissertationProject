@@ -66,6 +66,7 @@
     <Compile Include="Scripts\LinkingMethods\NoLinks.cs" />
     <Compile Include="Scripts\LinkingMethods\SatLink.cs" />
     <Compile Include="Scripts\LinkingMethods\SomeFixedSomeFree.cs" />
+    <Compile Include="Scripts\Misc\ConnectedComponentsAlgorithm.cs" />
     <Compile Include="Scripts\Misc\Graph.cs" />
     <Compile Include="Scripts\Misc\PathHeap.cs" />
     <Compile Include="Scripts\Misc\PathSetSortable.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Scripts\Misc\YensAlgorithm.cs" />
     <Compile Include="Scripts\Tests\ClosestToPoint.cs" />
     <Compile Include="Scripts\Tests\ConnectedComponents.cs" />
+    <Compile Include="Scripts\Tests\ConnectedComponentsRemovingSatellites.cs" />
     <Compile Include="Scripts\Tests\KShortestPaths.cs" />
     <Compile Include="Scripts\Tests\NearbySats.cs" />
     <Compile Include="Scripts\Tests\RepeatedShortestPathTest.cs" />

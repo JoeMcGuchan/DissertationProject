@@ -28,9 +28,6 @@ public class SomeFixedSomeFree : LinkingMethod
 	
 	public Constellation ThisConstellation;
 	
-	//Redundant but useful for efficiency;
-	public List<Satellite> AllSats;
-	
 	PackedScene SatLinkScene;
 	PackedScene DownLinkScene;
 	
@@ -59,8 +56,6 @@ public class SomeFixedSomeFree : LinkingMethod
 		FreeLinks = new List<Link>();
 		BaseStationLinks = new List<Link>();
 		
-		AllSats = new List<Satellite>();
-		
 		for (int x = 0; x < constellation.NumOfSpheres; x++)
 		{
 			OrbitalSphere sphere = constellation.OrbitalSpheres[x];
@@ -75,8 +70,6 @@ public class SomeFixedSomeFree : LinkingMethod
 				for (int z = 0; z < sphere.SatellitesPerOrbit; z++) 
 				{
 					Satellite sat = orbit.Satellites[z];
-					
-					AllSats.Add(sat);
 					
 					for (int i = 0; i < NumOfFixedLinksHalved[x]; i++)
 					{
@@ -136,7 +129,7 @@ public class SomeFixedSomeFree : LinkingMethod
 	
 	public void AddLinksToBaseStation(BaseStation baseStation)
 	{
-		List<Satellite> allSatsClone = new List<Satellite>(AllSats);
+		List<Satellite> allSatsClone = new List<Satellite>(ThisConstellation.GetAllSatsList());
 		
 		foreach (Link l in baseStation.Links.ToArray())
 		{
@@ -175,7 +168,7 @@ public class SomeFixedSomeFree : LinkingMethod
 	{
 		foreach (Link link in MovingLinks[orbit.OrbitalSphere.ID][orbit.ID])
 		{
-			link.Update();
+			if (!(link == null)) {link.Update();}
 		}
 	}
 	
@@ -199,4 +192,29 @@ public class SomeFixedSomeFree : LinkingMethod
 		
 		return allLinks;
 	}
+	
+	//ususally theres a faster way to delete a link, but if there isn't, this 
+	public override void DeleteLink(Link l)
+	{
+		
+	}
+	
+	public override void DeleteSat(Satellite s)
+	{
+		foreach (Link l in s.Links)
+		{
+			if (l.V1 is Satellite)
+			{
+				//remove all traces of this link
+				Satellite v1 = (Satellite) l.V1;
+				
+				MovingLinks[v1.Orbit.OrbitalSphere.ID][v1.Orbit.ID].Remove(l);
+				FixedLinks.Remove(l);
+				BaseStationLinks.Remove(l);
+				FreeLinks.Remove(l);
+			}
+		}
+		
+		s.Delete();
+	} 
 }
