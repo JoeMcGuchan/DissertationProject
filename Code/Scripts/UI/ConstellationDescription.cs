@@ -17,6 +17,8 @@ public class ConstellationDescription
 	
 	public LinkingMethod ThisLinkingMethod;
 	public ColouringMethod ThisColouringMethod;
+	
+	public Test ThisTest;
 
 	public ConstellationDescription(
 		int numOfSpheresNew,
@@ -27,7 +29,8 @@ public class ConstellationDescription
 		int[] phaseOffsetsNew,
 		float[] timeOffsetsNew,
 		LinkingMethod linkingMethodsNew,
-		ColouringMethod colouringMethodNew
+		ColouringMethod colouringMethodNew,
+		Test newTest
 	) {
 		NumOfSpheres = numOfSpheresNew;
 		
@@ -40,6 +43,8 @@ public class ConstellationDescription
 		
 		ThisLinkingMethod = linkingMethodsNew;
 		ThisColouringMethod = colouringMethodNew;
+		
+		ThisTest = newTest;
 	}
 
 	// creates a constellation from the inputs
@@ -125,7 +130,8 @@ public class ConstellationDescription
 			NumOfSpheres,
 			worldEnvironment,
 			ThisLinkingMethod,
-			ThisColouringMethod
+			ThisColouringMethod,
+			ThisTest
 		);
 
 		return newConstellation;

@@ -9,26 +9,28 @@ public class ShortestPathTest : Test
 	public int NumHops;
 	public float Distance;
 	
-	public Constellation TargetConstellation;
 	public Vertex Start;
 	public Vertex End;
 	
 	public ShortestPath ShortestPathGetter;
+	
+	public string FilePath;
 
-	public ShortestPathTest(String filePath)
+	public ShortestPathTest(String filePath, Vertex s, Vertex e)
 	{
-		CreateFile(filePath);
-		WriteLine("Distance,Numhops");
+		Start = s;
+		End = e;
+		FilePath = filePath;
 	}
 	
-	public void SetConstellation(Constellation constellation, Vertex start, Vertex end)
+	public override void Init(Constellation c)
 	{
-		TargetConstellation = constellation; 
-		Start = start;
-		End = end;
-		
+		TargetConstellation = c;
 		Graph g = new Graph(TargetConstellation.GetAllVertsList().ToArray(),TargetConstellation.ThisLinkingMethod.GetAllLinks().ToArray());
 		ShortestPathGetter = new ShortestPath(g,Start,End);
+	
+		CreateFile(FilePath);
+		WriteLine("Distance,Numhops");
 	}
 	
 	public override void Run()

@@ -11,10 +11,15 @@ var direction = Vector3()
 const FLY_SPEED = 5
 const FLY_ACCEL = 20
 
+const MAX_TESTS = 5
+
 signal run_test;
+signal new_test(i);
 
 #have we frozen the camera?
 var frozen = false
+
+var load_number = 0;
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -59,8 +64,16 @@ func fly(delta):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			frozen = true
-	if Input.is_action_pressed("restart"):
+	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("next_test"):
+		if (load_number < MAX_TESTS):
+			load_number += 1
+			emit_signal("new_test",load_number)
+	if Input.is_action_just_pressed("prev_test"):
+		if (load_number > 0):
+			load_number -= 1
+			emit_signal("new_test",load_number)
 	
 	direction = direction.normalized()
 	

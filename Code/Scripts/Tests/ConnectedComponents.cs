@@ -5,12 +5,18 @@ using System.Collections.Generic;
 public class ConnectedComponents : Test
 {
     // Simple test, returns the number of connected components
-	Constellation constellation;
-
-	public void Init(String filePath, Constellation constellationNew)
+	
+	string FilePath;
+	
+	public ConnectedComponents(String filePath)
 	{
-		CreateFile(filePath);
-		constellation = constellationNew;
+		FilePath = filePath;
+	}
+
+	public override void Init(Constellation constellationNew)
+	{
+		CreateFile(FilePath);
+		TargetConstellation = constellationNew;
 		
 		WriteLine("RunNumber,NumOfComponents");
 	}
@@ -19,7 +25,7 @@ public class ConnectedComponents : Test
 	{
 		int NumOfComponents = (
 			new ConnectedComponentsAlgorithm(
-				constellation.GetAllVertsList().ToArray()
+				TargetConstellation.GetAllVertsList().ToArray()
 			)
 		).Run();
 

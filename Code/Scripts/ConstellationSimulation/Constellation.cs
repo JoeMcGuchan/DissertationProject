@@ -15,6 +15,10 @@ public class Constellation : Spatial
 	public LinkingMethod ThisLinkingMethod;
 
 	public ColouringMethod ThisColouringMethod;
+	
+	public float RotationOfEarth = 0;
+	
+	public Test ThisTest;
 
     public override void _Ready()
     {
@@ -24,6 +28,24 @@ public class Constellation : Spatial
 	public override void _Process(float delta)
 	{
 		ThisLinkingMethod.UpdateConstellation(this);
+		
+		float timeStep = ThisWorldEnvironment.TimeFactor * delta;
+		RotationOfEarth = (RotationOfEarth + timeStep * ThisWorldEnvironment.RotationSpeedOfEarth) % (2 * (float) Math.PI);
+		
+		if (ThisTest.RunContinually)
+		{
+			ThisTest.Run();	
+		}
+		
+		((Spatial) GetParent().FindNode("Earth")).Rotation = new Vector3(0,RotationOfEarth + ThisWorldEnvironment.EarthRotationOffset,0);
+	}
+	
+	public void RunTest()
+	{
+		if (!ThisTest.RunContinually)
+		{
+			ThisTest.Run();
+		}
 	}
 	
 	//Gives all the data to the Constellation, but doesn't
@@ -33,7 +55,8 @@ public class Constellation : Spatial
 		int numOfSpheresNew,
 		WorldEnvironment worldEnvironmentNew,
 		LinkingMethod linkingMethodNew,
-		ColouringMethod colouringMethodNew
+		ColouringMethod colouringMethodNew,
+		Test newTest
 	) {
 		ThisWorldEnvironment = worldEnvironmentNew;
 		NumOfSpheres = numOfSpheresNew;
@@ -43,9 +66,13 @@ public class Constellation : Spatial
 		ThisColouringMethod = colouringMethodNew;
 		
 		BaseStations = new List<BaseStation>();
+		
+		ThisTest = newTest;
+		
+
 	}
 	
-	public void AddBaseStation(float lng, float lat) {
+	public BaseStation AddBaseStation(float lng, float lat) {
 		var baseStationScene = ResourceLoader.Load("res://Scenes//BaseStation.tscn") as PackedScene;
 		BaseStation baseStation = baseStationScene.Instance() as BaseStation;
 		
@@ -53,6 +80,8 @@ public class Constellation : Spatial
 		
 		AddChild(baseStation);
 		BaseStations.Add(baseStation);
+		
+		return baseStation;
 	}
 	
 	//called when 
@@ -133,5 +162,10 @@ public class Constellation : Spatial
 	public void DeleteSat(Satellite s)
 	{
 		ThisLinkingMethod.DeleteSat(s);
+	}
+	
+	public void InitialiseTest()
+	{
+		ThisTest.Init(this);
 	}
 }

@@ -5,7 +5,6 @@ public class NearbySats : Test
 {
     // Gets vector3s of adgacent stellites relative to direction of motion
 	
-	public Constellation TargetConstellation; 
 	
 	public Satellite[] Satellites;
 	public Satellite CenterSat;
@@ -17,19 +16,22 @@ public class NearbySats : Test
 	public int StartTime;
 	public int LastTime;
 
-	public NearbySats(String filePath, Spatial camera)
+	public NearbySats(String filePath)
 	{
 		CreateFile(filePath);
+	}
+	
+	public override void Init(Constellation constellation)
+	{
 		WriteLine("time,sat0x,sat0y,sat0z,sat1x,sat1y,sat1z,sat2x,sat2y,sat2z,sat3x,sat3y,sat3z,sat4x,sat4y,sat4z,sat5x,sat5y,sat5z,sat6x,sat6y,sat6z,sat7x,sat7y,sat7z");
 		
-		ThePlayer = camera;
+		ThePlayer = (Spatial) constellation.GetParent().FindNode("Camera");
 		
 		StartTime = OS.GetUnixTime();
 		LastTime = StartTime;
-	}
-	
-	public void SetConstellation(Constellation constellation)
-	{
+		
+		RunContinually = true;
+		
 		TargetConstellation = constellation; 
 		
 		CenterSat = TargetConstellation.OrbitalSpheres[0].Orbits[0].Satellites[0];

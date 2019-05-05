@@ -9,8 +9,9 @@ public class Main : Spatial
 	
 	public Constellation ThisConstellation;
 	public ConstellationDescription ThisConstellationDescription;
+	public ConstellationDescriptionDatabase ThisConstellationDescriptionDatabase;
 	
-	Test test1;
+	Transform PlayerInit;
 
     public override void _Ready()
     {
@@ -18,28 +19,11 @@ public class Main : Spatial
 		
 		Player = (Spatial) FindNode("Camera");
 		
-		ConstellationDescriptionDatabase ConstellationDescriptionDatabase = new ConstellationDescriptionDatabase();
+		PlayerInit = Player.Transform;
 		
-		ThisConstellationDescription = ConstellationDescriptionDatabase.GetConstellation(0);
+		ThisConstellationDescriptionDatabase = new ConstellationDescriptionDatabase();
 		
-		Load(ThisConstellationDescription);
-		
-		test1 = new ConnectedComponentsRemovingSatellites(
-			"./TestResults/ConnectedComponentsRemovingSatellites.csv",
-			ThisConstellation,
-			33,
-			3,
-			10,
-			5,
-			100,
-			this
-		);
-	}
-	
-	public override void _Process(float delta)
-	{
-		test1.Run();
-		
+		LoadByNumber(0);
 	}
 	
 	private void RunTest()
@@ -47,10 +31,52 @@ public class Main : Spatial
 		//test1.Run();
 	}
 	
+	public void Refresh()
+	{
+		ThisConstellation.QueueFree();
+		
+		Load(ThisConstellationDescription);
+	}
+	
+	private void LoadByNumber(int i)
+	{
+		ThisConstellationDescription = ThisConstellationDescriptionDatabase.GetConstellation(i);
+		
+		Load(ThisConstellationDescription);
+	}
+	
+	public void ReloadByNumber(int i)
+	{
+		ThisConstellation.QueueFree();
+		
+		LoadByNumber(i);
+		
+		Player.Transform = PlayerInit;
+	}
+	
 	private void Load(ConstellationDescription ConstellationDescriptionNew)
 	{
 		ThisConstellationDescription = ConstellationDescriptionNew;
 		
+		ResetConstellation();
+		
+		ThisConstellation.InitialiseTest();
+	}
+	
+	public void RefreshConstellation()
+	{
+		Test theTest = ThisConstellation.ThisTest;
+		
+		ThisConstellation.QueueFree();
+		
+		ResetConstellation();
+		
+		ThisConstellation.ThisTest = theTest;
+		ThisConstellation.ThisTest.TargetConstellation = ThisConstellation;
+	}
+	
+	public void ResetConstellation()
+	{
 		ThisConstellation = ThisConstellationDescription.Create(WorldEnvironment);
 		
 		AddChild(ThisConstellation);
@@ -58,12 +84,5 @@ public class Main : Spatial
 		ThisConstellation.ApplyLinking();
 		
 		ThisConstellation.ApplyColouringMethod();
-	}
-	
-	public void Refresh()
-	{
-		ThisConstellation.QueueFree();
-		
-		Load(ThisConstellationDescription);
 	}
 }

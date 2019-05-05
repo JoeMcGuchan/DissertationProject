@@ -215,6 +215,6 @@ public class SomeFixedSomeFree : LinkingMethod
 			}
 		}
 		
-		s.Delete();
+		((Satellite) s).Delete();
 	} 
 }

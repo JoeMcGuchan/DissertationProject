@@ -1,97 +1,146 @@
 using Godot;
 using System;
 
-public class RepeatedShortestPathTest : Test
+public class RepeatedShortestPath : Test
 {
-    // Repeatedly finds the shortest path every second for k seconds
+    // Simple test, returns the number of connected components
 	
-	public VertexPath ShortPath;
+	int LastTime;
 	
-	public Constellation TargetConstellation;
-	public Vertex Start;
-	public Vertex End;
+	//Number of times to delete all sattelites
+	int NExperiments;
 	
-	public ShortestPath ShortestPathGetter;
+	//Number of times to run each experiment
+	int NRepetitions;
 	
-	public int MaxTime;
-	public int LastTime;
-	//Counts up until max time
-	public int TimeCount;
-	public int StartTime;
+	//Number of samples to take in each experiment
+	int NSamples;
 	
-	//time gap between each run (realtime, minutes)
-	public int T;
+	//Time difference (in seconds) between each sample in the experiment
+	int TimeBetweenExperiments;
 	
-	public int NumHops;
-	public float Dist;
+	int SatsInConstellationInititially;
+	int SatsInConstellationCurent;
+	
+	//Number of satellites to delete after each experiment
+	int SatsRemovedEachExperiment;
+	
+	int TimeCounter;
+	
+	int SampleNumber;
+	int RepetitionNumber;
+	int ExperimentNumber;
+	
+	bool TestOver = false;
+	
+	Main M;
 
-	public RepeatedShortestPathTest(String filePath)
+	float Lat1;
+	float Lat2;
+	float Lng1;
+	float Lng2;
+
+	public RepeatedShortestPath(String filePath, int nE, int nR, int nS, int t, int x, float lng1, float lat1, float lng2, float lat2)
 	{
 		CreateFile(filePath);
-		WriteLine("Time,Distance,Numhops");
+		
+		TimeCounter = 0;
+		SampleNumber = 0;
+		RepetitionNumber = 0;
+		ExperimentNumber = 0;
+		
+		NExperiments = nE;
+		NRepetitions = nR;
+		NSamples = nS;
+		
+		TimeBetweenExperiments = t;
+		
+		SatsRemovedEachExperiment = x;
+		
+		LastTime = OS.GetUnixTime();
+		
+		RunContinually = true;
+		
+		Lng1 = lng1;
+		Lat1 = lat1;
+		Lng2 = lng2;
+		Lat2 = lat2;
 	}
 	
-	public void SetConstellation(Constellation constellation, Vertex start, Vertex end, int n, int t)
+	public override void Init(Constellation c)
 	{
-		TargetConstellation = constellation; 
-		Start = start;
-		End = end;
+		TargetConstellation = c;
 		
-		Graph g = new Graph(TargetConstellation.GetAllVertsList().ToArray(),TargetConstellation.ThisLinkingMethod.GetAllLinks().ToArray());
-		ShortestPathGetter = new ShortestPath(g,Start,End);
+		SatsInConstellationInititially = TargetConstellation.GetAllSatsList().Count;
+		SatsInConstellationCurent = SatsInConstellationInititially;
 		
-		TargetConstellation.SetMarkedAll(false);
-		TargetConstellation.ThisLinkingMethod.SetMarkedAll(false);
-	
-		T = t;
+		M = (Main) c.GetParent();
 		
-		StartTime = OS.GetUnixTime() / T;
-		LastTime = StartTime;
-		MaxTime = n;
-		TimeCount = 0;
-		
-		ShortPath = ShortestPathGetter.Run();
-		Dist = ShortPath.GetDist();
-		NumHops = ShortPath.NumVerts();
-		
-		WriteLine("0,"+Dist+","+NumHops);
+		WriteLine("NumOfSatsInConstellation,RepetitionNumber,SampleNumber,PathLengthHops,PathLengthDist");
+		RunTest();
 	}
 	
 	public override void Run()
 	{
-		//divide by t to maintain time stem
-		int time = OS.GetUnixTime() / T;
-		
-		if (time != LastTime)
+		if (LastTime != OS.GetUnixTime() && !TestOver)
 		{
-			LastTime = time;
+			LastTime = OS.GetUnixTime();
 			
-			RunShortestPath();
+			TimeCounter++;
 			
-			WriteLine((LastTime-StartTime)+","+Dist+","+NumHops);
-			
-			TimeCount++;
+			if (TimeCounter == TimeBetweenExperiments)
+			{
+				TimeCounter = 0;
+				
+				SampleNumber++;
+				
+				if (SampleNumber == NSamples)
+				{
+					SampleNumber = 0;
+					
+					RepetitionNumber++;
+					
+					if (RepetitionNumber == NRepetitions)
+					{
+						RepetitionNumber = 0;
+						
+						ExperimentNumber++;
+						
+						if (ExperimentNumber == NExperiments) {TestOver = true; return;}
+						
+						SatsInConstellationCurent -= SatsRemovedEachExperiment;
+					} 
+					
+					//Repeat experiment
+					M.RefreshConstellation();
+					TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
+				}
+				
+				RunTest();
+			}
 		}
-		
-		if (TimeCount>MaxTime)
-		{
-			TargetConstellation.GetTree().Quit();
-		}
-	} 
+	}
 	
-	public void RunShortestPath()
+	void RunTest()
 	{
-		ShortestPathGetter.SetLinks(TargetConstellation.ThisLinkingMethod.GetAllLinks().ToArray());
+		//Take another sample
 		
-		ShortPath.SetMarkedAll(false);
-		TargetConstellation.ThisColouringMethod.ColourVertexPath(ShortPath);
+		TargetConstellation.SetMarkedAll(false);
 		
-		ShortPath = ShortestPathGetter.Run();
+		Vertex V1 = TargetConstellation.AddBaseStation(Lng1,Lat1);
+		Vertex V2 = TargetConstellation.AddBaseStation(Lng2,Lat2);
 		
-		ShortPath.SetMarkedAll(true);
-		TargetConstellation.ThisColouringMethod.ColourVertexPath(ShortPath);
+		VertexPath shortPath = (
+		new ShortestPath(
+				new Graph(
+					TargetConstellation.GetAllSatsList().ToArray(),
+					TargetConstellation.ThisLinkingMethod.GetAllLinks().ToArray()
+				), 
+				V1, 
+				V2
+			)
+		).Run();
 		
-		Dist = ShortPath.GetDist();
-		NumHops = ShortPath.NumVerts();
+		WriteLine(SatsInConstellationCurent+","+RepetitionNumber+","+SampleNumber+","+shortPath.NumVerts()+","+shortPath.GetDist());
 	}
 }

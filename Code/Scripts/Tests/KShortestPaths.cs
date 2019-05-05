@@ -13,7 +13,6 @@ public class KShortestPaths : Test
 	
 	public int K;
 	
-	public Constellation TargetConstellation;
 	public Vertex Start;
 	public Vertex End;
 	
@@ -21,24 +20,36 @@ public class KShortestPaths : Test
 	public int StartTime;
 	public int LastTime;
 	
+	string FilePath;
 	
-	public KShortestPaths(String filePath, int k)
+	float Long1;
+	float Lat1;
+	float Long2;
+	float Lat2;
+	
+	public KShortestPaths(String filePath, int k, float long1, float lat1, float long2, float lat2)
 	{
 		K = k;
 		
 		StartTime = OS.GetUnixTime();
 		LastTime = StartTime;
 		
-		String str = "Time";
+		FilePath = filePath;
 		
-		WriteLine(str);
+		Long1 = long1;
+		Lat1 = lat1;
+		Long2 = long2;
+		Lat2 = lat2;
+		
+		RunContinually = false;
 	}
 	
-	public void SetConstellation(Constellation constellation, Vertex start, Vertex end)
+	public override void Init(Constellation constellation)
 	{
 		TargetConstellation = constellation; 
-		Start = start;
-		End = end;
+		
+		Start = constellation.AddBaseStation(Long1,Lat1);
+		End = constellation.AddBaseStation(Long2,Lat2);
 	}
 	
 	public override void Run()
@@ -49,8 +60,7 @@ public class KShortestPaths : Test
 		{
 			LastTime = time;
 			
-			String str = "" + (time - StartTime);
-			
+			String str = "" + (time - StartTime);	
 
 			WriteLine(str);
 		}

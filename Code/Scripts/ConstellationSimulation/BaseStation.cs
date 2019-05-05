@@ -14,14 +14,10 @@ public class BaseStation : Vertex
 	//The position that the satellite would be if 
 	//Londitude 0 was on the x axis
 	Vector3 BasePos;
-	float ThisRotation;
 
     public override void _Process(float delta)
 	{
-		float timeStep = ThisWorldEnvironment.TimeFactor * delta;
-		ThisRotation = (ThisRotation + timeStep * ThisWorldEnvironment.RotationSpeedOfEarth) % (2 * (float) Math.PI);
-		
-		Translation = BasePos.Rotated(new Vector3(0,1,0),ThisRotation);
+		Translation = BasePos.Rotated(new Vector3(0,1,0),ThisConstellation.RotationOfEarth);
 	}
 	
 	public void SetCoordinates(float lng, float lat)
@@ -50,8 +46,6 @@ public class BaseStation : Vertex
 		ThisConstellation = constellationNew;
 		
 		Translation = BasePos;
-		
-		ThisRotation = 0.0f;
 		
 		base.Init();
 	} 

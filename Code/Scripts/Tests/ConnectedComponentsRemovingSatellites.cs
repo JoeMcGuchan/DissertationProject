@@ -4,7 +4,6 @@ using System;
 public class ConnectedComponentsRemovingSatellites : Test
 {
     // Simple test, returns the number of connected components
-	Constellation Constellation;
 	
 	int LastTime;
 	
@@ -32,16 +31,13 @@ public class ConnectedComponentsRemovingSatellites : Test
 	int RepetitionNumber;
 	int ExperimentNumber;
 	
+	bool TestOver = false;
+	
 	Main M;
 
-	public ConnectedComponentsRemovingSatellites(String filePath, Constellation constellationNew, int nE, int nR, int nS, int t, int x, Main m)
+	public ConnectedComponentsRemovingSatellites(String filePath, int nE, int nR, int nS, int t, int x)
 	{
 		CreateFile(filePath);
-		
-		Constellation = constellationNew;
-		
-		SatsInConstellationInititially = Constellation.GetAllSatsList().Count;
-		SatsInConstellationCurent = SatsInConstellationInititially;
 		
 		TimeCounter = 0;
 		SampleNumber = 0;
@@ -58,7 +54,17 @@ public class ConnectedComponentsRemovingSatellites : Test
 		
 		LastTime = OS.GetUnixTime();
 		
-		M = m;
+		RunContinually = true;
+	}
+	
+	public override void Init(Constellation c)
+	{
+		TargetConstellation = c;
+		
+		SatsInConstellationInititially = TargetConstellation.GetAllSatsList().Count;
+		SatsInConstellationCurent = SatsInConstellationInititially;
+		
+		M = (Main) c.GetParent();
 		
 		WriteLine("NumOfSatsInConstellation,RepetitionNumber,SampleNumber,NumOfComponents");
 		RunTest();
@@ -66,7 +72,7 @@ public class ConnectedComponentsRemovingSatellites : Test
 	
 	public override void Run()
 	{
-		if (LastTime != OS.GetUnixTime())
+		if (LastTime != OS.GetUnixTime() && !TestOver)
 		{
 			LastTime = OS.GetUnixTime();
 			
@@ -90,14 +96,14 @@ public class ConnectedComponentsRemovingSatellites : Test
 						
 						ExperimentNumber++;
 						
-						//New experiment
+						if (ExperimentNumber == NExperiments) {TestOver = true; Close(); return;}
 						
 						SatsInConstellationCurent -= SatsRemovedEachExperiment;
 					} 
 					
 					//Repeat experiment
-					M.Refresh();
-					M.ThisConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
+					M.RefreshConstellation();
+					TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
 				}
 				
 				RunTest();
@@ -109,14 +115,14 @@ public class ConnectedComponentsRemovingSatellites : Test
 	{
 		//Take another sample
 		
+		TargetConstellation.SetMarkedAll(false);
+		
 		int numOfComponents = (
 		new ConnectedComponentsAlgorithm(
-				Constellation.GetAllSatsList().ToArray()
+				TargetConstellation.GetAllSatsList().ToArray()
 			)
-				).Run();
+		).Run();
 		
-		Constellation.SetMarkedAll(false);
-				
 		WriteLine(SatsInConstellationCurent+","+RepetitionNumber+","+SampleNumber+","+numOfComponents);
 	}
 }

@@ -35,12 +35,10 @@ public class Vertex : Spatial
 	
 	public void ClearLinks()
 	{
-		foreach (Link l in Links)
+		while (Links.Count > 0)
 		{
-			l.QueueFree();
+			Links[0].Delete();
 		}
-		
-		Links.Clear();
 	}
 	
 	public void Delete()

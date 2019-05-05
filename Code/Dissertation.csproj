@@ -79,10 +79,10 @@
     <Compile Include="Scripts\Tests\ConnectedComponentsRemovingSatellites.cs" />
     <Compile Include="Scripts\Tests\KShortestPaths.cs" />
     <Compile Include="Scripts\Tests\NearbySats.cs" />
+    <Compile Include="Scripts\Tests\NoTest.cs" />
     <Compile Include="Scripts\Tests\RepeatedShortestPathTest.cs" />
     <Compile Include="Scripts\Tests\ShortestPathTest.cs" />
     <Compile Include="Scripts\Tests\Test.cs" />
-    <Compile Include="Scripts\Tests\TotalConnectivity.cs" />
     <Compile Include="Scripts\UI\ConstellationDescription.cs" />
     <Compile Include="Scripts\UI\ConstellationDescriptionDatabase.cs" />
     <Compile Include="Scripts\UI\UI.cs" />

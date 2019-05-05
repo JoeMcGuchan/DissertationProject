@@ -103,8 +103,6 @@ For the parts of code related to visualisation I will be using godots build in s
 
 Most of the information I will be using for the structure of the SpaceX network comes from their application to the FCC on March 29th, 2018\cite{FCCApplication}, and their technical attachment\cite{TechnicalAttachment}, which outlines the various orbital spheres, planes within each sphere, and various other details of the constellation. I will also be building on insights gleaned from Handley's original research.
 
-
-
 %TODO
 
 SpaceX have already sent up two test sattelites, and according the Elon Musk, they are working very well, providing a latency of only 25ms\cite{ElonMuskTweet}.
@@ -120,6 +118,7 @@ SpaceX have already sent up two test sattelites, and according the Elon Musk, th
 There is a lot we do not know about Starlink, but this is what we can infer from SpaceX’s application to the FCC\cite{FCCApplication}, 
 
 Starlink is a constellation of 4,425 LEO sattelites with a further proposed. %TODO when govern funding back
+
 We will be examining only the 4,425 sattelites proposed for the first implemantation of Starlink, as these intend to provide a viable network by temselves, and additional sattelites might overwhelm my visualisation techniques. 
 
 \begin{figure}
@@ -225,7 +224,7 @@ Each satellite will have a maximum of 5 links, however, we do not as of yet know
 In his study Mark Handley uses two links to connect $x_{i,j,k}$ to $x_{i,j,k+1}$ and $x_{i,j,k-1}$. He then uses two more to connect $x_{i,j,k}$ to $x_{i,j+1,k+h_i}$ and $x_{i,j-1,k-h_i}$, where $h_i$ is a variable that describes how "diagonal" these sideways links should be. The final link connects to the nearest unconnected satellite. However there a number of different ways to connect up the sattelites, for a given sphere $s_i$ I will catagorise the different link usage methods as.
 
 \begin{description}
-\item[Handley(h)] Mark Handley's method where $h_i = h$.
+\item[(h)] Mark Handley's method where $h_i = h$.
 \item[OneFree(X)] A generalisation of Handley, described by a 2*2 matrix X. Where $x_{i,j,k}$ connects to $x_{i,j+X_{0,0},k+X_{0,1}}$, $x_{i,j+X_{1,0},k+X_{1,1}}$ and visa-versa.
 \item[ThreeFreeBasic] In which $x_{i,j,k}$ connects to $x_{i,j,k+1}$ and $x_{i,j,k-1}$, and the other three links connect to nearby satellites.
 \item[ThreeFree(v)] A generalisation of ThreeFree, described by a 2d vector v, in which $x_{i,j,k}$ connects to $x_{i,j+v_0,k+v_1}$ and visa versa.
@@ -458,11 +457,17 @@ bfs(Sattelite s)
   return			
 \end{lstlisting}
 
-This very straightforward test runs in in O(E) time, however when used on the network it becomes plainly apparent that it is not an extremely useful measure. The fact my model assumes that all stallites will be evenly spaces around the orbit (a very reasonable assumtion) renders it so that satellites are either all in range of one another, or not. It is extremely unlikely that a constellation with ever be at risk of breaking into components. However this test did serve as a good way to test my ability to write tests on the network, and output to files.
+This very straightforward test runs in in O(E) time, however when used on the network it becomes plainly apparent that it is not an extremely useful measure. The fact my model assumes that all stallites will be evenly spaced around the orbit (a very reasonable assumtion) renders it so that satellites are either all in range of one another, or not. It is extremely unlikely that a constellation with ever be at risk of breaking into components. However this test did serve as a good way to test my ability to write tests on the network, and output to files.
 
 \subsection{Dijkstra's Algoritm}
 
+I used Dijkstra's algoritm in orger to calculate shortest paths around the network, with the modification to allow for quickly retriving the shortest path when used.
+
 Somewhat suprisingly, C sharp doesn't come with a priority queue, so I used one from \url{https://visualstudiomagazine.com/Articles/2012/11/01/Priority-Queues-with-C.aspx?Page=2}. And used comparisons from \url{https://github.com/BlueRaja/High-Speed-Priority-Queue-for-C-Sharp}.
+
+\subsection{Coding for Visualisation and Efficent Algorithms}
+
+One of the most challenging parts of this project was writing code that would both be visualisable by the Godot engine while also running efficently with shortest path algorithms. To do this requires the creation of numerous abstract classes and wrappers that would simplify more complex objects. There are two kinds of link
 
 \section{Evaluation}
 
@@ -471,43 +476,109 @@ For each of these variables, I modeled a variety of different possibilities, exa
 
 %TODO
 
-\subsection{Movement of Satellites Relative to One Another}
+\subsection{Using the Program}
+
+If you would like to see the program that was used to generate these images and results, simply download and run the exe hosted here %TODO
+
+The exe will create files for test results in the same location as it is ran, as well as printing to the command line the results of tests as they are written.
+
+It is reccomended that you run in Windows 10, as it is not garunteed to work in other operating systems.
+
+You can navigate the simulation using the mouse, along with arrow keys or WASD. Press R to reset the whole simualtion. Use X and Z to move between different tests. Press ESC to toggle the mouse between captured (for moving the camera) and free.
+
+All the tests run at 20x realtime, which I found to be a very good timefactor for observing overarching trends in the network.
+
+\subsection{Test 0: Observing the constellation}
+
+This is not a test, but rather an opporunity to observe the constellation without any test running. Here we can make some observations about how the constellation works %TODO
+
+\subsection{Test 1: Highlighting Northbound and Southbound Satellites}
+
+In this test, I have applied a gradient to all of the satellites designed to highlight the %TODO
+
+\subsection{Test 2: Following a Satellite}
+
+This test locks your camera to the position of a single satellite as it moves through the constellation. Here we can see how the nieghboring satellites move around you as you orbit the Earth. As you can see, the Satellites immidately before and after you remain in in a constant place aside from some subtely movement, this is movement is caused by the fact that my orbits are not "perfect" but are simulated by interpolating between pre-computed translations. In an ideal orbit these satellites would remain stationary relevant to you.
+
+Also highighted are the 6 other closest satellites. Over the cource of an orbit, the sattelites to your left and right will pass back and forth across your orbital path, as your orbit crosses over their orbits. You should also see satellites moving in the opposite drection to you, Northward when you are Southward bound, and Southward when you are Northward bound, these satellites move past quite fast, and it is unlikely that you would connect to them because of the difficulty in tracking their positions. \cite{OriginalReport} 
+
+The test will output every second the coordinates of the 8 nearest satellites in the same orbital plane as you, relative to your own position and direction of motion. In the two figures you can see this motion graphed. The first figure shows the paths the 9 nearest satellites will tracj relative to you, while the second shows their left/right bias over time (or rather, thair distance in the z axis when the x axis is alighed with the direction of motion and the y axis is aligned towards the code of the Earth).
+
+%TODO tidy these graphs
 
 \begin{figure}
 \label{fig:Relative Paths of Satellites}
 \caption{An example of the paths that neightbors take relative to a satellite and it's direction of motion.}
 \begin{tikzpicture}
 \begin{axis}
-\addplot table [x=sat0x, y=sat0z, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=sat1x, y=sat1z, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=sat2x, y=sat2z, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=sat3x, y=sat3z, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=sat4x, y=sat4z, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=sat5x, y=sat5z, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=sat6x, y=sat6z, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=sat7x, y=sat7z, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=sat0x, y=sat0z, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=sat1x, y=sat1z, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=sat2x, y=sat2z, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=sat3x, y=sat3z, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=sat4x, y=sat4z, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=sat5x, y=sat5z, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=sat6x, y=sat6z, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=sat7x, y=sat7z, col sep=comma] {./Data/NearbySats.csv};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
 \begin{figure}
-\label{fig:Sideways of Satellites}
+\label{fig:Sideways Position of Satellites}
 \caption{The distance over time from a satellite to it's neighbors perpendicular to it's direction of motion and the direction towards the core of the Earth, or how far to the left or right of the satellite it's neightbors are over time.}
 \begin{tikzpicture}
 \begin{axis}
-\addplot table [x=time, y=sat0x, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=time, y=sat1x, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=time, y=sat2x, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=time, y=sat3x, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=time, y=sat4x, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=time, y=sat5x, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=time, y=sat6x, col sep=comma] {./Data/NearbySats.csv};
-\addplot table [x=time, y=sat7x, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=time, y=sat0x, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=time, y=sat1x, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=time, y=sat2x, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=time, y=sat3x, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=time, y=sat4x, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=time, y=sat5x, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=time, y=sat6x, col sep=comma] {./Data/NearbySats.csv};
+\addplot [mark=] table [x=time, y=sat7x, col sep=comma] {./Data/NearbySats.csv};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-For a given satellite orbiting the Earth, there are two 
+\subsection{Test 3: Total Connectivity As Satellites Are Removed}
+
+In this test, I delete a certain number of satellites and their associated links, and then calculate the number of connected components. I do this 100 times each for 24 different levels of deletion, deleting 66 sattelites (one orbit's worth) each time. The total number of connected components will not change over time, as the links between satellites are fixed and constant, so I only allow each simulation to run for one second before resetting. All of the results are logged and outputted to ConnectedComponents.csv.
+
+The result of this test can be seen in the associated figure. I have also given a 95\% confidence interval which is very small due to the high sample size. As you can see the number of disconnected components increases rapidly, before falling off rapidly towards the higher faliure rates, where there are simply not enough satellites left in the constellation to form many components.
+
+\begin{figure}
+\label{fig:Connected Components After Deletions}
+\caption{The number of connected components after various amounts of deletion of random satellites.}
+\begin{tikzpicture}
+\begin{axis}
+\addplot table [x=Percent Deletion, y=average, col sep=comma] {./Data/ConnectedComponentsWithDeletions.csv};
+\addplot table [x=Percent Deletion, y=lower percentile, col sep=comma] {./Data/ConnectedComponentsWithDeletions.csv};
+\addplot table [x=Percent Deletion, y=upper percentile, col sep=comma] {./Data/ConnectedComponentsWithDeletions.csv};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Test 4: Total Connectivity with Alternate Linking Method}
+
+Test 4 repeats the same test as before on the constellation using the Handley(0) linking method. As you can see these curves are almost completely identical, indicating that there is no significance difference in the reliability of these two different linking methods.
+
+\begin{figure}
+\label{fig:Connected Components After Deletions Variant}
+\caption{The number of connected components after various amounts of deletion of random satellites, using the Handley(0) linking method, compared with the Handley(-1) linking method.}
+\begin{tikzpicture}
+\begin{axis}
+\addplot table [x=percent faliure, y=average, col sep=comma] {./Data/ConnectedComponentsWithDeletionsTwo.csv};
+\addlegendentry{Handley(0)}
+\addplot table [x=Percent Deletion, y=average, col sep=comma] {./Data/ConnectedComponentsWithDeletions.csv};
+\addlegendentry{Handley(-1)}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+
+\subsection{Test 5: Totall Connectivity Localised}
+
+The initial overall results shows come interesting trends, and while it is useful to see an overall trend when increasing the failure rate all the way up to 100\%, it is very unlikely that faliure rates that high would ever be acheived, furthermore, as far as the engineers in spaceX are concerned, any loss of connectivity in the sonstellation is bad. Because of this I ran a second test, this time examin only the failure rates up to 33\%, removing 22 satellites (one third of an orbit) on each experiment, and running each test 100 times as before. Here instead of collating the data to show the average number of connected components, I instead gave the number of samples that contained more than one commected component. %TODO
 
 \subsection{Godot as a Simulation Environment}
 
