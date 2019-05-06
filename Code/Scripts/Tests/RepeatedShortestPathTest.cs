@@ -39,6 +39,11 @@ public class RepeatedShortestPath : Test
 	float Lat2;
 	float Lng1;
 	float Lng2;
+	
+	BaseStation B1;
+	BaseStation B2;
+	
+	VertexPath ShortPath;
 
 	public RepeatedShortestPath(String filePath, int nE, int nR, int nS, int t, int x, float lng1, float lat1, float lng2, float lat2)
 	{
@@ -77,7 +82,11 @@ public class RepeatedShortestPath : Test
 		M = (Main) c.GetParent();
 		
 		WriteLine("NumOfSatsInConstellation,RepetitionNumber,SampleNumber,PathLengthHops,PathLengthDist");
-		RunTest();
+		
+		B1 = TargetConstellation.AddBaseStation(Lng1,Lat1);
+		B2 = TargetConstellation.AddBaseStation(Lng2,Lat2);
+		
+		ShortPath = new VertexPath(new Vertex[] {}, new Link[] {});
 	}
 	
 	public override void Run()
@@ -114,6 +123,8 @@ public class RepeatedShortestPath : Test
 					//Repeat experiment
 					M.RefreshConstellation();
 					TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
+					B1 = TargetConstellation.AddBaseStation(Lng1,Lat1);
+					B2 = TargetConstellation.AddBaseStation(Lng2,Lat2);
 				}
 				
 				RunTest();
@@ -124,23 +135,23 @@ public class RepeatedShortestPath : Test
 	void RunTest()
 	{
 		//Take another sample
+		ShortPath.SetMarkedAll(false);
 		
-		TargetConstellation.SetMarkedAll(false);
-		
-		Vertex V1 = TargetConstellation.AddBaseStation(Lng1,Lat1);
-		Vertex V2 = TargetConstellation.AddBaseStation(Lng2,Lat2);
-		
-		VertexPath shortPath = (
+		ShortPath = (
 		new ShortestPath(
 				new Graph(
-					TargetConstellation.GetAllSatsList().ToArray(),
+					TargetConstellation.GetAllVertsList().ToArray(),
 					TargetConstellation.ThisLinkingMethod.GetAllLinks().ToArray()
 				), 
-				V1, 
-				V2
+				B1, 
+				B2
 			)
 		).Run();
 		
-		WriteLine(SatsInConstellationCurent+","+RepetitionNumber+","+SampleNumber+","+shortPath.NumVerts()+","+shortPath.GetDist());
+		ShortPath.SetMarkedAll(true);
+		
+		TargetConstellation.ApplyColouringMethod();
+		
+		WriteLine(SatsInConstellationCurent+","+RepetitionNumber+","+SampleNumber+","+ShortPath.NumVerts()+","+ShortPath.GetDist());
 	}
 }

@@ -25,9 +25,9 @@ public class BaseStation : Vertex
 		Longditude = DegreeToRadian(lng);
 		Latitude = DegreeToRadian(lat);
 		
-		BasePos = new Vector3(ThisWorldEnvironment.SizeOfEarth,0,0);
-		BasePos = BasePos.Rotated(new Vector3(0,0,1),lat);
-		BasePos = BasePos.Rotated(new Vector3(0,1,0),lng);
+		BasePos = new Vector3(0,0,ThisWorldEnvironment.SizeOfEarth);
+		BasePos = BasePos.Rotated(new Vector3(1,0,0),-Latitude);
+		BasePos = BasePos.Rotated(new Vector3(0,1,0),Longditude);
 	}
 
 	public void Init(

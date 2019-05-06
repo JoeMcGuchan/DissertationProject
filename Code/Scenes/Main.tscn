@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/ConstellationSimulation/WorldEnvironment.cs" type="Script" id=2]
-[ext_resource path="res://Images/USGS_majplatecolor.png" type="Texture" id=3]
+[ext_resource path="res://Images/2521px-World_location_map_(equirectangular_180).png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Environment" id=1]
@@ -156,7 +156,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 environment = SubResource( 1 )
 script = ExtResource( 2 )
-TimeFactor = 20.0
+TimeFactor = 1.0
 Precision = 50
 
 [node name="Earth" type="MeshInstance" parent="." index="1"]
@@ -178,11 +178,10 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Camera" parent="." index="2" instance=ExtResource( 4 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26094, 0, 14.4727 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177646, 0, 14.4727 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 0.970002, 0.243096, 0, -0.243096, 0.970002, -0.784172, 0, 8 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 1.0

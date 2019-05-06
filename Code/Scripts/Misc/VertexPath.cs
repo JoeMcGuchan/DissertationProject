@@ -17,11 +17,6 @@ public class VertexPath
 		Links = ls;
 
 		DistSet = false;
-
-		if (!IsValid())
-		{
-			throw new ArgumentException("Verticies don't match line");
-		}
 	}
 
 	//option to declare with Distance

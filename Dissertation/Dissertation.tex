@@ -57,30 +57,30 @@ The satellites in this network will be in constant motion, not just relative to 
 
 My goals are:
 \begin{enumerate}
-	\item To create visualisations of the SpaceX conselation.
+	\item To create visualizations of the SpaceX constellation.
 	\item To experiment with different topologies of the SpaceX network and test their associated latencies. 
 \end{enumerate}
 
 \subsection{What is Starlink?}
 
-The purpouse of Starlink is to provide low latency internet connections, as of 21/11/18, there are two companies offering sattelite internet services, Excede\cite{ExcedeWebsite}, and Hughes, whose 9202 BGAN Land Portable Satellite Terminal offers connection speeds up to 464kbps\cite{HughesWebsite}. These companies largely target domestic use in rural areas which don’t have a faster coverage, and corporations, providing internet connections to airplanes and cargo ships. Currently, Sattelite Internet connection is a last resort, something turned to when conventional means of connection are not available, Starlink intends to invert this, turning sattelite internet into the premium option. 
+The purpose of Starlink is to provide low latency internet connections, as of 21/11/18, there are two companies offering satellite internet services, Excede\cite{ExcedeWebsite}, and Hughes, whose 9202 BGAN Land Portable Satellite Terminal offers connection speeds up to 464kbps\cite{HughesWebsite}. These companies largely target domestic use in rural areas which don’t have a faster coverage, and corporations, providing internet connections to airplanes and cargo ships. Currently, Satellite Internet connection is a last resort, something turned to when conventional means of connection are not available, Starlink intends to invert this, turning satellite internet into the premium option. 
 
-The difference between Starlink and currently existing brands is that current brands use geostationary sattelites \cite{HughesPressRelease}, while Starlink will use LEO satellites. The significantly shorter distance will create muchshorter paths for singnals. On top of this, SpaceX will be utilising laser communication between satellites, as opposed to the competetiors who have little to no intra-satellite communication. In the vaccum of space, lights travels 47\% faster than in glass \cite{PropertiesOfGlass}. Therefore, in theory, a LEO network utilising lasers whould achieve latencies far lower than that by even the best terrestrial fiberoptic connections over long distances.
+The difference between Starlink and currently existing brands is that current brands use geostationary satellites \cite{HughesPressRelease}, while Starlink will use LEO satellites. The significantly shorter distance will create much shorter paths for signals. On top of this, SpaceX will be utilizing laser communication between satellites, as opposed to the competitors who have little to no intra-satellite communication. In the vacuum of space, lights travels 47\% faster than in glass \cite{PropertiesOfGlass}. Therefore, in theory, a LEO network utilising lasers would achieve latencies far lower than that by even the best terrestrial fiber optic connections over long distances.
 
 \subsection{Why Focus on Starlink?}
 
-Starlink is only one of a number of different LEO internet networks that have been proposed, so why should I focus on it's topology? Ideally, I would like the conclusions of my study to be generalisable to many other LEO consellations. However, constellations are approved by the FCC on a case-by-case basis, using a complicated and changing system of legislations, it's not easy to know what a normal network looks like. By analysing the properties of a network of my own design, I run a much greater risk of coming to conclusions that cannot be generalised, as I am not working on an FCC-approved constellation.
+Starlink is only one of a number of different LEO internet networks that have been proposed, so why should I focus on it's topology? Ideally, I would like the conclusions of my study to be generalized to many other LEO constellations. However, constellations are approved by the FCC on a case-by-case basis, using a complicated and changing system of legislations, it's not easy to know what a normal network looks like. By analyzing the properties of a network of my own design, I run a much greater risk of coming to conclusions that cannot be generalized, as I am not working on an FCC-approved constellation.
 
 What about the constellations of other companies? %TODO WHEN GOVERNMENT FUNDING RETURNS
 
-By analysing the properties of Starlink, we are analysing a network that is confirmed legally and scientifically plausible.
+By analyzing the properties of Starlink, we are analysing a network that is confirmed legally and scientifically plausible.
 
 But there is another reason to investigate Starlink. As the largest of most high-profile attempts to build a LEO internet backbone, Starlink represents themost significant competitor to other emerging sattelite communications networks and the one more likely to become dominant in future years. By theorising about it's properties now, we can prepare ourselves for the changes Starlink might pose to communications in the upcoming years.
 
 \subsection{Why Create a Visualisation?}
 When it comes to understanding a network such as starlink, a visual description is incredibly valuable. By visualising the network we can develop an intuition for how it operates, and use that intuition to develop ideas for new algoritms and structures for testing.
 
-Creating a visualisation also poses a minimal additional cost on my part, as to accurately model the latencies between base stations I will need to simulate satellite positions and links anyway.
+Creating a visualization also poses a minimal additional cost on my part, as to accurately model the latencies between base stations I will need to simulate satellite positions and links anyway.
 
 \subsection{Mark Handley's Work}
 
@@ -91,7 +91,7 @@ My initial proposal for the project was inspired by the findings of an existing 
 \subsection{What I Will Be Using}
 To create the visualisation I will be using the open-source game engine Godot. Using a game engine struck me as the simplest way to create a visualisation tool, and Godot, being powerful, open-source, and capable of runningeasily on many devices, seemed like the ideal choice.
 
-For the parts of code related to visualisation I will be using godots build in script GDScript, which is easy to use and specifically designed to intergrate well with the godot engine. For parts of the code related to simulation I will use C\#, which godot is compatable with, and which offers significance performance improvements over gdscript.
+For the parts of code related to visualization I will be using godots build in script GDScript, which is easy to use and specifically designed to intergrate well with the godot engine. For parts of the code related to simulation I will use C\#, which godot is compatable with, and which offers significance performance improvements over gdscript.
 
 \section{Preparation}
 
@@ -141,7 +141,7 @@ Inclination & 53\degree & 53.8\degree & 74\degree & 80\degree & 70\degree \\
 \end{center}
 \end{figure}
 
-In it's application to the FCC SpaceX was required to state any notable debris that might not burn up if a sattelite were to descend from orbit. Amoung the components listed where 5 silicon carbide “communication components”, silicon carbide is used in mirrors for laser communication links, and we can therefore conclude that SpaceX's satellites will have, at most, 5 avilable links to form with nearby sattelites.
+In it's application to the FCC SpaceX was required to state any notable debris that might not burn up if a sattelite were to descend from orbit. Amoung the components listed where 5 silicon carbide “communication components”, silicon carbide is used in mirrors for laser communication links, and we can therefore conclude that SpaceX's satellites will have, at most, 5 available links to form with nearby sattelites.
 
 We also know information about how Starlink sattelites will communicate with ground stations, a base station may only connect with a sattelite at an inclination less than 40\degree from the vertical using Radio Frequency (not laser) connections. Connections will be stronger to sattelites directly overhead, however as Starlink does not provide much information in exactly how their intra-satellite communications work, speculations on bandwidth will not prove to be helpful.
 
@@ -178,12 +178,12 @@ Where r is the distance from the origin, or altitude + radius of the Earth.
 
 Note that while altitude is constant (eccentricity = 0) velocity is unchanging, and true anomaly can be described as a linear function of time.
 
-The position of a sattelite is calculated by taking it’s true anomaly and adding it’s angular velocity multiplied by the timestep (real timesince last frame update * some factor). The location is then calculated through a series of transformations performed on the true anomaly:
+The position of a satellite is calculated by taking it’s true anomaly and adding it’s angular velocity multiplied by the timestep (real timesince last frame update * some factor). The location is then calculated through a series of transformations performed on the true anomaly:
 
 \begin{enumerate}
 \item We take a vector (r, 0, 0) where r is the distance above the surface + the radius of Earth.
 \item We rotate this point around (0, 1, 0) (the line through the poles) by the true anomaly.
-\item We rotate this point around (1, 0, 0) (the line from 0 longditude to 180 longditude through the equator) by the inclination.
+\item We rotate this point around (1, 0, 0) (the line from 0 longitude to 180 longitude through the equator) by the inclination.
 \item We rotate this point around (0, 1, 0) agian by the longditudonal offset.
 \end{enumerate}
 
@@ -221,7 +221,7 @@ Each of the orbital spheres can also be offset from each other. The phase offset
 \item[Link usage]
 Each satellite will have a maximum of 5 links, however, we do not as of yet know which arrangements of links are the most optimal.
 
-In his study Mark Handley uses two links to connect $x_{i,j,k}$ to $x_{i,j,k+1}$ and $x_{i,j,k-1}$. He then uses two more to connect $x_{i,j,k}$ to $x_{i,j+1,k+h_i}$ and $x_{i,j-1,k-h_i}$, where $h_i$ is a variable that describes how "diagonal" these sideways links should be. The final link connects to the nearest unconnected satellite. However there a number of different ways to connect up the sattelites, for a given sphere $s_i$ I will catagorise the different link usage methods as.
+In his study Mark Handley uses two links to connect $x_{i,j,k}$ to $x_{i,j,k+1}$ and $x_{i,j,k-1}$. He then uses two more to connect $x_{i,j,k}$ to $x_{i,j+1,k+h_i}$ and $x_{i,j-1,k-h_i}$, where $h_i$ is a variable that describes how "diagonal" these sideways links should be. The final link connects to the nearest unconnected satellite. However there a number of different ways to connect up the satellites, for a given sphere $s_i$ I will catagorise the different link usage methods as.
 
 \begin{description}
 \item[(h)] Mark Handley's method where $h_i = h$.
@@ -231,7 +231,7 @@ In his study Mark Handley uses two links to connect $x_{i,j,k}$ to $x_{i,j,k+1}$
 \item[FiveFree] In which all 5 links are free links, connecting dynamically to the closest nodes.
 \end{description}
 
-\item[Response to Conjestion]
+\item[Response to Congestion]
 Very little is known about how much load Starlink expects to receive or how it will respond to congestion. We know that Starlink will be quite a resiliant network, with a great number of alternative parths available with similar latencies, so systems that predict hotspots on the network and route to avoid them might prove quite effective. However the exact benefit of these systems is yet to be examined.
 \end{description}
 
@@ -239,7 +239,7 @@ Very little is known about how much load Starlink expects to receive or how it w
 
 \subsection{Repository Overview}
 
-\subsection{Difficulties of Modelling Orbits}
+\subsection{Difficulties of Modeling Orbits}
 On Implementation, I found that my planned method of implimenting orbits was flawed, being able to simulate only 500 sattelites in motion before slowing down. Because of this, I changed to a precomputed method. In this method, orbits are precomputed as a number of points, and the position of sattelites is calculated by interpolating adgacent points, this sacrifices some accuracy, but vastly increases the computation speed.
 
 \subsection{Representing Links}
@@ -256,7 +256,7 @@ Furthermroe, to draw a link, Godot demands that it be a "child" (not in the clas
 
 My solution was to use the method pattern. I would have an abstract class called "LinkingMethod" that implemented many different options for linking, and had three abstract methods. Inititialise, which runs on a constellation of satellites and creates the links, UpdateOrbit, which is ran every step by every orbit (to exploit multithreatding) and updates the associated links, and UpdateConstellation which is ran every step for the whole constellation.
 
-Initiallly, I used adjacency lists, this lead to a number of problems.
+Initially, I used adjacency lists, this lead to a number of problems.
 
 \begin{itemize}
 \item Some algorithms require a list of all edges, which is very hard to obtain with adjacency lists.
@@ -305,7 +305,7 @@ However in the next figure we see how, when looking at the poles, the orbits hav
 
 %TODO Path connecting north and southward grid
 
-\subsection{Visualisation}
+\subsection{Visualization}
 
 For the earth texture I used a creative commons equirectangular map of the Earth. \cite{Map}
 
@@ -459,11 +459,15 @@ bfs(Sattelite s)
 
 This very straightforward test runs in in O(E) time, however when used on the network it becomes plainly apparent that it is not an extremely useful measure. The fact my model assumes that all stallites will be evenly spaced around the orbit (a very reasonable assumtion) renders it so that satellites are either all in range of one another, or not. It is extremely unlikely that a constellation with ever be at risk of breaking into components. However this test did serve as a good way to test my ability to write tests on the network, and output to files.
 
-\subsection{Dijkstra's Algoritm}
+\subsection{Dijkstra's Algorithm}
 
 I used Dijkstra's algoritm in orger to calculate shortest paths around the network, with the modification to allow for quickly retriving the shortest path when used.
 
 Somewhat suprisingly, C sharp doesn't come with a priority queue, so I used one from \url{https://visualstudiomagazine.com/Articles/2012/11/01/Priority-Queues-with-C.aspx?Page=2}. And used comparisons from \url{https://github.com/BlueRaja/High-Speed-Priority-Queue-for-C-Sharp}.
+
+\subsection{Calculating the Latency Across a Path}
+
+TThere are 4 factors that effect the latency of a path
 
 \subsection{Coding for Visualisation and Efficent Algorithms}
 
@@ -576,9 +580,39 @@ Test 4 repeats the same test as before on the constellation using the Handley(0)
 \end{figure}
 
 
-\subsection{Test 5: Totall Connectivity Localised}
+\subsection{Test 5: Total Connectivity Localised}
 
-The initial overall results shows come interesting trends, and while it is useful to see an overall trend when increasing the failure rate all the way up to 100\%, it is very unlikely that faliure rates that high would ever be acheived, furthermore, as far as the engineers in spaceX are concerned, any loss of connectivity in the sonstellation is bad. Because of this I ran a second test, this time examin only the failure rates up to 33\%, removing 22 satellites (one third of an orbit) on each experiment, and running each test 100 times as before. Here instead of collating the data to show the average number of connected components, I instead gave the number of samples that contained more than one commected component. %TODO
+The initial overall results shows come interesting trends, and while it is useful to see an overall trend when increasing the failure rate all the way up to 100\%, it is very unlikely that faliure rates that high would ever be acheived, furthermore, as far as the engineers in spaceX are concerned, any loss of connectivity in the sonstellation is bad. Because of this I ran a second test, this time examin only the failure rates up to 25\%, removing 22 satellites (one third of an orbit) on each experiment, and running each test 100 times as before. Here instead of collating the data to show the average number of connected components, I instead gave the number of samples that contained more than one commected component. %TODO
+
+\begin{figure}
+\label{fig:Connected Components To 25}
+\caption{The number of connected components after various amounts of deletion of random satellites, fucing on the range up to 25\% faliure.}
+\begin{tikzpicture}
+\begin{axis}
+\addplot table [x=faliure rate, y=average, col sep=comma] {./Data/ConnectedComponentsTo25.csv};
+\addplot table [x=faliure rate, y=lower percentile, col sep=comma] {./Data/ConnectedComponentsTo25.csv};
+\addplot table [x=faliure rate, y=upper percentile, col sep=comma] {./Data/ConnectedComponentsTo25.csv};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Test 6: Shortest Path London to New York}
+
+In this test I take a sample each second of the shortest path between London and New York, I then calculated the latency, which is shown below. As you can see each path remains for slightly less than a minute, these latencies change gradually as the positions of satellites move, before a shorter path becomes available, and an abrupt change is made. this is very good as it means that with a continual connections, packet reordering will be relatively uncommon. There appears to be a certain periodicity to the shortest path between two satellites, to examine this further, I ran a separate test (not in the model) at an increased speed.
+
+\begin{figure}
+\label{fig:Latency London To New York}
+\caption{The Latency of the London-New York connection over time}
+\begin{tikzpicture}
+\begin{axis} [width=\textwidth, height=\axisdefaultheight] 
+\addplot table [x=Time, y=Time of Signal (milliseconds), col sep=comma] {./Data/LondonToNewYork.csv};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Test 7-: Shortest Path London to New York}
+
+
 
 \subsection{Godot as a Simulation Environment}
 

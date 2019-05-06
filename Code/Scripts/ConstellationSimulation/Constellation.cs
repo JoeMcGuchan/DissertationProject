@@ -16,7 +16,7 @@ public class Constellation : Spatial
 
 	public ColouringMethod ThisColouringMethod;
 	
-	public float RotationOfEarth = 0;
+	public float RotationOfEarth;
 	
 	public Test ThisTest;
 
@@ -37,7 +37,7 @@ public class Constellation : Spatial
 			ThisTest.Run();	
 		}
 		
-		((Spatial) GetParent().FindNode("Earth")).Rotation = new Vector3(0,RotationOfEarth + ThisWorldEnvironment.EarthRotationOffset,0);
+		((Spatial) GetParent().FindNode("Earth")).Rotation = new Vector3(0,RotationOfEarth + DegreeToRadian(ThisWorldEnvironment.EarthRotationOffset),0);
 	}
 	
 	public void RunTest()
@@ -69,7 +69,7 @@ public class Constellation : Spatial
 		
 		ThisTest = newTest;
 		
-
+		RotationOfEarth = 0;
 	}
 	
 	public BaseStation AddBaseStation(float lng, float lat) {
@@ -167,5 +167,10 @@ public class Constellation : Spatial
 	public void InitialiseTest()
 	{
 		ThisTest.Init(this);
+	}
+	
+	private float DegreeToRadian(float angle)
+	{
+   		return (float) Math.PI * angle / 180.0f;
 	}
 }

@@ -35,7 +35,95 @@ public class ConstellationDescriptionDatabase
 
 		constellationDescriptions = new ConstellationDescription[]
 		{
-			/*NO TEST*/
+//			/*NO TEST*/
+//			new ConstellationDescription
+//			(
+//				1,
+//				/*orbitalPlaness*/ new int[] {24}, 
+//				/*sattelitesPerPlanes*/ new int[] {66},
+//				/*altitudes*/ new int[] {550},
+//				/*inclinations*/ new float[] {53},
+//				/*phaseOffsets*/ new int[] {9},
+//				/*timeOffset*/ new float[] {0f},
+//				/*linkingMethod*/ simpleLinking,
+//				/*colouringMathod*/ highlightMarked,
+//				/*test*/ new NoTest()
+//			),
+//			/*FOLLOWING SATELLITE*/
+//			new ConstellationDescription
+//			(
+//				1,
+//				/*orbitalPlaness*/ new int[] {24}, 
+//				/*sattelitesPerPlanes*/ new int[] {66},
+//				/*altitudes*/ new int[] {550},
+//				/*inclinations*/ new float[] {53},
+//				/*phaseOffsets*/ new int[] {9},
+//				/*timeOffset*/ new float[] {0f},
+//				/*linkingMethod*/ simpleLinking,
+//				/*colouringMathod*/ highlightMarked,
+//				/*test*/ new NearbySats("TestResults/NearbySats.csv")
+//			),
+//			/*CONNECTED COMPONENTS*/
+//			new ConstellationDescription
+//			(
+//				1,
+//				/*orbitalPlaness*/ new int[] {24}, 
+//				/*sattelitesPerPlanes*/ new int[] {66},
+//				/*altitudes*/ new int[] {550},
+//				/*inclinations*/ new float[] {53},
+//				/*phaseOffsets*/ new int[] {9},
+//				/*timeOffset*/ new float[] {0f},
+//				/*linkingMethod*/ simpleLinking,
+//				/*colouringMathod*/ highlightMarked,
+//				/*test*/ new ConnectedComponentsRemovingSatellites(
+//					"TestResults/ConnestedComponents.csv",
+//					24,
+//					100,
+//					1,
+//					1,
+//					66)
+//			),
+//			/*CONNECTED COMPONENTS TWO*/
+//			new ConstellationDescription
+//			(
+//				1,
+//				/*orbitalPlaness*/ new int[] {24}, 
+//				/*sattelitesPerPlanes*/ new int[] {66},
+//				/*altitudes*/ new int[] {550},
+//				/*inclinations*/ new float[] {53},
+//				/*phaseOffsets*/ new int[] {9},
+//				/*timeOffset*/ new float[] {0f},
+//				/*linkingMethod*/ alternateLinking,
+//				/*colouringMathod*/ highlightMarked,
+//				/*test*/ new ConnectedComponentsRemovingSatellites(
+//					"TestResults/ConnestedComponentsVariant.csv",
+//					24,
+//					100,
+//					1,
+//					1,
+//					66)
+//			),
+//			/*CONNECTED COMPONENTS LOCALISED*/
+//			new ConstellationDescription
+//			(
+//				1,
+//				/*orbitalPlaness*/ new int[] {24}, 
+//				/*sattelitesPerPlanes*/ new int[] {66},
+//				/*altitudes*/ new int[] {550},
+//				/*inclinations*/ new float[] {53},
+//				/*phaseOffsets*/ new int[] {9},
+//				/*timeOffset*/ new float[] {0f},
+//				/*linkingMethod*/ simpleLinking,
+//				/*colouringMathod*/ highlightMarked,
+//				/*test*/ new ConnectedComponentsRemovingSatellites(
+//					"TestResults/ConnestedComponentsLocalised.csv",
+//					24,
+//					100,
+//					1,
+//					1,
+//					22)
+//			),
+			/*SHORTEST PATH LONDON NEW YORK*/
 			new ConstellationDescription
 			(
 				1,
@@ -47,81 +135,18 @@ public class ConstellationDescriptionDatabase
 				/*timeOffset*/ new float[] {0f},
 				/*linkingMethod*/ simpleLinking,
 				/*colouringMathod*/ highlightMarked,
-				/*test*/ new NoTest()
-			),
-			/*FOLLOWING SATELLITE*/
-			new ConstellationDescription
-			(
-				1,
-				/*orbitalPlaness*/ new int[] {24}, 
-				/*sattelitesPerPlanes*/ new int[] {66},
-				/*altitudes*/ new int[] {550},
-				/*inclinations*/ new float[] {53},
-				/*phaseOffsets*/ new int[] {9},
-				/*timeOffset*/ new float[] {0f},
-				/*linkingMethod*/ simpleLinking,
-				/*colouringMathod*/ highlightMarked,
-				/*test*/ new NearbySats("TestResults/NearbySats.csv")
-			),
-			/*CONNECTED COMPONENTS*/
-			new ConstellationDescription
-			(
-				1,
-				/*orbitalPlaness*/ new int[] {24}, 
-				/*sattelitesPerPlanes*/ new int[] {66},
-				/*altitudes*/ new int[] {550},
-				/*inclinations*/ new float[] {53},
-				/*phaseOffsets*/ new int[] {9},
-				/*timeOffset*/ new float[] {0f},
-				/*linkingMethod*/ simpleLinking,
-				/*colouringMathod*/ highlightMarked,
-				/*test*/ new ConnectedComponentsRemovingSatellites(
-					"TestResults/ConnestedComponents.csv",
-					24,
-					100,
-					1,
-					1,
-					66)
-			),
-			/*CONNECTED COMPONENTS TWO*/
-			new ConstellationDescription
-			(
-				1,
-				/*orbitalPlaness*/ new int[] {24}, 
-				/*sattelitesPerPlanes*/ new int[] {66},
-				/*altitudes*/ new int[] {550},
-				/*inclinations*/ new float[] {53},
-				/*phaseOffsets*/ new int[] {9},
-				/*timeOffset*/ new float[] {0f},
-				/*linkingMethod*/ alternateLinking,
-				/*colouringMathod*/ highlightMarked,
-				/*test*/ new ConnectedComponentsRemovingSatellites(
-					"TestResults/ConnestedComponentsVariant.csv",
-					24,
-					100,
-					1,
-					1,
-					66)
-			),
-			/*CONNECTED COMPONENTS LOCALISED*/
-			new ConstellationDescription
-			(
-				1,
-				/*orbitalPlaness*/ new int[] {24}, 
-				/*sattelitesPerPlanes*/ new int[] {66},
-				/*altitudes*/ new int[] {550},
-				/*inclinations*/ new float[] {53},
-				/*phaseOffsets*/ new int[] {9},
-				/*timeOffset*/ new float[] {0f},
-				/*linkingMethod*/ simpleLinking,
-				/*colouringMathod*/ highlightMarked,
-				/*test*/ new ConnectedComponentsRemovingSatellites(
-					"TestResults/ConnestedComponentsLocalised.csv",
-					24,
-					100,
-					1,
-					1,
-					22)
+				/*test*/ new RepeatedShortestPath(
+					"TestResults/LondonToNewYork.csv",
+					/*num of experiments*/0,
+					/*num of repeats each experiment*/0,
+					/*num of samples each repetition*/1000,
+					/*time between samples*/1,
+					/*num to delete*/0,
+					/*lng1*/ 0.13f,
+					/*lat1*/ 51.5f,
+					/*lng2*/ -74f,
+					/*lat2*/ 40.7f
+				)
 			),
 			/*SHORTEST PATH LONDON NEW YORK*/
 			new ConstellationDescription
@@ -136,16 +161,16 @@ public class ConstellationDescriptionDatabase
 				/*linkingMethod*/ simpleLinking,
 				/*colouringMathod*/ highlightMarked,
 				/*test*/ new RepeatedShortestPath(
-					"TestResults/ShortestPathDeletions.csv",
-					/*num of experiments*/3,
-					/*num of repeats each experiment*/3,
-					/*num of samples each repetition*/1,
-					/*time between samples*/2,
-					/*num to delete*/500,
-					/*lng1*/ -51.5f,
-					/*lat1*/ 0.12f,
-					/*lng2*/ -40.7f,
-					/*lat2*/ -74.0f
+					"TestResults/LondonToBeijing.csv",
+					/*num of experiments*/0,
+					/*num of repeats each experiment*/0,
+					/*num of samples each repetition*/1000,
+					/*time between samples*/1,
+					/*num to delete*/0,
+					/*lng1*/ 0.13f,
+					/*lat1*/ 51.5f,
+					/*lng2*/ 116.4f,
+					/*lat2*/ 39.9f
 				)
 			)
 			
