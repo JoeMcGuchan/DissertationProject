@@ -467,7 +467,7 @@ Somewhat suprisingly, C sharp doesn't come with a priority queue, so I used one 
 
 \subsection{Calculating the Latency Across a Path}
 
-TThere are 4 factors that effect the latency of a path
+There are 4 factors that effect the latency of a path
 
 \subsection{Coding for Visualisation and Efficent Algorithms}
 
@@ -598,7 +598,9 @@ The initial overall results shows come interesting trends, and while it is usefu
 
 \subsection{Test 6: Shortest Path London to New York}
 
-In this test I take a sample each second of the shortest path between London and New York, I then calculated the latency, which is shown below. As you can see each path remains for slightly less than a minute, these latencies change gradually as the positions of satellites move, before a shorter path becomes available, and an abrupt change is made. this is very good as it means that with a continual connections, packet reordering will be relatively uncommon. There appears to be a certain periodicity to the shortest path between two satellites, to examine this further, I ran a separate test (not in the model) at an increased speed.
+In this test I take a sample each second of the shortest path between London and New York, I then calculated the latency, which is shown below. As you can see each path remains for slightly less than a minute, these latencies change gradually as the positions of satellites move, before a shorter path becomes available, and an abrupt change is made. this is very good as it means that with a continual connections, packet reordering will be relatively uncommon.
+
+
 
 \begin{figure}
 \label{fig:Latency London To New York}
@@ -610,8 +612,38 @@ In this test I take a sample each second of the shortest path between London and
 \end{tikzpicture}
 \end{figure}
 
-\subsection{Test 7-: Shortest Path London to New York}
+\subsection{Test 7-: Shortest Path London to Beijing}
 
+\begin{figure}
+\label{fig:Latency London To Beijing}
+\caption{The Latency of the London-Beijing connection over time}
+\begin{tikzpicture}
+\begin{axis} [width=\textwidth, height=\axisdefaultheight] 
+\addplot table [x=Time (minutes), y=Time of Signal (milliseconds), col sep=comma] {./Data/LondonToBeijing.csv};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Running the Simulation at Higher Speeds}
+
+In both the london to Beijng and London to Beijing routes , to examine this further, I ran a separate test (not in the model) at an increased speed. In the increased speed you can see a periodicity, I looked at this data more closely and found the peacks to be very close to 60 minutes apart. I suspected that this might be caused by the rotation of the earth underneath the grid, as there are 24 orbital planes in the starlink constellation, so I ran the test one more time with the earth static, %TODO
+
+
+
+\begin{figure}
+\label{fig:Latency London To New York}
+\caption{The Latency of the London-New York connection over time (extended)}
+\begin{tikzpicture}
+\begin{axis} [width=\textwidth, height=\axisdefaultheight] 
+\addplot table [x=Time (minutes), y=Time of Signal (milliseconds), col sep=comma] {./Data/LondonToNewYorkAccelerated.csv};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis} [width=\textwidth, height=\axisdefaultheight] 
+\addplot table [x=Time (Minutes), y=Time of Signal (milliseconds), col sep=comma] {./Data/LondonToBeijingAccelerated.csv};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
 
 
 \subsection{Godot as a Simulation Environment}
@@ -627,6 +659,10 @@ A number of projects in the early phrases of the project had to be abandoned not
 The announcement from SpaceX on that they were significantly changing the constellation had massive impacts to the project. Firstly, the new satellites would have only four links instead of five, this implied that the satellites would not not have a "free" link but would instead be connected only to those ahead of and behind them. Because of this, I decided to drop the free links from my model, but doing so meant that a large chunk of code that had been written was discarded.
 
 The knowledge that SpaceX were willing to change their designs so abruptly also had a sigificant impact on modelling their constellation. It is likely that the second and third phases of Starlink will be similarly changed to be in similar altitudes to phase one, however without a full understanding on what these new spheres would be, or how they would connect to phase one, it was elected to instead focus slely on the first sphere's constellation. %Detail announcement
+
+\subsection{Extension}
+
+In Handley's original paper, he anticipated 
 
 \section{Conclusion}
 
