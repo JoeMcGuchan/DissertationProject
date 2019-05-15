@@ -49,6 +49,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QuitTheGame.cs" />
     <Compile Include="Scripts\ColouringMehod\ColouringMethod.cs" />
     <Compile Include="Scripts\ColouringMehod\OrbitGradient.cs" />
     <Compile Include="Scripts\ColouringMehod\HighlightMarked.cs" />

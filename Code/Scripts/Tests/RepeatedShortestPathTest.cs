@@ -97,37 +97,49 @@ public class RepeatedShortestPath : Test
 			
 			TimeCounter++;
 			
-			if (TimeCounter == TimeBetweenExperiments)
+			if (TimeCounter >= TimeBetweenExperiments)
 			{
 				TimeCounter = 0;
 				
-				SampleNumber++;
-				
-				if (SampleNumber == NSamples)
+				if (SampleNumber >= NSamples)
 				{
 					SampleNumber = 0;
 					
-					RepetitionNumber++;
-					
-					if (RepetitionNumber == NRepetitions)
+					if (RepetitionNumber >= NRepetitions-1)
 					{
 						RepetitionNumber = 0;
 						
-						ExperimentNumber++;
-						
-						if (ExperimentNumber == NExperiments) {TestOver = true; return;}
-						
-						SatsInConstellationCurent -= SatsRemovedEachExperiment;
-					} 
-					
-					//Repeat experiment
-					M.RefreshConstellation();
-					TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
-					B1 = TargetConstellation.AddBaseStation(Lng1,Lat1);
-					B2 = TargetConstellation.AddBaseStation(Lng2,Lat2);
+						if (ExperimentNumber >= NExperiments-1) 
+						{
+							TestOver = true;
+							Close();
+							M.LoadNext();
+						}
+						else
+						{
+							SatsInConstellationCurent -= SatsRemovedEachExperiment;
+							ExperimentNumber++;
+							M.RefreshConstellation();
+							B1 = TargetConstellation.AddBaseStation(Lng1,Lat1);
+							B2 = TargetConstellation.AddBaseStation(Lng2,Lat2);
+							TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
+						}
+					}
+					else
+					{
+						//Repeat experiment
+						RepetitionNumber++;
+						M.RefreshConstellation();
+						B1 = TargetConstellation.AddBaseStation(Lng1,Lat1);
+						B2 = TargetConstellation.AddBaseStation(Lng2,Lat2);
+						TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
+					}
+				} 
+				else 
+				{
+					SampleNumber++;
+					RunTest();
 				}
-				
-				RunTest();
 			}
 		}
 	}

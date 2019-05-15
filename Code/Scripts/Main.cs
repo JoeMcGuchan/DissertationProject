@@ -11,6 +11,8 @@ public class Main : Spatial
 	public ConstellationDescription ThisConstellationDescription;
 	public ConstellationDescriptionDatabase ThisConstellationDescriptionDatabase;
 	
+	int currentTestNum;
+	
 	Transform PlayerInit;
 
     public override void _Ready()
@@ -23,6 +25,7 @@ public class Main : Spatial
 		
 		ThisConstellationDescriptionDatabase = new ConstellationDescriptionDatabase();
 		
+		currentTestNum = 0;
 		LoadByNumber(0);
 	}
 	
@@ -40,6 +43,8 @@ public class Main : Spatial
 	
 	private void LoadByNumber(int i)
 	{
+		currentTestNum = i;
+		
 		ThisConstellationDescription = ThisConstellationDescriptionDatabase.GetConstellation(i);
 		
 		Load(ThisConstellationDescription);
@@ -53,6 +58,12 @@ public class Main : Spatial
 		
 		Player.Transform = PlayerInit;
 	}
+	
+	public void LoadNext()
+	{
+		currentTestNum++;
+		ReloadByNumber(currentTestNum);
+	}	
 	
 	private void Load(ConstellationDescription ConstellationDescriptionNew)
 	{

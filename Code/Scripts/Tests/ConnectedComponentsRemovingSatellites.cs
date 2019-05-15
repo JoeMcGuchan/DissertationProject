@@ -67,7 +67,6 @@ public class ConnectedComponentsRemovingSatellites : Test
 		M = (Main) c.GetParent();
 		
 		WriteLine("NumOfSatsInConstellation,RepetitionNumber,SampleNumber,NumOfComponents");
-		RunTest();
 	}
 	
 	public override void Run()
@@ -78,35 +77,45 @@ public class ConnectedComponentsRemovingSatellites : Test
 			
 			TimeCounter++;
 			
-			if (TimeCounter == TimeBetweenExperiments)
+			if (TimeCounter >= TimeBetweenExperiments)
 			{
 				TimeCounter = 0;
 				
-				SampleNumber++;
-				
-				if (SampleNumber == NSamples)
+				if (SampleNumber >= NSamples)
 				{
 					SampleNumber = 0;
 					
-					RepetitionNumber++;
-					
-					if (RepetitionNumber == NRepetitions)
+					if (RepetitionNumber >= NRepetitions-1)
 					{
 						RepetitionNumber = 0;
 						
-						ExperimentNumber++;
-						
-						if (ExperimentNumber == NExperiments) {TestOver = true; Close(); return;}
-						
-						SatsInConstellationCurent -= SatsRemovedEachExperiment;
-					} 
-					
-					//Repeat experiment
-					M.RefreshConstellation();
-					TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
+						if (ExperimentNumber >= NExperiments-1) 
+						{
+							TestOver = true;
+							Close();
+							M.LoadNext();
+						}
+						else
+						{
+							SatsInConstellationCurent -= SatsRemovedEachExperiment;
+							ExperimentNumber++;
+							M.RefreshConstellation();
+							TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
+						}
+					}
+					else
+					{
+						//Repeat experiment
+						RepetitionNumber++;
+						M.RefreshConstellation();
+						TargetConstellation.DisableSatellitesNumber(SatsInConstellationInititially - SatsInConstellationCurent);
+					}
+				} 
+				else 
+				{
+					SampleNumber++;
+					RunTest();
 				}
-				
-				RunTest();
 			}
 		}
 	}

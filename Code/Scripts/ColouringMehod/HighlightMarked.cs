@@ -13,10 +13,10 @@ public class HighlightMarked : ColouringMethod
 		RedMat.AlbedoColor = new Color("ff0000");
 		
 		GreyMat = new SpatialMaterial();
-		GreyMat.AlbedoColor = new Color("444444");
+		GreyMat.AlbedoColor = new Color("777777");
 		
 		BlackMat = new SpatialMaterial();
-		BlackMat.AlbedoColor = new Color("000000");
+		BlackMat.AlbedoColor = new Color("777777");
 	}
 	
 	public override void ColourSat(Satellite sat)

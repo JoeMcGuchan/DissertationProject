@@ -4,6 +4,38 @@ using System;
 //this class contains all the data needed to describe a constellation
 //hoever it doesn't actually construct the consteallation
 
+//simple template just to make my code cleaner
+public class ConstellationDescriptionTemplate
+{
+	public int NumOfSpheres;
+	
+	public int[] OrbitalPlanesPerSphere; 
+	public int[] SattelitesPerPlanePerSphere;
+	public int[] Altitudes;
+	public float[] Inclinations;
+	public int[] PhaseOffsets;
+	public float[] TimeOffsets;
+	
+	public ConstellationDescriptionTemplate(
+		int numOfSpheresNew,
+		int[] orbitalPlanesPerSphereNew, 
+		int[] sattelitesPerPlanePerSphereNew,
+		int[] altitudesNew,
+		float[] inclinationsNew,
+		int[] phaseOffsetsNew,
+		float[] timeOffsetsNew
+	) {
+		NumOfSpheres = numOfSpheresNew;
+		
+		OrbitalPlanesPerSphere = orbitalPlanesPerSphereNew; 
+		SattelitesPerPlanePerSphere = sattelitesPerPlanePerSphereNew;
+		Altitudes = altitudesNew;
+		Inclinations = inclinationsNew;
+		PhaseOffsets = phaseOffsetsNew;
+		TimeOffsets = timeOffsetsNew;
+	}
+}
+
 public class ConstellationDescription
 {
 	public int NumOfSpheres;
@@ -40,6 +72,27 @@ public class ConstellationDescription
 		Inclinations = inclinationsNew;
 		PhaseOffsets = phaseOffsetsNew;
 		TimeOffsets = timeOffsetsNew;
+		
+		ThisLinkingMethod = linkingMethodsNew;
+		ThisColouringMethod = colouringMethodNew;
+		
+		ThisTest = newTest;
+	}
+	
+	public ConstellationDescription(
+		ConstellationDescriptionTemplate constellationDescriptionTemplate,
+		LinkingMethod linkingMethodsNew,
+		ColouringMethod colouringMethodNew,
+		Test newTest
+	) {
+		NumOfSpheres = constellationDescriptionTemplate.NumOfSpheres;
+		
+		OrbitalPlanesPerSphere = constellationDescriptionTemplate.OrbitalPlanesPerSphere; 
+		SattelitesPerPlanePerSphere = constellationDescriptionTemplate.SattelitesPerPlanePerSphere;
+		Altitudes = constellationDescriptionTemplate.Altitudes;
+		Inclinations = constellationDescriptionTemplate.Inclinations;
+		PhaseOffsets = constellationDescriptionTemplate.PhaseOffsets;
+		TimeOffsets = constellationDescriptionTemplate.TimeOffsets;
 		
 		ThisLinkingMethod = linkingMethodsNew;
 		ThisColouringMethod = colouringMethodNew;

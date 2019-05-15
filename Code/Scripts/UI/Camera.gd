@@ -11,7 +11,7 @@ var direction = Vector3()
 const FLY_SPEED = 5
 const FLY_ACCEL = 20
 
-const MAX_TESTS = 5
+const MAX_TESTS = 18
 
 signal run_test;
 signal new_test(i);

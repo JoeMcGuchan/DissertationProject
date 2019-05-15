@@ -42,17 +42,21 @@ public class NearbySats : Test
 		int phaseOffset = -TargetConstellation.OrbitalSpheres[0].PhaseOffset; 
 		
 		Satellites = new Satellite[] {
-			TargetConstellation.OrbitalSpheres[0].Orbits[numOrbits-1].Satellites[mod(phaseOffset+2,numSats)],
+			TargetConstellation.OrbitalSpheres[0].Orbits[numOrbits-1].Satellites[mod(phaseOffset+3,numSats)],
 			TargetConstellation.OrbitalSpheres[0].Orbits[0].Satellites[1],
-			TargetConstellation.OrbitalSpheres[0].Orbits[1].Satellites[0],
-			TargetConstellation.OrbitalSpheres[0].Orbits[numOrbits-1].Satellites[mod(phaseOffset+1,numSats)],
 			TargetConstellation.OrbitalSpheres[0].Orbits[1].Satellites[numSats-1],
-			TargetConstellation.OrbitalSpheres[0].Orbits[numOrbits-1].Satellites[mod(phaseOffset,numSats)],
+			TargetConstellation.OrbitalSpheres[0].Orbits[numOrbits-1].Satellites[mod(phaseOffset+2,numSats)],
+			TargetConstellation.OrbitalSpheres[0].Orbits[1].Satellites[numSats-2],
+			TargetConstellation.OrbitalSpheres[0].Orbits[numOrbits-1].Satellites[mod(phaseOffset+1,numSats)],
 			TargetConstellation.OrbitalSpheres[0].Orbits[0].Satellites[numSats-1],
-			TargetConstellation.OrbitalSpheres[0].Orbits[1].Satellites[numSats-2]
+			TargetConstellation.OrbitalSpheres[0].Orbits[1].Satellites[numSats-3]
 		};
 		
 		SatPositions = new Vector3[8];
+		
+		foreach (Satellite s in Satellites) {s.Marked = true;}
+		TargetConstellation.OrbitalSpheres[0].Orbits[0].Satellites[0].Marked = true;
+		TargetConstellation.ApplyColouringMethod();
 	}
 	
 	public override void Run()
@@ -70,7 +74,7 @@ public class NearbySats : Test
 		
 		Transform transform = new Transform(x, y, z, CenterSat.Translation).Orthonormalized();
 		
-		ThePlayer.Transform = transform;
+		//ThePlayer.Transform = transform;
 		
 		int time = OS.GetUnixTime();
 		
@@ -83,8 +87,6 @@ public class NearbySats : Test
 			for (int i = 0; i < 8; i++)
 			{
 				Vector3 v = transform.XformInv(Satellites[i].Translation);
-				
-				Satellites[i].Marked = true;
 				
 				message = message + "," + v.x + "," + v.y + "," + v.z;
 			}

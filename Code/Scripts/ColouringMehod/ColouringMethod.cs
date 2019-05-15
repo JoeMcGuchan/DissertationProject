@@ -15,15 +15,11 @@ public abstract class ColouringMethod
 		
 		foreach (BaseStation b in c.BaseStations) {ColourBaseStation(b);}
 		
-		for(int i = 0; i < c.NumOfSpheres; i++)
+		foreach (OrbitalSphere sp in c.OrbitalSpheres)
 		{
-			OrbitalSphere s = c.OrbitalSpheres[i];
-			
-			for (int j = 0; j < s.NumOfOrbits; j++)
+			foreach (Orbit o in sp.Orbits)
 			{
-				Orbit o = s.Orbits[j];
-				
-				for (int k = 0; k < s.SatellitesPerOrbit; k++) {ColourSat(o.Satellites[k]);}
+				foreach (Satellite sat in o.Satellites) {ColourSat(sat);}
 			}
 		}
 	}
