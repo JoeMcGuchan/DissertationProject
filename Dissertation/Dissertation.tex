@@ -1,4 +1,8 @@
-\documentclass[12pt]{report}
+% Template for a Computer Science Tripos Part II project dissertation
+\documentclass[12pt,a4paper,twoside,openright]{report}
+\usepackage[pdfborder={0 0 0}]{hyperref}    % turns references into hyperlinks
+\usepackage[margin=25mm]{geometry}  % adjusts page layout
+\usepackage{docmute}   % only needed to allow inclusion of proposal.tex
 \usepackage{hyperref}
 \usepackage{gensymb}
 \usepackage{imakeidx}
@@ -10,6 +14,21 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{footnote}
+\usepackage{makecell}
+\usepackage{pdfpages}
+
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+
+\raggedbottom                           % try to avoid widows and orphans
+\sloppy
+\clubpenalty1000%
+\widowpenalty1000%
+
 \makesavenoteenv{tabular}
 \pgfplotsset{compat=1.9}
 \graphicspath{ {./Images/} }
@@ -17,43 +36,77 @@
 \makeindex
 
 \begin{document}
-\title{Modeling Low Earth Orbit Constellations for Networking}
+\title{Modeling and Visualization of Networking in Low Earth Orbit Constellations}
 \author{Joseph McGuchan}
-\maketitle
-\thispagestyle{empty}
 
-%TODO Cover Sheet
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title
+\pagestyle{empty}
 
+\rightline{\LARGE \textbf{Joseph Law McGuchan}}
 
+\vspace*{60mm}
+\begin{center}
+\Huge
+\textbf{Modeling and Visualization of Networking in Low Earth Orbit Constellations} \\[5mm]
+Computer Science Tripos -- Part II \\[5mm]
+King's College \\[5mm]
+\today  % today's date
+\end{center}
 
-%TODO Declaration of Originality
-
-\chapter{Declaration of Originality}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DECLARATION
+ 
+\newpage
+\section*{Declaration}
 
 I, Joseph Law McGuchan of King's College, being a candidate for Part II of the Computer Science Tripos, hereby declare that this dissertation and the work described in it are my own work, unaided except as may be specified below, and that the dissertation does not contain material that has already been used to any substantial extent for a comparable purpose.
 
-Signed %TODO
+I, Joseph Law McGuchan of King's College, 
+am content for my dissertation to be made available to the students and staff of the University.
 
-Date %TODO
+\bigskip
+\leftline{Signed Joseph McGuchan}
 
-\chapter{Proforma}
+\medskip
+\leftline{Date 17/05/2019}
 
-%TODO Proforma
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Proforma, table of contents and list of figures
 
-%Your candidate number.
-%The Title of your Project. 
-Modeling Low Earth Orbit Constellations for Networking
-%The Examination and Year.
-%Word-count for the dissertation.
-%Final line count: Number of lines written by the *student* in the final version of their %software work.
-%Project Originator.
-%Project Supervisor.
-%At most 100 words describing the original aims of the project.
-%At most 100 words summarizing the work completed.
-%At most 100 words describing any special difficulties that you faced. 
-%(In most cases the special difficulties entry will say “None”.)
+\pagestyle{plain}
+
+\chapter*{Proforma}
+
+{\large
+\begin{tabular}{l|l}
+Candidate Number:               & \bf 2345A                       \\
+Project Title:      & \makecell{\bf Modeling and Visualization of Networking in Low \\ \bf Earth Orbit Constellations} \\
+Examination:        & \bf Computer Science Tripos -- Part II, May 2019  \\
+Word Count:         & \bf 8231 \\
+Line Count: & \bf 2210 \\
+Project Originator: &  Dr Timothy Griffin                    \\
+Supervisor:         & Dr Timothy Griffin                    \\ 
+\end{tabular}
+}
+
+
+\section*{Original Aims of the Project}
+
+To develop multiple routing algorithms for the Starlink network, a constellation of satellites to be created by the SpaceX company with the intention of providing low-latency internet connections across the Earth. To compare these algorithms on latency, fault tolerance, and response to high demand. And to create visualizations of these routing algorithms at work.
+
+\section*{Work Completed}
+
+Routing algorithms have been developed and tested on all three properties. Response to high demand was not sufficiently tested tho conclusions about it have been made. Visualizations of the routing algorithms at work have been created.
+
+\section*{Special Difficulties}
+
+SpaceX announced numerous significant changes to their network during the production of this dissertation which has lead to a number of differences.
+
 
 \tableofcontents
+
+\listoffigures
 
 %==============================================================================================================================
 %----------------------------------------------------------------------------------------------------------INTRODUCTION-------------------------------------------------------------------------------------------------------
@@ -62,7 +115,7 @@ Modeling Low Earth Orbit Constellations for Networking
 
 SpaceX are planning to launch a constellation of thousands of low Earth orbit (LEO) communication satellites in the next few years. The objective of this constellation, called Starlink, is to provide low-latency internet connection across the world.
 
-The satellites in this network will be in constant motion, not just relative to the ground, but relative to one another, creating a network with a constantly changing topology and associated latencies. The question of how to structure such a network, and what the resultant latencies of said network will be, has not been thoroughly explored, but it will become increasingly relevant as more and more companies build similar constellations. If these Constellations prove to provide significant gains in latency while providing competitive bandwidth, they might render previous submarine optical cables obsolete.
+The satellites in this network will be in constant motion, not just relative to the ground, but relative to one another, creating a network with a constantly changing topology and associated latencies. The question of how to structure such a network, and what the resultant latencies of said network will be, has not been thoroughly explored, but it will become increasingly relevant as more and more companies build similar constellations. If these Ccnstellations prove to provide significant gains in latency while providing competitive bandwidth, they might render previous submarine optical cables obsolete.
 
 My goals are:
 \begin{enumerate}
@@ -124,7 +177,7 @@ To give an example of my program at work I have included a few screenshots seen 
 
 %============================================CURRENT STATE OF EVENTS======================================================
 \section{Current State of Events}
-As of May 11th 2019, SpaceX have loaded their first 60 satellites into their Falcon rocket, and are preparing to launch them \cite{ElonMuskTweet2}. This report is therefore being released at the optimal time for researchers hoping to get ahead of what could potentially be the next revolution in internet communications.
+SpaceX have already sent up two test satellites, and according the Elon Musk, they are working very well, providing a latency of only 25ms\cite{ElonMuskTweet}, though Elon Musk neglected to specify which two locations the 25ms latency was between. As of May 11th 2019, SpaceX have loaded their first 60 satellites into their Falcon rocket, and are preparing to launch them \cite{ElonMuskTweet2}. This report is therefore being released at the optimal time for researchers hoping to get ahead of what could potentially be the next revolution in internet communications.
 
 %==============================================================================================================================
 %----------------------------------------------------------------------------------------------------------PREPARATION---------------------------------------------------------------------------------------------------------
@@ -139,12 +192,10 @@ Most of the information I will be using for the structure of the SpaceX network 
 \begin{enumerate}
 \item The optimum phase offset is 9/33.
 \item Satellites will most likely link to those moving in the same direction as them.
-\item Starlink will most likely use a static routing method, and it is therefore most important to examine the shortest paths between two points in the network.
+\item Due to highly predicable nature of the network, Starlink will most likely use a static routing method, with a path for a packet being precomputed at the ground stations. It is therefore more useful to look at the shortest paths through the network isntead of simulating a routing method in action.
 \end{enumerate}
 
 These insights will be returned to throughout my report and explanations will be given as to exactly what these insights mean.
-
-SpaceX have already sent up two test satellites, and according the Elon Musk, they are working very well, providing a latency of only 25ms\cite{ElonMuskTweet}.
 
 %============================================THE STRUCTURE OF STARLINK======================================================
 \section{The Structure of Starlink}
@@ -173,7 +224,7 @@ Inclination & 53\degree & 53.8\degree & 74\degree & 80\degree & 70\degree \\
 \end{center}
 \end{figure}
 
-In it's application to the FCC SpaceX was required to state any notable debris that might not burn up if a satellite were to descend from orbit. Among the components listed where 5 silicon carbide “communication components”, silicon carbide is used in mirrors for laser communication links, and we can therefore conclude that SpaceX's satellites will have, at most, 5 available links to form with nearby satellites.
+In it's application to the FCC SpaceX was required to state any notable debris that might not burn up if a satellite were to descend from orbit. Among the components listed were 4 silicon carbide “communication components”, silicon carbide is used in mirrors for laser communication links, and we can therefore conclude that SpaceX's satellites will have, at most, 4 available links to form with nearby satellites. 
 
 We also know information about how Starlink satellites will communicate with ground stations, a base station may only connect with a satellite at an inclination less than 40\degree from the vertical using Radio Frequency (not laser) connections. Connections will be stronger to satellites directly overhead, however as Starlink does not provide much information in exactly how their intra-satellite communications work, speculations on bandwidth will not prove to be helpful.
 
@@ -209,10 +260,10 @@ To better visualize this, figure \ref{Describing an orbit} describes how would w
 
 Note that the altitude, inclination, and longitudinal offset together describe a circular orbit, with the true anomaly then specifying a location on this orbit to place our satellite.
 
-Also not that this only describes circular orbits. There is another factor called eccentricity that describes how "squashed" the orbit is in shape. For the purposeless of this model we will assume eccentricity to be 0, as SpaceX have not applied for a high-eccentricity orbit\cite{FCCApplication}, and 0 eccentricity orbits are significantly easier to model (see below).
+Also not that this only describes circular orbits. There is another factor called eccentricity that describes how "squashed" the orbit is in shape. For the purpouse of this model we will assume eccentricity to be 0, as SpaceX have not applied for a high-eccentricity orbit\cite{FCCApplication}, and 0 eccentricity orbits are significantly easier to model (see below).
 
 
-While these 4 values can describe the position of a satellite in space and it's orbit, they do not describe how the satellite moves. For this we need two more variables.
+With these 4 values can describe the position of a satellite in space and its orbit, they do not describe how the satellite moves. For this we need two more variables.
 
 \begin{description}
 \item[Initial Anomaly]
@@ -221,7 +272,7 @@ This is the satellite's true anomaly at time 0.
 A Boolean variable. A retrograde orbit is one that goes against the rotation of the earth, typically these are described by orbits with a longitudinal offset greater than 180\degree. It is significantly more expensive to put a satellite into a retrograde orbit, and is essentially never done.\cite{Book}
 \end{description}
 
-Together, the Altitude, Inclination, Longitudinal Offset, Initial Anomaly and Retrograde Status uniquely determine a function that takes a time, and returns the position in 3D space that our satellite will be occupying at that time. It does this by first calculating the true anomaly, and then applying the transformations detailed in figure \ref{Describing an orbit} to translate this into a location. The rate of change of true anomaly, the angular velocity, is given by:
+Together, the altitude, inclination, longitudinal offset, initial anomaly and retrograde status uniquely determine a function that takes a time, and returns the position in 3D space that our satellite will be occupying at that time. It does this by first calculating the true anomaly, and then applying the transformations detailed in figure \ref{Describing an orbit} to translate this into a location. The rate of change of true anomaly, the angular velocity, is given by:
 
 \[\sqrt{\frac{GM}{r^3}}\]
 
@@ -229,9 +280,9 @@ Where r is the distance from the origin, or altitude + radius of the Earth.
 
 Note that while altitude is constant (eccentricity = 0) velocity is unchanging, and true anomaly can be described as a linear function of time.
 
-\[TrueAnomaly(t) = InitialAnomaly + t * sqrt{\frac{GM}{r^3}}\]
+\[TrueAnomaly(t) = InitialAnomaly + t\sqrt{\frac{GM}{r^3}}\]
 
-Or $TrueAnomaly(t) = InitialAnomaly - sqrt{\frac{GM}{r^3}}$ if the orbit is retrograde.
+Or $TrueAnomaly(t) = InitialAnomaly - t\sqrt{\frac{GM}{r^3}}$ if the orbit is retrograde.
 
 Because the formula for calculating the position of a satellite at a given time is so easy to compute, we can calculate these values in advance, and then linearly interpolate between a series of fixed points to approximate the satellite motion. This means we do not run the same risks normal discrete physics models face when describing continuous behavior, such as the energy of the system changing, or orbital precession (the point of furthest distance moving steadily), as we will not be approximating a continuous process from a series of discrete steps but instead will be taking samples from a continuous function.
 
@@ -245,12 +296,12 @@ While we can learn a lot from SpaceX's applications, there are still a number of
 \item[Phase Offset]
 As we do not know for certain how satellites will be positioned in orbits, we also do not know how they will be positioned relative to other orbits.
 \item[Sphere Offset]
-As well as satellites being offset from one another, whole spheres can be offset too. I will only be looking at a single sphere in my study, however, so this variable will not be examined.
+As well as satellites being offset from one another, whole spheres can be offset too.
 \item[Link usage]
 Each satellite will have a maximum of 4 links, however, we do not as of yet know which arrangements of links are the most optimal.
 \end{description}
 
-In my implementation I will go through how I described linking methods. 
+I will only be looking at a single sphere in my study, so sphere offset will not need to be considered. In my implementation I will go through how I described linking methods. 
 
 %===================================================PHASE OFFSET========================================================
 \section{Phase Offset}
@@ -262,7 +313,7 @@ In Mark Handley's paper he went through a method of describing phase offset that
 	\includegraphics[width=\textwidth]{PhaseOffset}
 \end{figure}
 
-Because the constellation wraps around the earth, with $o_{i,M_i} = o_{i,0}$, it is necessary that the phase offset be a multiple of $1/N_i,0$, so that the accumulated phase offset at $o_{i,M_i}$ results in an arrangements of satellites identical to $o_{i,0}$. In Mark Handley's research, he the optimum for the Starlink network to be 9/33. Which I will use in my research.
+Because the constellation wraps around the earth, with $o_{i,M_i} = o_{i,0}$, it is necessary that the phase offset be a multiple of $1/N_{i,0}$, so that the accumulated phase offset at $o_{i,M_i}$ results in an arrangements of satellites identical to $o_{i,0}$. In Mark Handley's research, he the optimum for the Starlink network to be 9/33. Which I will use in my research.
 
 %===================================================STARLINK========================================================
 
@@ -290,9 +341,6 @@ All the details that we know about the Starlink constellation going into impleme
 %==============================================================================================================================
 \chapter{Implementation}
 
-%============================================REPOSITORY OVERVIEW======================================================
-\section{Repository Overview}
-
 %============================================CODING FOR VISUALISATION AND EFFICENT ALGORITHMS======================================================
 \section{Coding for Visualisation and Efficent Algorithms}
 
@@ -319,19 +367,19 @@ I also utilized a variant of the Builder pattern for describing constellations a
 
 %-----------------------------------------------------------------------------MODELLING SATELLITE POSITIONS-----------------------------------------------------------------------------
 \subsection{Modeling Satellite Positions}
-I initially did not precompute orbits but instead had every satellite recalculate it's position on every step. On Implementation, I found that this was flawed, being able to simulate only 500 satellites in motion before slowing down. Because of this, I changed to a precomputed method. In this method, orbits are precomputed as a number of transformations, and the position of satellites is calculated by interpolating adjacent transformations, this sacrifices some accuracy, but vastly increases the computation speed. It is important that orbits be described by transformations (a combination of a point and rotation) so that satellites can be oriented to ways have the earth below them from their reference frame. This makes a number of computations later on easier.
+I initially did not precompute orbits but instead had every satellite recalculate it's position on every step. On implementation, I found that this was flawed, being able to simulate only 500 satellites in motion before slowing down. Because of this, I changed to a precomputed method. In this method, orbits are precomputed as a number of transformations, and the position of satellites is calculated by interpolating adjacent transformations, this sacrifices some accuracy, but vastly increases the computation speed. It is important that orbits be described by transformations (a combination of a point and rotation) so that satellites can be oriented to always have the earth below them from their reference frame. This makes a number of computations later on easier.
 
-There are five overall classes for representing the different objects that make up a constellation.
+There are five overall classes for representing the different objects that make up a constellation. Here a "step" in a unit of in-sinulation time.
 
 \begin{description}
 \item[Constellation] This is an overall class that contains a list of BaseStations and a list of OrbitalSpheres. Each step the constellation will run any programs that cannot be threaded, this include parts of the Linking Method, calculating the current rotation of the Earth, and any test that is being presently ran on the network.
-\item[BaseStation] Describes  surface level station. Each step it moves to match the rotation of Earth.
+\item[BaseStation] Describes a surface level station. Each step it moves to match the rotation of Earth.
 \item[OrbitalSphere] Each step this updates an internal value known as "RotationOfOrbit". As all orbits in the same orbital sphere are at the same altitude, all the satellites in these orbits have the same angular momentum, it is therefore possible to store the rotation of all of these orbits in the same place to ensure they remain in sync. OrbitalSphere contains a list of Orbits.
 \item[Orbit] An orbit contains a list of Satellites. It is the Orbit objects that do most of the work in calculating the positions of Satellites. They store a list of satellites along with a precomputed list of points that describe their orbit, each step they look at the RotationOfOrbit of their parent class and update the positions of the satellites in their list accordingly. It also calculates some of the information used for the LinkingMethod each step.
 \item[Satellite] The Satellite class is a simple descriptor that stores information related to the satellite. Satellite objects do not posses a \lstinline{_process} function that is called each step as this would be too costly for thousands of satellites to do.
 \end{description}
 
-Between them these classes can model the motion of an entire constellation with ground stations. Note however that they do not visualize it. To have something be visualized in Godot you have to add a "scene" containing a "node" to the "scene tree". Node can have associated scripts that they call the functions of, which is what these 5 classes are, but this it is worth bearing in mind that the "Satellite" class is not visualized, but rather instanced by a a node object called Satellite that is then visualized. I will go into how this works in the second section.
+Between them these classes can model the motion of an entire constellation with ground stations. Note however that they do not visualize it. To have something be visualized in Godot you have to add a "scene" containing a "node" to the "scene tree". A node can have associated scripts that they call the functions of, which is what these 5 classes are, but this it is worth bearing in mind that the "Satellite" class is not visualized, but rather instanced by a a node object called Satellite that is then visualized. I will go into how this works in the second section.
 
 %-----------------------------------------------------------------------------REPRESENTING LINKS-----------------------------------------------------------------------------
 \subsection{Representing Links}
@@ -340,7 +388,7 @@ There are 3 primary ways to represent a graph for algorithms:
 \begin{description}
 \item[Adjacency Matrix] An NxN matrix of values representing all possible connections. Obviously inefficient for a sparse set of connections like this.
 \item[Adjacency List] Associate each Satellite with a list of the vertices it is connected to. Space efficient, but creates difficulty in running Dijkstra's algorithm.
-\item[Edge List] Create a list of edges that refer to vertices. This is useful for algorithms that require iterating through all edges like Dijkstra's algorithm. But to find the adjacent satellites to any given satellite requires searching through the whole list.
+\item[Edge List] Create a list of edges that refer to vertices. This is useful for algorithms that require iterating through all edges like Dijkstra's algorithm, but to find the adjacent satellites to any given satellite requires searching through the whole list.
 \end{description}
 
 Initially, I used adjacency lists, this lead to a number of problems.
@@ -382,7 +430,13 @@ So:
 
 Describes a linking method where each satellite has 6 links available, and connects to the satellite directly in front ($\begin{bmatrix}1\\0\end{bmatrix}$), to the left ($\begin{bmatrix}0\\1\end{bmatrix}$), and diagonally forward and to the left ($\begin{bmatrix}1\\1\end{bmatrix}$), as well as forming connections with the three satellites it is in front of, to the left of, and forward-left of.
 
-However, there is a difficultly here when it comes to phase offset. Because of the way phase offset accumulates between orbits, $x_{0,M_0-1,0}$ is not necessarily to the right of $x_{0,0,0}$. Because of this an adjustment must be made between $o_{i,M_i}$ and $o_{i,o}$ to correct, as outlined in figure \ref{Linking Method and Phase Offset}. Also i this figure I have given an example of a linking method with negative value.
+However, there is a difficultly here when it comes to phase offset. Because of the way phase offset accumulates between orbits, $x_{0,M_0-1,0}$ is not necessarily to the right of $x_{0,0,0}$. Because of this an adjustment must be made between $o_{i,M_i}$ and $o_{i,o}$ to correct, as outlined in figure \ref{Linking Method and Phase Offset}. Also I this figure I have given an example of a linking method with a negative value in one of it's positions.
+
+\begin{figure}
+	\caption{The relationship between the linking method used and phase offset.}
+	\label{Linking Method and Phase Offset}
+	\includegraphics[width=\textwidth]{LinkingMethodAndPhaseOffset}
+\end{figure}
 
 I decided to dub linking methods of the form:
 
@@ -392,15 +446,10 @@ I decided to dub linking methods of the form:
 
 As "Handley(x)" or "H(x)" linking methods, as they are the forms of linking that Mark Handley examined in his original paper.
 
-\begin{figure}
-	\caption{The relationship between the linking method used and phase offset.}
-	\label{Linking Method and Phase Offset}
-	\includegraphics[width=\textwidth]{LinkingMethodAndPhaseOffset}
-\end{figure}
 
 %-----------------------------------------------------------------------------REPRESENTING TESTS-----------------------------------------------------------------------------
 \subsection{Representing Tests}
-Tests were associated with a constellation and ran every step. However, to prevent slowing down, when a test ran it would check the system clock, and each second would run it's main code and produce outputs. Using the system clock might have posed a problem as in game time and system time might go our of sync, but Godot has inbuilt functionality to ensure that processes are kept in sync with system time, objects that are called with the \lstinline{_process} function are passed a float that represents the amount of system time that has passed since the last \lstinline{_process} call, by using this value in all my physics simulations I was able to guarantee that my program stayed in sync with system time.
+Tests were associated with a constellation and ran every step. To prevent slowing down, when a test ran it would check the system clock, and each second would run it's main code and produce outputs. Using the system clock might have posed a problem as in game time and system time might go our of sync, but Godot has inbuilt functionality to ensure that processes are kept in sync with system time, objects that are called with the \lstinline{_process} function are passed a float that represents the amount of system time that has passed since the last \lstinline{_process} call, by using this value in all my physics simulations I was able to guarantee that my program stayed in sync with system time.
 
 All the tests had an associated file that they would output their results into, as well as logging them on the terminal, in csv format. Not all the computations were done by my code however, and some of the csv files had to be processed in spreadsheets to produce meaningful data.
 
@@ -494,6 +543,10 @@ There are a total of 17 scenes available. I will list them here, though at this 
 
 Tests 6 to 17 will all run by themselves, moving over to the next scene once they are complete and outputting their results into a folder called TestResults. However it will take over 24 hours in total to run all of these tests and output their results.
 
+%-----------------------------------------------------------------------------HOW GODOT WORKS------------------------------------------------------------------------------------
+\subsection{How Godot Works}
+Godot works in a way similar to many other game engines. There is a "scene tree" that "nodes" can be on. Nodes may have associated "scripts". If a node on the scene tree has a script that inherits from the Node class and overrides the \lstinline{_process} function, that \lstinline{_process} function will be called every in game-step with a value representing the system time passes since the last call. Nodes also have a number of other fields and methods that can be called by the scripts that implements them, and certain subclasses of nodes have unique behaviors. For instance, the MeshInstance class describes a node that will be displayed on the screen.
+
 %-----------------------------------------------------------------------------THE MOTION OF THE PLAYER------------------------------------------------------------------------------------
 \subsection{The Motion of the Player}
 
@@ -528,9 +581,9 @@ One of the most notable observations of the network was it's unique, layered gri
 %-----------------------------------------------------------------------------THE MOVEMENT OF SATELLITES RELATIVE TO EACH OTHER------------------------------------------------------------------------------------
 \subsection{Movement of Satellites Relative to Each Other}
 
-I decided to track the path of a satellites neighbors relative to it and it's direction of movement over the course of an orbit around the Earth. In figure  \ref{fig:Relative Paths of Satellites} the paths traced by nearby satellites is given. The satellites directly ahead of and behind a given satellite stay in a steady position relative to it and it's direction of motion, while those in adjacent orbits slowly figure eights. You can see in figure \ref{fig:The 9 Satellites Being Tracked} that there are other nearby satellites in different orbits, however these satellites are moving South while the highlighted satellites are moving North, meaning that they will be moving by far too quickly for the main satellite to track them as they pass. \cite{OriginalReport}
+I decided to track the path of a satellite's neighbors relative to it and it's direction of movement over the course of an orbit around the Earth. In figure \ref{fig:Relative Paths of Satellites} the paths traced by nearby satellites is given. The satellites directly ahead of and behind a given satellite stay in a steady position relative to it and it's direction of motion, while those in adjacent orbits slowly draw figure eights. You can see in figure \ref{fig:The 9 Satellites Being Tracked} that there are other nearby satellites in different orbits, however these satellites are moving South while the highlighted satellites are moving North, meaning that they will be moving by far too quickly for the main satellite to track them as they pass. \cite{OriginalReport}
 
-These results show that satellites in adjacent orbits will be moving in relatively slow and predictable ways meaning it should be possible for a satellite to track a laser link to satellites in adjacent orbits. It also shows that links to satellites in the same orbit will be significantly easier as satellites in the same orbit maintain a constant position relative to one another.
+These results show that satellites in adjacent orbits will be moving in relatively slow and predictable ways meaning it should be possible for a satellite to track a laser link to satellites in adjacent orbits. It also shows that linking to satellites in the same orbit will be significantly easier as satellites in the same orbit maintain a constant position relative to one another.
 
 \begin{SCfigure}
 \centering
@@ -668,9 +721,9 @@ Having got my tests working, my linking operational and having made some prelimi
 
 The first two were relatively obvious picks, they were both examined by Mark Handley and I wanted the opportunity to replicate his results.
 
-DistantLinking came from my observations of the network, I notices that satellites could comfortably connect with each other over distances much greater than just a single orbit, doing this would reduce the total hop count, and because of the spherical nature of the network, this would quite literally cut corners and reduce the overall distance.
+DistantLinking came from my observations of the network, I noticed that satellites could comfortably connect with each other over distances much greater than just a single orbit, doing this would reduce the total hop count, and because of the spherical nature of the network, this would quite literally cut corners and reduce the overall distance.
 
-However, there is a problem with this approach. If I chose the linking method 
+However, there is a problem with this approach. If I chose the linking method: 
 
 \[\begin{bmatrix} 
 1 & 0 \\
@@ -692,7 +745,7 @@ In figure \ref{fig:LMS} I show what these linking methods look like in my visual
 	\hfill
 	\begin{subfigure}[b]{0.3\textwidth}
 		\caption{Handley(0).}
-		\includegraphics[width=\textwidth]{Handley-1}
+		\includegraphics[width=\textwidth]{Handley0}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.3\textwidth}
@@ -1085,6 +1138,10 @@ The knowledge that SpaceX were willing to change their designs so abruptly also 
 
 Overall I think that this project has been somewhat of a success, in that I have contributed in a meaningful way to a growing body of research and confirmed and supported the finding of the researchers at UCL. But because of the poor initial planning of the project I cannot call it a full success.
 
+\section{Using Godot}
+
+There were numerous issues caused by using Godot for this program. Unfortunately the C\# features in Godot are still under development and have proven to be very buggy, with numerous crashes requiring altering source files in text editors and crashed that would corrupt my .mono repository and render my entire program unusable. While open-source does provide benefits in allowing me to share my code with full confidence, I believe that this project would have been improved if programmed in a more refined engine such as Unity.
+
 %==============================================================================================================================
 %----------------------------------------------------------------------------------------------------------CONCLUSION---------------------------------------------------------------------------------------------------------
 %==============================================================================================================================
@@ -1116,7 +1173,7 @@ Building off of the data collected on the changes in path latency, I think simul
 	Available from: \url{https://www.hughes.com}
 	\bibitem{ElonMuskTweet} Elon Musk. Twitter.
 	2018. Available from: \url{https://twitter.com/elonmusk/status/1000453321121923072}
-	\bibitem{ElonMuskTwee2t} Elon Musk. Twitter.
+	\bibitem{ElonMuskTweet2} Elon Musk. Twitter.
 	2019. Available from: \url{https://twitter.com/elonmusk/status/1127388838362378241}
 	\bibitem{FCCApplication} Federal Communications Commission (FCC). File Number = SATLOA2016111500118.
 	2018. Available from: \url{licensing.fcc.gov/cgi-bin/ws.exe/prod/ib/forms/reports/related_filing.hts?f_key=-289550&f_number=SATLOA2016111500118}
@@ -1138,8 +1195,8 @@ Building off of the data collected on the changes in path latency, I think simul
 	\bibitem{StarlinkChange} Chris Davis, "As launch nears, SpaceX’s Starlink satellite internet gets big change approval"
 	SlashGear, 2019, Available from: \url{https://www.slashgear.com/as-launch-nearsspacexs-starlink-satellite-internet-gets-big-change-approval-29574978/}
 \end{thebibliography}
-\appendix
 
-%TODO Project Proposal
+\includepdf[pages=2-]{Dissertation Proposal Final}
 
 \end{document}
+

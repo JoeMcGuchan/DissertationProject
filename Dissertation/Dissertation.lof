@@ -1,0 +1,30 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Screenshots of my program simulating the shortest path between two nodes through different linking methods and rates of satellite failure, the highlighted path is the shortest path between the two base stations.\relax }}{12}{figure.caption.8}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The layout of Starlink initially proposed\relax }}{14}{figure.caption.9}% 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces How to calculate the location of a satellite from it's Altitude, Inclination, Longitudinal Offset and True Anomaly\relax }}{15}{figure.caption.10}% 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Phase Offset described by looking at three adjacent orbits.\relax }}{17}{figure.caption.11}% 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces An example for how a constellation might be described.\relax }}{18}{figure.caption.12}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The relationship between the linking method used and phase offset.\relax }}{22}{figure.caption.13}% 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Keybindings.\relax }}{24}{figure.caption.14}% 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The Starlink Constellation with a different hue applied to each orbit.\relax }}{27}{figure.caption.15}% 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The 9 Satellites I tracked, the motion was logged relative to the position and direction of motion of the central satellite.\relax }}{27}{figure.caption.16}% 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces An example of the paths that neighbors take relative to a satellite and it's direction of motion.\relax }}{28}{figure.caption.17}% 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Towards the South Pole, the square of satellites fold over and the satellites that were once on the right of the central satellite move to the left.\relax }}{28}{figure.caption.18}% 
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The distance over time from a satellite to it's neighbors perpendicular to it's direction of motion and the direction towards the core of the Earth, or how far to the left or right of the satellite it's neightbors are over time.\relax }}{29}{figure.caption.19}% 
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The Latency of the London-New York connection over time\relax }}{30}{figure.caption.20}% 
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Image of the shortest path between London and New York in Handley(-1) at two different times.\relax }}{31}{figure.caption.21}% 
+\contentsline {figure}{\numberline {3.10}{\ignorespaces The Latency of the London-New York connection over time (extended)\relax }}{31}{figure.caption.22}% 
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The Latency of the London-New York connection over time when the earth is treats as stationary\relax }}{32}{figure.caption.23}% 
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Images of the three linking methods that I examined\relax }}{33}{figure.caption.24}% 
+\contentsline {figure}{\numberline {3.13}{\ignorespaces DistantLinking with southward moving and northward moving satellites seperated\relax }}{33}{figure.caption.25}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The RTT of each Linking Method when there have been no satellite failures.\relax }}{36}{figure.caption.26}% 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Screenshots of DistL creating extremely long links between locations\relax }}{37}{figure.caption.27}% 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces London - Johannesburg path under different linking methods\relax }}{38}{figure.caption.28}% 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The number of connected components after various amounts of deletion of random satellites, using the three linking methods outlined.\relax }}{39}{figure.caption.29}% 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The RTT and up time of various paths under each linking method.\relax }}{40}{figure.caption.30}% 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The proportion of time that a link is available vs the proportion of the satellites that have failed for 3 links.\relax }}{41}{figure.caption.31}% 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Screenshots of Various Linking Methods at Different Failure Rates Responding to the failure rate\relax }}{42}{figure.caption.32}% 
+\addvspace {10\p@ }

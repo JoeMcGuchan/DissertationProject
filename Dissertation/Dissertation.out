@@ -1,48 +1,47 @@
-\BOOKMARK [0][-]{chapter.1}{Declaration of Originality}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Proforma}{}% 2
-\BOOKMARK [0][-]{chapter.3}{Introduction}{}% 3
-\BOOKMARK [1][-]{section.3.1}{What is Starlink?}{chapter.3}% 4
-\BOOKMARK [1][-]{section.3.2}{Why Focus on Starlink?}{chapter.3}% 5
-\BOOKMARK [1][-]{section.3.3}{Why Create a Visualisation?}{chapter.3}% 6
-\BOOKMARK [1][-]{section.3.4}{Mark Handley's Work}{chapter.3}% 7
-\BOOKMARK [1][-]{section.3.5}{What I Will Be Using}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.6}{Example of Results}{chapter.3}% 9
-\BOOKMARK [1][-]{section.3.7}{Current State of Events}{chapter.3}% 10
-\BOOKMARK [0][-]{chapter.4}{Preparation}{}% 11
-\BOOKMARK [1][-]{section.4.1}{Starting Point}{chapter.4}% 12
-\BOOKMARK [1][-]{section.4.2}{The Structure of Starlink}{chapter.4}% 13
-\BOOKMARK [1][-]{section.4.3}{Modeling Satellites in Orbit}{chapter.4}% 14
-\BOOKMARK [1][-]{section.4.4}{Unknown Variables}{chapter.4}% 15
-\BOOKMARK [1][-]{section.4.5}{Phase Offset}{chapter.4}% 16
-\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 17
-\BOOKMARK [1][-]{section.5.1}{Repository Overview}{chapter.5}% 18
-\BOOKMARK [1][-]{section.5.2}{Coding for Visualisation and Efficent Algorithms}{chapter.5}% 19
-\BOOKMARK [1][-]{section.5.3}{Modeling the Network}{chapter.5}% 20
-\BOOKMARK [2][-]{subsection.5.3.1}{Patterns used}{section.5.3}% 21
-\BOOKMARK [2][-]{subsection.5.3.2}{Modeling Satellite Positions}{section.5.3}% 22
-\BOOKMARK [2][-]{subsection.5.3.3}{Representing Links}{section.5.3}% 23
-\BOOKMARK [2][-]{subsection.5.3.4}{Representing Linking Methods}{section.5.3}% 24
-\BOOKMARK [2][-]{subsection.5.3.5}{Representing Tests}{section.5.3}% 25
-\BOOKMARK [2][-]{subsection.5.3.6}{Connected Components}{section.5.3}% 26
-\BOOKMARK [2][-]{subsection.5.3.7}{Dijkstra's Algorithm}{section.5.3}% 27
-\BOOKMARK [2][-]{subsection.5.3.8}{Calculating the Latency Across a Path}{section.5.3}% 28
-\BOOKMARK [2][-]{subsection.5.3.9}{Efficiency vs Usability}{section.5.3}% 29
-\BOOKMARK [1][-]{section.5.4}{Visualization}{chapter.5}% 30
-\BOOKMARK [2][-]{subsection.5.4.1}{How to Use the EXE}{section.5.4}% 31
-\BOOKMARK [2][-]{subsection.5.4.2}{The Motion of the Player}{section.5.4}% 32
-\BOOKMARK [2][-]{subsection.5.4.3}{Aesthetic Improvements}{section.5.4}% 33
-\BOOKMARK [1][-]{section.5.5}{Initial Observations of the Network}{chapter.5}% 34
-\BOOKMARK [2][-]{subsection.5.5.1}{The Structure of the Network}{section.5.5}% 35
-\BOOKMARK [2][-]{subsection.5.5.2}{Movement of Satellites Relative to Each Other}{section.5.5}% 36
-\BOOKMARK [2][-]{subsection.5.5.3}{Initial Observations of Latencies}{section.5.5}% 37
-\BOOKMARK [2][-]{subsection.5.5.4}{Periodicity in Latencies}{section.5.5}% 38
-\BOOKMARK [1][-]{section.5.6}{Selecting my Three Linking Methods}{chapter.5}% 39
-\BOOKMARK [0][-]{chapter.6}{Evaluation}{}% 40
-\BOOKMARK [1][-]{section.6.1}{Comparing Linking Methods}{chapter.6}% 41
-\BOOKMARK [2][-]{subsection.6.1.1}{Comparing Linking Methods On Latency}{section.6.1}% 42
-\BOOKMARK [2][-]{subsection.6.1.2}{Comparing Linking Methods On Fault Tolerance}{section.6.1}% 43
-\BOOKMARK [2][-]{subsection.6.1.3}{Comparing Linking Methods On High Demand}{section.6.1}% 44
-\BOOKMARK [1][-]{section.6.2}{Visualizing the Linking Methods at Work}{chapter.6}% 45
-\BOOKMARK [1][-]{section.6.3}{Direction and Focus}{chapter.6}% 46
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 47
-\BOOKMARK [1][-]{section.7.1}{Extension}{chapter.7}% 48
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{What is Starlink?}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Why Focus on Starlink?}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Why Create a Visualisation?}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Mark Handley's Work}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{What I Will Be Using}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.6}{Example of Results}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.7}{Current State of Events}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Preparation}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Starting Point}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{The Structure of Starlink}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{Modeling Satellites in Orbit}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{Unknown Variables}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.5}{Phase Offset}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Implementation}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Coding for Visualisation and Efficent Algorithms}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Modeling the Network}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.2.1}{Patterns used}{section.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.2.2}{Modeling Satellite Positions}{section.3.2}% 19
+\BOOKMARK [2][-]{subsection.3.2.3}{Representing Links}{section.3.2}% 20
+\BOOKMARK [2][-]{subsection.3.2.4}{Representing Linking Methods}{section.3.2}% 21
+\BOOKMARK [2][-]{subsection.3.2.5}{Representing Tests}{section.3.2}% 22
+\BOOKMARK [2][-]{subsection.3.2.6}{Connected Components}{section.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.2.7}{Dijkstra's Algorithm}{section.3.2}% 24
+\BOOKMARK [2][-]{subsection.3.2.8}{Calculating the Latency Across a Path}{section.3.2}% 25
+\BOOKMARK [2][-]{subsection.3.2.9}{Efficiency vs Usability}{section.3.2}% 26
+\BOOKMARK [1][-]{section.3.3}{Visualization}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.1}{How to Use the EXE}{section.3.3}% 28
+\BOOKMARK [2][-]{subsection.3.3.2}{How Godot Works}{section.3.3}% 29
+\BOOKMARK [2][-]{subsection.3.3.3}{The Motion of the Player}{section.3.3}% 30
+\BOOKMARK [2][-]{subsection.3.3.4}{Aesthetic Improvements}{section.3.3}% 31
+\BOOKMARK [1][-]{section.3.4}{Initial Observations of the Network}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.4.1}{The Structure of the Network}{section.3.4}% 33
+\BOOKMARK [2][-]{subsection.3.4.2}{Movement of Satellites Relative to Each Other}{section.3.4}% 34
+\BOOKMARK [2][-]{subsection.3.4.3}{Initial Observations of Latencies}{section.3.4}% 35
+\BOOKMARK [2][-]{subsection.3.4.4}{Periodicity in Latencies}{section.3.4}% 36
+\BOOKMARK [1][-]{section.3.5}{Selecting my Three Linking Methods}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{Evaluation}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Comparing Linking Methods}{chapter.4}% 39
+\BOOKMARK [2][-]{subsection.4.1.1}{Comparing Linking Methods On Latency}{section.4.1}% 40
+\BOOKMARK [2][-]{subsection.4.1.2}{Comparing Linking Methods On Fault Tolerance}{section.4.1}% 41
+\BOOKMARK [2][-]{subsection.4.1.3}{Comparing Linking Methods On High Demand}{section.4.1}% 42
+\BOOKMARK [1][-]{section.4.2}{Visualizing the Linking Methods at Work}{chapter.4}% 43
+\BOOKMARK [1][-]{section.4.3}{Direction and Focus}{chapter.4}% 44
+\BOOKMARK [1][-]{section.4.4}{Using Godot}{chapter.4}% 45
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 46
+\BOOKMARK [1][-]{section.5.1}{Extension}{chapter.5}% 47

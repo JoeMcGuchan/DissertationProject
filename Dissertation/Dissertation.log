@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.13)  17 MAY 2019 02:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.13)  17 MAY 2019 11:56
 entering extended mode
 **./Dissertation.tex
 (Dissertation.tex
@@ -144,7 +144,27 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
-("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/was\gensymb.sty"
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.st
+y"
+Package: geometry 2018/04/16 v5.8 Page Geometry
+\Gm@cnth=\count99
+\Gm@cntv=\count100
+\c@Gm@tempcnt=\count101
+\Gm@bindingoffset=\dimen107
+\Gm@wd@mp=\dimen108
+\Gm@odd@mp=\dimen109
+\Gm@even@mp=\dimen110
+\Gm@layoutwidth=\dimen111
+\Gm@layoutheight=\dimen112
+\Gm@layouthoffset=\dimen113
+\Gm@layoutvoffset=\dimen114
+\Gm@dimlist=\toks15
+
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.cf
+g"))
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/docmute\docmute.sty"
+Package: docmute 2012/03/22 v1.4 Input stand-alone documents
+) ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/was\gensymb.sty"
 Package: gensymb 2003/07/02 v1.0 (WaS)
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/imakeidx\imakeidx.st
@@ -159,31 +179,31 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 x"
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\xkvutils.t
 ex"
-\XKV@toks=\toks15
-\XKV@tempa@toks=\toks16
+\XKV@toks=\toks16
+\XKV@tempa@toks=\toks17
 )
-\XKV@depth=\count99
+\XKV@depth=\count102
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol.sty"
 Package: multicol 2018/11/09 v1.8u multicolumn formatting (FMi)
-\c@tracingmulticols=\count100
+\c@tracingmulticols=\count103
 \mult@box=\box27
-\multicol@leftmargin=\dimen107
-\c@unbalance=\count101
-\c@collectmore=\count102
-\doublecol@number=\count103
-\multicoltolerance=\count104
-\multicolpretolerance=\count105
-\full@width=\dimen108
-\page@free=\dimen109
-\premulticols=\dimen110
-\postmulticols=\dimen111
+\multicol@leftmargin=\dimen115
+\c@unbalance=\count104
+\c@collectmore=\count105
+\doublecol@number=\count106
+\multicoltolerance=\count107
+\multicolpretolerance=\count108
+\full@width=\dimen116
+\page@free=\dimen117
+\premulticols=\dimen118
+\postmulticols=\dimen119
 \multicolsep=\skip44
 \multicolbaselineskip=\skip45
 \partial@page=\box28
 \last@line=\box29
-\maxbalancingoverflow=\dimen112
+\maxbalancingoverflow=\dimen120
 \mult@rightbox=\box30
 \mult@grightbox=\box31
 \mult@gfirstbox=\box32
@@ -205,14 +225,14 @@ Package: multicol 2018/11/09 v1.8u multicolumn formatting (FMi)
 \@tempa=\box48
 \@tempa=\box49
 \@tempa=\box50
-\c@columnbadness=\count106
-\c@finalcolumnbadness=\count107
-\last@try=\dimen113
-\multicolovershoot=\dimen114
-\multicolundershoot=\dimen115
+\c@columnbadness=\count109
+\c@finalcolumnbadness=\count110
+\last@try=\dimen121
+\multicolovershoot=\dimen122
+\multicolundershoot=\dimen123
 \mult@nat@firstbox=\box51
 \colbreak@box=\box52
-\mc@col@check@num=\count108
+\mc@col@check@num=\count111
 )) ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.s
 ty"
 Package: amsmath 2018/12/01 v2.17b AMS math features
@@ -223,74 +243,74 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
-\ex@=\dimen116
+\@emptytoks=\toks18
+\ex@=\dimen124
 )) ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.st
 y"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen117
+\pmbraise@=\dimen125
 ) ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty
 "
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count109
+\inf@bad=\count112
 LaTeX Info: Redefining \frac on input line 223.
-\uproot@=\count110
-\leftroot@=\count111
+\uproot@=\count113
+\leftroot@=\count114
 LaTeX Info: Redefining \overline on input line 385.
-\classnum@=\count112
-\DOTSCASE@=\count113
+\classnum@=\count115
+\DOTSCASE@=\count116
 LaTeX Info: Redefining \ldots on input line 482.
 LaTeX Info: Redefining \dots on input line 485.
 LaTeX Info: Redefining \cdots on input line 606.
 \Mathstrutbox@=\box53
 \strutbox@=\box54
-\big@size=\dimen118
+\big@size=\dimen126
 LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
-\macc@depth=\count114
-\c@MaxMatrixCols=\count115
+\macc@depth=\count117
+\c@MaxMatrixCols=\count118
 \dotsspace@=\muskip11
-\c@parentequation=\count116
-\dspbrk@lvl=\count117
-\tag@help=\toks18
-\row@=\count118
-\column@=\count119
-\maxfields@=\count120
-\andhelp@=\toks19
-\eqnshift@=\dimen119
-\alignsep@=\dimen120
-\tagshift@=\dimen121
-\tagwidth@=\dimen122
-\totwidth@=\dimen123
-\lineht@=\dimen124
-\@envbody=\toks20
+\c@parentequation=\count119
+\dspbrk@lvl=\count120
+\tag@help=\toks19
+\row@=\count121
+\column@=\count122
+\maxfields@=\count123
+\andhelp@=\toks20
+\eqnshift@=\dimen127
+\alignsep@=\dimen128
+\tagshift@=\dimen129
+\tagwidth@=\dimen130
+\totwidth@=\dimen131
+\lineht@=\dimen132
+\@envbody=\toks21
 \multlinegap=\skip47
 \multlinetaggap=\skip48
-\mathdisplay@stack=\toks21
+\mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.st
 y"
-\lst@mode=\count121
+\lst@mode=\count124
 \lst@gtempboxa=\box55
-\lst@token=\toks22
-\lst@length=\count122
-\lst@currlwidth=\dimen125
-\lst@column=\count123
-\lst@pos=\count124
-\lst@lostspace=\dimen126
-\lst@width=\dimen127
-\lst@newlines=\count125
-\lst@lineno=\count126
-\lst@maxwidth=\dimen128
+\lst@token=\toks23
+\lst@length=\count125
+\lst@currlwidth=\dimen133
+\lst@column=\count126
+\lst@pos=\count127
+\lst@lostspace=\dimen134
+\lst@width=\dimen135
+\lst@newlines=\count128
+\lst@lineno=\count129
+\lst@maxwidth=\dimen136
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.sty
 "
 File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
-\c@lstnumber=\count127
-\lst@skipnumbers=\count128
+\c@lstnumber=\count130
+\lst@skipnumbers=\count131
 \lst@framebox=\box56
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.cf
@@ -319,19 +339,19 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen129
-\Gin@req@width=\dimen130
+\Gin@req@height=\dimen137
+\Gin@req@width=\dimen138
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/sidecap\sidecap.sty"
 Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\SC@BOXWD=\dimen131
-\SC@CAPWD=\dimen132
-\SC@tempdima=\dimen133
-\SC@tempdimb=\dimen134
-\c@SC@C=\count129
+\SC@BOXWD=\dimen139
+\SC@CAPWD=\dimen140
+\SC@tempdima=\dimen141
+\SC@tempdimb=\dimen142
+\c@SC@C=\count132
 \SC@BOX=\box57
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgfplots\pgfplots.st
@@ -348,9 +368,9 @@ ty"
 .sty"
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgfu
 til-common.tex"
-\pgfutil@everybye=\toks23
-\pgfutil@tempdima=\dimen135
-\pgfutil@tempdimb=\dimen136
+\pgfutil@everybye=\toks24
+\pgfutil@tempdima=\dimen143
+\pgfutil@tempdimb=\dimen144
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgfu
 til-common-lists.tex"))
@@ -379,31 +399,31 @@ Package: pgfsys 2019/02/02 v3.1.1 (3.1.1)
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgfk
 eys.code.tex"
-\pgfkeys@pathtoks=\toks24
-\pgfkeys@temptoks=\toks25
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgfk
 eysfiltered.code.tex"
-\pgfkeys@tmptoks=\toks26
+\pgfkeys@tmptoks=\toks27
 ))
-\pgf@x=\dimen137
-\pgf@y=\dimen138
-\pgf@xa=\dimen139
-\pgf@ya=\dimen140
-\pgf@xb=\dimen141
-\pgf@yb=\dimen142
-\pgf@xc=\dimen143
-\pgf@yc=\dimen144
+\pgf@x=\dimen145
+\pgf@y=\dimen146
+\pgf@xa=\dimen147
+\pgf@ya=\dimen148
+\pgf@xb=\dimen149
+\pgf@yb=\dimen150
+\pgf@xc=\dimen151
+\pgf@yc=\dimen152
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count130
-\c@pgf@countb=\count131
-\c@pgf@countc=\count132
-\c@pgf@countd=\count133
-\t@pgf@toka=\toks27
-\t@pgf@tokb=\toks28
-\t@pgf@tokc=\toks29
-\pgf@sys@id@count=\count134
+\c@pgf@counta=\count133
+\c@pgf@countb=\count134
+\c@pgf@countc=\count135
+\c@pgf@countd=\count136
+\t@pgf@toka=\toks28
+\t@pgf@tokb=\toks29
+\t@pgf@tokc=\toks30
+\pgf@sys@id@count=\count137
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\pg
 f.cfg"
@@ -422,8 +442,8 @@ File: pgfsys-common-pdf.def 2019/02/02 v3.1.1 (3.1.1)
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\pg
 fsyssoftpath.code.tex"
 File: pgfsyssoftpath.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgfsyssoftpath@smallbuffer@items=\count135
-\pgfsyssoftpath@bigbuffer@items=\count136
+\pgfsyssoftpath@smallbuffer@items=\count138
+\pgfsyssoftpath@bigbuffer@items=\count139
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\pg
 fsysprotocol.code.tex"
@@ -459,12 +479,12 @@ lc.code.tex"
 il.code.tex")
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathpa
 rser.code.tex"
-\pgfmath@dimen=\dimen145
-\pgfmath@count=\count137
+\pgfmath@dimen=\dimen153
+\pgfmath@count=\count140
 \pgfmath@box=\box59
-\pgfmath@toks=\toks30
-\pgfmath@stack@operand=\toks31
-\pgfmath@stack@operation=\toks32
+\pgfmath@toks=\toks31
+\pgfmath@stack@operand=\toks32
+\pgfmath@stack@operation=\toks33
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfu
 nctions.code.tex"
@@ -486,37 +506,37 @@ nctions.misc.code.tex")
 nctions.integerarithmetics.code.tex")))
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfl
 oat.code.tex"
-\c@pgfmathroundto@lastzeros=\count138
+\c@pgfmathroundto@lastzeros=\count141
 ))
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 corepoints.code.tex"
 File: pgfcorepoints.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgf@picminx=\dimen146
-\pgf@picmaxx=\dimen147
-\pgf@picminy=\dimen148
-\pgf@picmaxy=\dimen149
-\pgf@pathminx=\dimen150
-\pgf@pathmaxx=\dimen151
-\pgf@pathminy=\dimen152
-\pgf@pathmaxy=\dimen153
-\pgf@xx=\dimen154
-\pgf@xy=\dimen155
-\pgf@yx=\dimen156
-\pgf@yy=\dimen157
-\pgf@zx=\dimen158
-\pgf@zy=\dimen159
+\pgf@picminx=\dimen154
+\pgf@picmaxx=\dimen155
+\pgf@picminy=\dimen156
+\pgf@picmaxy=\dimen157
+\pgf@pathminx=\dimen158
+\pgf@pathmaxx=\dimen159
+\pgf@pathminy=\dimen160
+\pgf@pathmaxy=\dimen161
+\pgf@xx=\dimen162
+\pgf@xy=\dimen163
+\pgf@yx=\dimen164
+\pgf@yy=\dimen165
+\pgf@zx=\dimen166
+\pgf@zy=\dimen167
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 corepathconstruct.code.tex"
 File: pgfcorepathconstruct.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgf@path@lastx=\dimen160
-\pgf@path@lasty=\dimen161
+\pgf@path@lastx=\dimen168
+\pgf@path@lasty=\dimen169
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 corepathusage.code.tex"
 File: pgfcorepathusage.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgf@shorten@end@additional=\dimen162
-\pgf@shorten@start@additional=\dimen163
+\pgf@shorten@end@additional=\dimen170
+\pgf@shorten@start@additional=\dimen171
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 corescopes.code.tex"
@@ -524,19 +544,19 @@ File: pgfcorescopes.code.tex 2019/02/02 v3.1.1 (3.1.1)
 \pgfpic=\box60
 \pgf@hbox=\box61
 \pgf@layerbox@main=\box62
-\pgf@picture@serial@count=\count139
+\pgf@picture@serial@count=\count142
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 coregraphicstate.code.tex"
 File: pgfcoregraphicstate.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgflinewidth=\dimen164
+\pgflinewidth=\dimen172
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 coretransformations.code.tex"
 File: pgfcoretransformations.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgf@pt@x=\dimen165
-\pgf@pt@y=\dimen166
-\pgf@pt@temp=\dimen167
+\pgf@pt@x=\dimen173
+\pgf@pt@y=\dimen174
+\pgf@pt@temp=\dimen175
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 corequick.code.tex"
@@ -553,13 +573,13 @@ File: pgfcorepathprocessing.code.tex 2019/02/02 v3.1.1 (3.1.1)
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 corearrows.code.tex"
 File: pgfcorearrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgfarrowsep=\dimen168
+\pgfarrowsep=\dimen176
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 coreshade.code.tex"
 File: pgfcoreshade.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgf@max=\dimen169
-\pgf@sys@shading@range@num=\count140
+\pgf@max=\dimen177
+\pgf@sys@shading@range@num=\count143
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgf
 coreimage.code.tex"
@@ -598,8 +618,8 @@ File: pgfmoduleplot.code.tex 2019/02/02 v3.1.1 (3.1.1)
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compatibility\pg
 fcomp-version-0-65.sty"
 Package: pgfcomp-version-0-65 2019/02/02 v3.1.1 (3.1.1)
-\pgf@nodesepstart=\dimen170
-\pgf@nodesepend=\dimen171
+\pgf@nodesepstart=\dimen178
+\pgf@nodesepend=\dimen179
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compatibility\pg
 fcomp-version-1-18.sty"
@@ -621,10 +641,10 @@ Package: pgffor 2019/02/02 v3.1.1 (3.1.1)
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.c
 ode.tex")
-\pgffor@iter=\dimen172
-\pgffor@skip=\dimen173
-\pgffor@stack=\toks33
-\pgffor@toks=\toks34
+\pgffor@iter=\dimen180
+\pgffor@skip=\dimen181
+\pgffor@stack=\toks34
+\pgffor@toks=\toks35
 ))
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlayer/
 tikz\tikz.code.tex"
@@ -633,32 +653,32 @@ Package: tikz 2019/02/02 v3.1.1 (3.1.1)
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries\pgfl
 ibraryplothandlers.code.tex"
 File: pgflibraryplothandlers.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgf@plot@mark@count=\count141
-\pgfplotmarksize=\dimen174
+\pgf@plot@mark@count=\count144
+\pgfplotmarksize=\dimen182
 )
-\tikz@lastx=\dimen175
-\tikz@lasty=\dimen176
-\tikz@lastxsaved=\dimen177
-\tikz@lastysaved=\dimen178
-\tikzleveldistance=\dimen179
-\tikzsiblingdistance=\dimen180
+\tikz@lastx=\dimen183
+\tikz@lasty=\dimen184
+\tikz@lastxsaved=\dimen185
+\tikz@lastysaved=\dimen186
+\tikzleveldistance=\dimen187
+\tikzsiblingdistance=\dimen188
 \tikz@figbox=\box65
 \tikz@figbox@bg=\box66
 \tikz@tempbox=\box67
 \tikz@tempbox@bg=\box68
-\tikztreelevel=\count142
-\tikznumberofchildren=\count143
-\tikznumberofcurrentchild=\count144
-\tikz@fig@count=\count145
+\tikztreelevel=\count145
+\tikznumberofchildren=\count146
+\tikznumberofcurrentchild=\count147
+\tikz@fig@count=\count148
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pgfmod
 ulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgfmatrixcurrentrow=\count146
-\pgfmatrixcurrentcolumn=\count147
-\pgf@matrix@numberofcolumns=\count148
+\pgfmatrixcurrentrow=\count149
+\pgfmatrixcurrentcolumn=\count150
+\pgf@matrix@numberofcolumns=\count151
 )
-\tikz@expandcount=\count149
+\tikz@expandcount=\count152
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlayer/
 tikz/libraries\tikzlibrarytopaths.code.tex"
@@ -668,12 +688,12 @@ File: tikzlibrarytopaths.code.tex 2019/02/02 v3.1.1 (3.1.1)
 code.tex"
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfplotsc
 ore.code.tex"
-\t@pgfplots@toka=\toks35
-\t@pgfplots@tokb=\toks36
-\t@pgfplots@tokc=\toks37
-\pgfplots@tmpa=\dimen181
-\c@pgfplots@coordindex=\count150
-\c@pgfplots@scanlineindex=\count151
+\t@pgfplots@toka=\toks36
+\t@pgfplots@tokb=\toks37
+\t@pgfplots@tokc=\toks38
+\pgfplots@tmpa=\dimen189
+\c@pgfplots@coordindex=\count153
+\c@pgfplots@scanlineindex=\count154
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/sys\pgfpl
 otssysgeneric.code.tex"))
@@ -689,7 +709,7 @@ Package pgfplots: loading complementary arithmetics for your pgf version...
 patib\pgfplotsoldpgfsupp_pgflibraryfpu.code.tex")
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/oldpgfcom
 patib\pgfplotsoldpgfsupp_pgfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count152
+\c@pgfmathroundto@lastzeros=\count155
 ))
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/util\pgfp
 lotsutil.code.tex"
@@ -699,14 +719,14 @@ ture\pgfplotsliststructure.code.tex")
 ture\pgfplotsliststructureext.code.tex")
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/liststruc
 ture\pgfplotsarray.code.tex"
-\c@pgfplotsarray@tmp=\count153
+\c@pgfplotsarray@tmp=\count156
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/liststruc
 ture\pgfplotsmatrix.code.tex")
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/numtable\
 pgfplotstableshared.code.tex"
-\c@pgfplotstable@counta=\count154
-\t@pgfplotstable@a=\toks38
+\c@pgfplotstable@counta=\count157
+\t@pgfplotstable@a=\toks39
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/liststruc
 ture\pgfplotsdeque.code.tex")
@@ -718,7 +738,7 @@ lotsbinary.data.code.tex"))
 lotsutil.verb.code.tex")
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/libs\pgfl
 ibrarypgfplots.surfshading.code.tex"
-\c@pgfplotslibrarysurf@no=\count155
+\c@pgfplotslibrarysurf@no=\count158
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/sys\pgfli
 brarypgfplots.surfshading.pgfsys-pdftex.def")))
@@ -750,14 +770,14 @@ paths.code.tex")
 tikz/libraries\tikzlibrarydecorations.code.tex"
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pgfmod
 uledecorations.code.tex"
-\pgfdecoratedcompleteddistance=\dimen182
-\pgfdecoratedremainingdistance=\dimen183
-\pgfdecoratedinputsegmentcompleteddistance=\dimen184
-\pgfdecoratedinputsegmentremainingdistance=\dimen185
-\pgf@decorate@distancetomove=\dimen186
-\pgf@decorate@repeatstate=\count156
-\pgfdecorationsegmentamplitude=\dimen187
-\pgfdecorationsegmentlength=\dimen188
+\pgfdecoratedcompleteddistance=\dimen190
+\pgfdecoratedremainingdistance=\dimen191
+\pgfdecoratedinputsegmentcompleteddistance=\dimen192
+\pgfdecoratedinputsegmentremainingdistance=\dimen193
+\pgf@decorate@distancetomove=\dimen194
+\pgf@decorate@repeatstate=\count159
+\pgfdecorationsegmentamplitude=\dimen195
+\pgfdecorationsegmentlength=\dimen196
 )
 \tikz@lib@dec@box=\box69
 )
@@ -769,13 +789,13 @@ rations\pgflibrarydecorations.pathmorphing.code.tex"))
 tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex"
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries/deco
 rations\pgflibrarydecorations.pathreplacing.code.tex"))
-\pgfplots@numplots=\count157
-\pgfplots@xmin@reg=\dimen189
-\pgfplots@xmax@reg=\dimen190
-\pgfplots@ymin@reg=\dimen191
-\pgfplots@ymax@reg=\dimen192
-\pgfplots@zmin@reg=\dimen193
-\pgfplots@zmax@reg=\dimen194
+\pgfplots@numplots=\count160
+\pgfplots@xmin@reg=\dimen197
+\pgfplots@xmax@reg=\dimen198
+\pgfplots@ymin@reg=\dimen199
+\pgfplots@ymax@reg=\dimen256
+\pgfplots@zmin@reg=\dimen257
+\pgfplots@zmax@reg=\dimen258
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlayer/
 tikz/libraries\tikzlibraryplotmarks.code.tex"
@@ -791,16 +811,16 @@ Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
 "
 Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
-\captionmargin=\dimen195
-\captionmargin@=\dimen196
-\captionwidth=\dimen197
-\caption@tempdima=\dimen198
-\caption@indent=\dimen199
-\caption@parindent=\dimen256
-\caption@hangindent=\dimen257
+\captionmargin=\dimen259
+\captionmargin@=\dimen260
+\captionwidth=\dimen261
+\caption@tempdima=\dimen262
+\caption@indent=\dimen263
+\caption@parindent=\dimen264
+\caption@hangindent=\dimen265
 )
-\c@caption@flags=\count158
-\c@ContinuedFloat=\count159
+\c@caption@flags=\count161
+\c@ContinuedFloat=\count162
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: sidecap package is loaded.
@@ -808,14 +828,63 @@ Package caption Info: sidecap package is loaded.
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\subcaption.s
 ty"
 Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
-\c@subfigure=\count160
-\c@subtable=\count161
+\c@subfigure=\count163
+\c@subtable=\count164
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mdwtools\footnote.st
 y"
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box70
-\fn@width=\dimen258
+\fn@width=\dimen266
+)
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/makecell\makecell.st
+y"
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+ ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2018/11/13 v2.4j Tabular extension package (FMi)
+\col@sep=\dimen267
+\ar@mcellbox=\box71
+\extrarowheight=\dimen268
+\NC@list=\toks40
+\extratabsurround=\skip49
+\backup@length=\skip50
+\ar@cellbox=\box72
+)
+\rotheadsize=\dimen269
+\c@nlinenum=\count165
+\TeXr@lab=\toks41
+)
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pdfpages.st
+y"
+Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
+ ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count166
+\calc@Bcount=\count167
+\calc@Adimen=\dimen270
+\calc@Bdimen=\dimen271
+\calc@Askip=\skip51
+\calc@Bskip=\skip52
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count168
+\calc@Cskip=\skip53
+)
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/eso-pic\eso-pic.sty"
+Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
+)
+\AM@pagewidth=\dimen272
+\AM@pageheight=\dimen273
+
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pppdftex.de
+f"
+File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box73
+\AM@global@opts=\toks42
+\AM@toc@title=\toks43
+\c@AM@survey=\count169
+\AM@templatesizebox=\box74
 )
 \Dissertation@idxfile=\write4
 \openout4 = `Dissertation.idx'.
@@ -825,22 +894,22 @@ Writing index file Dissertation.idx
 (Dissertation.aux)
 \openout1 = `Dissertation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-\AtBeginShipoutBox=\box71
-Package hyperref Info: Link coloring OFF on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+\AtBeginShipoutBox=\box75
+Package hyperref Info: Link coloring OFF on input line 38.
 
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.sty
 "
@@ -850,42 +919,76 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 tring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count162
+\c@section@level=\count170
 )
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
  (Dissertation.out) (Dissertation.out)
 \@outlinefile=\write5
 \openout5 = `Dissertation.out'.
 
-LaTeX Info: Redefining \celsius on input line 19.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 19.
 
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=85.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \celsius on input line 38.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 38.
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 19.
-Package gensymb Info: Using \Omega for \ohm on input line 19.
+LaTeX Info: Redefining \ohm on input line 38.
+Package gensymb Info: Using \Omega for \ohm on input line 38.
 
 Package gensymb Warning: Not defining \micro.
 
-\c@lstlisting=\count163
+\c@lstlisting=\count171
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\supp-pdf.mkii
 "
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count164
-\scratchdimen=\dimen259
-\scratchbox=\box72
-\nofMPsegments=\count165
-\nofMParguments=\count166
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count167
-\MPscratchDim=\dimen260
-\MPnumerator=\count168
-\makeMPintoPDFobject=\count169
-\everyMPtoPDFconversion=\toks40
+\scratchcounter=\count172
+\scratchdimen=\dimen274
+\scratchbox=\box76
+\nofMPsegments=\count173
+\nofMParguments=\count174
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count175
+\MPscratchDim=\dimen275
+\MPnumerator=\count176
+\makeMPintoPDFobject=\count177
+\everyMPtoPDFconversion=\toks45
 )
 ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-ba
 se.sty"
@@ -909,20 +1012,20 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 126.
 )
-\CenteringLeftskip=\skip49
-\RaggedLeftLeftskip=\skip50
-\RaggedRightLeftskip=\skip51
-\CenteringRightskip=\skip52
-\RaggedLeftRightskip=\skip53
-\RaggedRightRightskip=\skip54
-\CenteringParfillskip=\skip55
-\RaggedLeftParfillskip=\skip56
-\RaggedRightParfillskip=\skip57
-\JustifyingParfillskip=\skip58
-\CenteringParindent=\skip59
-\RaggedLeftParindent=\skip60
-\RaggedRightParindent=\skip61
-\JustifyingParindent=\skip62
+\CenteringLeftskip=\skip54
+\RaggedLeftLeftskip=\skip55
+\RaggedRightLeftskip=\skip56
+\CenteringRightskip=\skip57
+\RaggedLeftRightskip=\skip58
+\RaggedRightRightskip=\skip59
+\CenteringParfillskip=\skip60
+\RaggedLeftParfillskip=\skip61
+\RaggedRightParfillskip=\skip62
+\JustifyingParfillskip=\skip63
+\CenteringParindent=\skip64
+\RaggedLeftParindent=\skip65
+\RaggedRightParindent=\skip66
+\JustifyingParindent=\skip67
 )
 ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': you might b
@@ -930,146 +1033,147 @@ enefit from \pgfplotsset{compat=1.16} (current compat level: 1.9).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-[1
 
-{C:/Users/Joe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Chapter 1.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.39 \chapter
-             {Proforma} [1
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\pdflscape.s
+ty"
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 
-]
-Chapter 2.
-[2
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+\docmute@nestinglevel=\count178
+ [1
 
-] (Dissertation.toc [3
+{C:/Users/Joe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Overfull \hbox (45.27223pt too wide) in paragraph at lines 82--92
+[]
+ []
 
-])
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--92
+
+ []
+
+[3
+
+] [4
+
+] (Dissertation.toc [5])
 \tf@toc=\write6
 \openout6 = `Dissertation.toc'.
 
- [4]
-Chapter 3.
+ [6] (Dissertation.lof)
+\tf@lof=\write7
+\openout7 = `Dissertation.lof'.
 
-LaTeX Warning: Citation `ExcedeWebsite' on page 5 undefined on input line 76.
+ [7
 
-[5
+] [8]
+Chapter 1.
 
-]
+LaTeX Warning: Citation `ExcedeWebsite' on page 9 undefined on input line 129.
 
-LaTeX Warning: Citation `PropertiesOfGlass' on page 6 undefined on input line 7
-8.
 
-[6]
-<./Images/LDN-JHB-H0-1.png, id=292, 470.35725pt x 450.483pt>
+LaTeX Warning: Citation `PropertiesOfGlass' on page 9 undefined on input line 1
+31.
+
+[9
+
+] [10]
+<./Images/LDN-JHB-H0-1.png, id=356, 470.35725pt x 450.483pt>
 File: ./Images/LDN-JHB-H0-1.png Graphic file (type png)
 <use ./Images/LDN-JHB-H0-1.png>
-Package pdftex.def Info: ./Images/LDN-JHB-H0-1.png  used on input line 113.
-(pdftex.def)             Requested size: 390.0pt x 373.5296pt.
-<./Images/NewYorkBeijing1320SatellitesLM2.png, id=293, 339.669pt x 327.02174pt>
+Package pdftex.def Info: ./Images/LDN-JHB-H0-1.png  used on input line 166.
+(pdftex.def)             Requested size: 455.24411pt x 436.0194pt.
+<./Images/NewYorkBeijing1320SatellitesLM2.png, id=357, 339.669pt x 327.02174pt>
 
 File: ./Images/NewYorkBeijing1320SatellitesLM2.png Graphic file (type png)
 <use ./Images/NewYorkBeijing1320SatellitesLM2.png>
 Package pdftex.def Info: ./Images/NewYorkBeijing1320SatellitesLM2.png  used on 
-input line 117.
-(pdftex.def)             Requested size: 155.99762pt x 150.1923pt.
-<./Images/LondonJohannasburg1254SatellitesLM2.png, id=294, 410.13225pt x 384.83
+input line 170.
+(pdftex.def)             Requested size: 182.09486pt x 175.31667pt.
+<./Images/LondonJohannasburg1254SatellitesLM2.png, id=358, 410.13225pt x 384.83
 775pt>
 File: ./Images/LondonJohannasburg1254SatellitesLM2.png Graphic file (type png)
 <use ./Images/LondonJohannasburg1254SatellitesLM2.png>
 Package pdftex.def Info: ./Images/LondonJohannasburg1254SatellitesLM2.png  used
- on input line 121.
-(pdftex.def)             Requested size: 155.99762pt x 146.37492pt.
+ on input line 174.
+(pdftex.def)             Requested size: 182.09486pt x 170.86176pt.
 
 
-LaTeX Warning: Float too large for page by 29.7219pt on input line 123.
+LaTeX Warning: Citation `ElonMuskTweet2' on page 11 undefined on input line 180
+.
 
-[7]
-
-LaTeX Warning: Citation `ElonMuskTweet2' on page 8 undefined on input line 127.
-
-
-[8] [9 <./Images/LDN-JHB-H0-1.png> <./Images/NewYorkBeijing1320SatellitesLM2.pn
-g> <./Images/LondonJohannasburg1254SatellitesLM2.png>]
-Chapter 4.
-[10
+[11] [12 <./Images/LDN-JHB-H0-1.png> <./Images/NewYorkBeijing1320SatellitesLM2.
+png> <./Images/LondonJohannasburg1254SatellitesLM2.png>]
+Chapter 2.
+[13
 
 ]
-Overfull \hbox (31.55055pt too wide) in paragraph at lines 160--173
- [] 
- []
-
-[11]
-<./Images/DescribingAnOrbit.jpg, id=336, 598.1547pt x 693.792pt>
+<./Images/DescribingAnOrbit.jpg, id=388, 598.1547pt x 693.792pt>
 File: ./Images/DescribingAnOrbit.jpg Graphic file (type jpg)
 <use ./Images/DescribingAnOrbit.jpg>
-Package pdftex.def Info: ./Images/DescribingAnOrbit.jpg  used on input line 207
+Package pdftex.def Info: ./Images/DescribingAnOrbit.jpg  used on input line 258
 .
-(pdftex.def)             Requested size: 390.0pt x 452.36745pt.
- [12] [13 <./Images/DescribingAnOrbit.jpg>] [14] [15]
-<./Images/PhaseOffset.jpg, id=371, 549.252pt x 231.5049pt>
+(pdftex.def)             Requested size: 455.24411pt x 528.04962pt.
+ [14] [15 <./Images/DescribingAnOrbit.jpg>] [16]
+<./Images/PhaseOffset.jpg, id=417, 430.2474pt x 231.264pt>
 File: ./Images/PhaseOffset.jpg Graphic file (type jpg)
 <use ./Images/PhaseOffset.jpg>
-Package pdftex.def Info: ./Images/PhaseOffset.jpg  used on input line 262.
-(pdftex.def)             Requested size: 390.0pt x 164.3802pt.
- [16 <./Images/PhaseOffset.jpg>]
-Chapter 5.
-[17
+Package pdftex.def Info: ./Images/PhaseOffset.jpg  used on input line 313.
+(pdftex.def)             Requested size: 455.24411pt x 244.71521pt.
+ [17 <./Images/PhaseOffset.jpg>] [18]
+Chapter 3.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 360.
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 312.
-
- ("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+("C:\Users\Joe\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 312.
- [18] [19] [20] [21]
-<./Images/LinkingMethodAndPhaseOffset.jpg, id=400, 534.798pt x 268.8444pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 360.
+
+[19
+
+] [20] [21]
+<./Images/LinkingMethodAndPhaseOffset.jpg, id=442, 534.798pt x 268.8444pt>
 File: ./Images/LinkingMethodAndPhaseOffset.jpg Graphic file (type jpg)
 <use ./Images/LinkingMethodAndPhaseOffset.jpg>
 Package pdftex.def Info: ./Images/LinkingMethodAndPhaseOffset.jpg  used on inpu
-t line 398.
-(pdftex.def)             Requested size: 390.0pt x 196.05788pt.
- [22 <./Images/LinkingMethodAndPhaseOffset.jpg>] [23]
-[24] [25] [26]
+t line 438.
+(pdftex.def)             Requested size: 455.24411pt x 228.85521pt.
+ [22 <./Images/LinkingMethodAndPhaseOffset.jpg>] [23] [24]
+[25]
 
-Package caption Warning: \label without proper reference on input line 521.
+Package caption Warning: \label without proper reference on input line 568.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:Structure of Network' on page 27 undefined on inp
-ut line 518.
+LaTeX Warning: Reference `fig:Structure of Network' on page 26 undefined on inp
+ut line 571.
 
-<./Images/Hue1.png, id=449, 403.5075pt x 355.3275pt>
+<./Images/Hue1.png, id=484, 403.5075pt x 355.3275pt>
 File: ./Images/Hue1.png Graphic file (type png)
 <use ./Images/Hue1.png>
-Package pdftex.def Info: ./Images/Hue1.png  used on input line 523.
-(pdftex.def)             Requested size: 117.00119pt x 103.03148pt.
-<./Images/Hue2.png, id=450, 364.36125pt x 339.669pt>
+Package pdftex.def Info: ./Images/Hue1.png  used on input line 576.
+(pdftex.def)             Requested size: 136.57462pt x 120.26755pt.
+<./Images/Hue2.png, id=485, 364.36125pt x 339.669pt>
 File: ./Images/Hue2.png Graphic file (type png)
 <use ./Images/Hue2.png>
-Package pdftex.def Info: ./Images/Hue2.png  used on input line 524.
-(pdftex.def)             Requested size: 117.00119pt x 109.06946pt.
-<./Images/Hue3.png, id=451, 283.0575pt x 277.63725pt>
+Package pdftex.def Info: ./Images/Hue2.png  used on input line 577.
+(pdftex.def)             Requested size: 136.57462pt x 127.31854pt.
+<./Images/Hue3.png, id=486, 283.0575pt x 277.63725pt>
 File: ./Images/Hue3.png Graphic file (type png)
 <use ./Images/Hue3.png>
-Package pdftex.def Info: ./Images/Hue3.png  used on input line 525.
-(pdftex.def)             Requested size: 117.00119pt x 114.75977pt.
-[27]
-<./Images/NearbySats.png, id=461, 648.62325pt x 393.26926pt>
+Package pdftex.def Info: ./Images/Hue3.png  used on input line 578.
+(pdftex.def)             Requested size: 136.57462pt x 133.96336pt.
+[26]
+<./Images/NearbySats.png, id=497, 648.62325pt x 393.26926pt>
 File: ./Images/NearbySats.png Graphic file (type png)
 <use ./Images/NearbySats.png>
-Package pdftex.def Info: ./Images/NearbySats.png  used on input line 539.
-(pdftex.def)             Requested size: 195.0pt x 118.2277pt.
-
-Underfull \hbox (badness 3492) in paragraph at lines 540--540
-[][]\OT1/cmr/m/n/12 : |The 9 Satel-lites I
- []
-
+Package pdftex.def Info: ./Images/NearbySats.png  used on input line 592.
+(pdftex.def)             Requested size: 227.62206pt x 138.01234pt.
 PGFPlots: reading {./Data/NearbySats.csv}
 PGFPlots: reading {./Data/NearbySats.csv}
 PGFPlots: reading {./Data/NearbySats.csv}
@@ -1079,20 +1183,15 @@ PGFPlots: reading {./Data/NearbySats.csv}
 PGFPlots: reading {./Data/NearbySats.csv}
 PGFPlots: reading {./Data/NearbySats.csv}
 
-Overfull \hbox (10.21928pt too wide) in paragraph at lines 557--558
+Overfull \hbox (12.7978pt too wide) in paragraph at lines 610--611
  [][] 
  []
 
-<./Images/NearbySats2.png, id=462, 661.87276pt x 354.123pt>
+<./Images/NearbySats2.png, id=498, 661.87276pt x 354.123pt>
 File: ./Images/NearbySats2.png Graphic file (type png)
 <use ./Images/NearbySats2.png>
-Package pdftex.def Info: ./Images/NearbySats2.png  used on input line 564.
-(pdftex.def)             Requested size: 195.0pt x 104.33028pt.
-
-Underfull \hbox (badness 2707) in paragraph at lines 565--565
-[][]\OT1/cmr/m/n/12 : |To-wards the South
- []
-
+Package pdftex.def Info: ./Images/NearbySats2.png  used on input line 617.
+(pdftex.def)             Requested size: 227.62206pt x 121.78351pt.
 PGFPlots: reading {./Data/NearbySats.csv}
 PGFPlots: reading {./Data/NearbySats.csv}
 PGFPlots: reading {./Data/NearbySats.csv}
@@ -1102,105 +1201,93 @@ PGFPlots: reading {./Data/NearbySats.csv}
 PGFPlots: reading {./Data/NearbySats.csv}
 PGFPlots: reading {./Data/NearbySats.csv}
 
-Overfull \hbox (19.36064pt too wide) in paragraph at lines 582--583
+Overfull \hbox (19.36107pt too wide) in paragraph at lines 635--636
  [][] 
  []
 
-[28 <./Images/Hue1.png> <./Images/Hue2.png> <./Images/Hue3.png> <./Images/Nearb
-ySats.png>] [29 <./Images/NearbySats2.png>] [30]
+[27 <./Images/Hue1.png> <./Images/Hue2.png> <./Images/Hue3.png> <./Images/Nearb
+ySats.png>] [28 <./Images/NearbySats2.png>] [29]
 PGFPlots: reading {./Data/LondonToNewYork.csv}
-<./Images/LDN-NY-H-1-1.png, id=483, 605.8635pt x 545.6385pt>
+<./Images/LDN-NY-H-1-1.png, id=514, 605.8635pt x 545.6385pt>
 File: ./Images/LDN-NY-H-1-1.png Graphic file (type png)
 <use ./Images/LDN-NY-H-1-1.png>
-Package pdftex.def Info: ./Images/LDN-NY-H-1-1.png  used on input line 610.
-(pdftex.def)             Requested size: 155.99762pt x 140.4889pt.
-<./Images/LDN-NY-H-1-2.png, id=484, 643.80525pt x 560.69475pt>
+Package pdftex.def Info: ./Images/LDN-NY-H-1-1.png  used on input line 663.
+(pdftex.def)             Requested size: 182.09486pt x 163.99254pt.
+<./Images/LDN-NY-H-1-2.png, id=515, 643.80525pt x 560.69475pt>
 File: ./Images/LDN-NY-H-1-2.png Graphic file (type png)
 <use ./Images/LDN-NY-H-1-2.png>
-Package pdftex.def Info: ./Images/LDN-NY-H-1-2.png  used on input line 615.
-(pdftex.def)             Requested size: 155.99762pt x 135.85281pt.
- [31]
+Package pdftex.def Info: ./Images/LDN-NY-H-1-2.png  used on input line 668.
+(pdftex.def)             Requested size: 182.09486pt x 158.58478pt.
 PGFPlots: reading {./Data/LondonToNewYorkAccelerated.csv}
 PGFPlots: reading {./Data/LondonToNewYorkFrozenEarth.csv}
- [32 <./Images/LDN-NY-H-1-1.png> <./Images/LDN-NY-H-1-2.png>] [33]
-<./Images/Handley-1.png, id=508, 522.15076pt x 522.753pt>
+ [30] [31 <./Images/LDN-NY-H-1-1.png> <./Images/LDN-NY-H-1-2.png>]
+<./Images/Handley-1.png, id=532, 522.15076pt x 522.753pt>
 File: ./Images/Handley-1.png Graphic file (type png)
 <use ./Images/Handley-1.png>
-Package pdftex.def Info: ./Images/Handley-1.png  used on input line 690.
-(pdftex.def)             Requested size: 117.00119pt x 117.13576pt.
-File: ./Images/Handley-1.png Graphic file (type png)
-<use ./Images/Handley-1.png>
-Package pdftex.def Info: ./Images/Handley-1.png  used on input line 695.
-(pdftex.def)             Requested size: 117.00119pt x 117.13576pt.
-<./Images/DistantLinking.png, id=509, 521.5485pt x 493.845pt>
+Package pdftex.def Info: ./Images/Handley-1.png  used on input line 743.
+(pdftex.def)             Requested size: 136.57462pt x 136.73416pt.
+<./Images/Handley0.png, id=533, 533.5935pt x 511.31026pt>
+File: ./Images/Handley0.png Graphic file (type png)
+<use ./Images/Handley0.png>
+Package pdftex.def Info: ./Images/Handley0.png  used on input line 748.
+(pdftex.def)             Requested size: 136.57462pt x 130.87001pt.
+<./Images/DistantLinking.png, id=534, 521.5485pt x 493.845pt>
 File: ./Images/DistantLinking.png Graphic file (type png)
 <use ./Images/DistantLinking.png>
-Package pdftex.def Info: ./Images/DistantLinking.png  used on input line 700.
-(pdftex.def)             Requested size: 117.00119pt x 110.7863pt.
-<./Images/DistantLinking2.png, id=510, 538.4115pt x 512.51476pt>
+Package pdftex.def Info: ./Images/DistantLinking.png  used on input line 753.
+(pdftex.def)             Requested size: 136.57462pt x 129.316pt.
+<./Images/DistantLinking2.png, id=535, 538.4115pt x 512.51476pt>
 File: ./Images/DistantLinking2.png Graphic file (type png)
 <use ./Images/DistantLinking2.png>
-Package pdftex.def Info: ./Images/DistantLinking2.png  used on input line 709.
-(pdftex.def)             Requested size: 390.0pt x 371.23912pt.
- [34] [35 <./Images/Handley-1.png> <./Images/DistantLinking.png>] [36 <./Images
-/DistantLinking2.png>]
-Chapter 6.
-[37
+Package pdftex.def Info: ./Images/DistantLinking2.png  used on input line 762.
+(pdftex.def)             Requested size: 455.24411pt x 433.34822pt.
+ [32] [33 <./Images/Handley-1.png> <./Images/Handley0.png> <./Images/DistantLin
+king.png> <./Images/DistantLinking2.png>]
+[34
 
 ]
-Overfull \hbox (56.29175pt too wide) in paragraph at lines 756--766
- [] 
- []
-
-<./Images/LDN-NY-DISTL-1.png, id=536, 513.117pt x 501.072pt>
+Chapter 4.
+[35]
+<./Images/LDN-NY-DISTL-1.png, id=558, 513.117pt x 501.072pt>
 File: ./Images/LDN-NY-DISTL-1.png Graphic file (type png)
 <use ./Images/LDN-NY-DISTL-1.png>
-Package pdftex.def Info: ./Images/LDN-NY-DISTL-1.png  used on input line 781.
-(pdftex.def)             Requested size: 155.99762pt x 152.33359pt.
-<./Images/LDN-NY-DISTL-2.png, id=537, 647.41875pt x 596.2275pt>
+Package pdftex.def Info: ./Images/LDN-NY-DISTL-1.png  used on input line 834.
+(pdftex.def)             Requested size: 182.09486pt x 177.81682pt.
+<./Images/LDN-NY-DISTL-2.png, id=559, 647.41875pt x 596.2275pt>
 File: ./Images/LDN-NY-DISTL-2.png Graphic file (type png)
 <use ./Images/LDN-NY-DISTL-2.png>
-Package pdftex.def Info: ./Images/LDN-NY-DISTL-2.png  used on input line 786.
-(pdftex.def)             Requested size: 155.99762pt x 143.66158pt.
-<./Images/NY-BJ-DistL-1.png, id=538, 472.164pt x 460.72125pt>
+Package pdftex.def Info: ./Images/LDN-NY-DISTL-2.png  used on input line 839.
+(pdftex.def)             Requested size: 182.09486pt x 167.69766pt.
+<./Images/NY-BJ-DistL-1.png, id=560, 472.164pt x 460.72125pt>
 File: ./Images/NY-BJ-DistL-1.png Graphic file (type png)
 <use ./Images/NY-BJ-DistL-1.png>
-Package pdftex.def Info: ./Images/NY-BJ-DistL-1.png  used on input line 791.
-(pdftex.def)             Requested size: 390.0pt x 380.54964pt.
-
-LaTeX Warning: Float too large for page by 90.7832pt on input line 793.
-
-[38]
-<./Images/LDN-JHB-H-1-1.png, id=546, 470.9595pt x 432.4155pt>
+Package pdftex.def Info: ./Images/NY-BJ-DistL-1.png  used on input line 844.
+(pdftex.def)             Requested size: 455.24411pt x 444.21361pt.
+<./Images/LDN-JHB-H-1-1.png, id=561, 470.9595pt x 432.4155pt>
 File: ./Images/LDN-JHB-H-1-1.png Graphic file (type png)
 <use ./Images/LDN-JHB-H-1-1.png>
-Package pdftex.def Info: ./Images/LDN-JHB-H-1-1.png  used on input line 802.
-(pdftex.def)             Requested size: 155.99762pt x 143.232pt.
+Package pdftex.def Info: ./Images/LDN-JHB-H-1-1.png  used on input line 855.
+(pdftex.def)             Requested size: 182.09486pt x 167.18977pt.
 File: ./Images/LDN-JHB-H0-1.png Graphic file (type png)
 <use ./Images/LDN-JHB-H0-1.png>
-Package pdftex.def Info: ./Images/LDN-JHB-H0-1.png  used on input line 807.
-(pdftex.def)             Requested size: 155.99762pt x 149.40909pt.
-<./Images/LDN-JHB-DistL-1.png, id=547, 370.986pt x 343.2825pt>
+Package pdftex.def Info: ./Images/LDN-JHB-H0-1.png  used on input line 860.
+(pdftex.def)             Requested size: 182.09486pt x 174.40225pt.
+<./Images/LDN-JHB-DistL-1.png, id=562, 370.986pt x 343.2825pt>
 File: ./Images/LDN-JHB-DistL-1.png Graphic file (type png)
 <use ./Images/LDN-JHB-DistL-1.png>
-Package pdftex.def Info: ./Images/LDN-JHB-DistL-1.png  used on input line 812.
-(pdftex.def)             Requested size: 155.99762pt x 144.34528pt.
-
-Underfull \hbox (badness 5203) in paragraph at lines 816--816
-[]\OT1/cmr/m/n/10.95 (d) |DstantLink-ing: A path
- []
-
-<./Images/LDN-JHB-DistL-2.png, id=548, 488.42474pt x 435.42674pt>
+Package pdftex.def Info: ./Images/LDN-JHB-DistL-1.png  used on input line 865.
+(pdftex.def)             Requested size: 182.09486pt x 168.49274pt.
+<./Images/LDN-JHB-DistL-2.png, id=563, 488.42474pt x 435.42674pt>
 File: ./Images/LDN-JHB-DistL-2.png Graphic file (type png)
 <use ./Images/LDN-JHB-DistL-2.png>
-Package pdftex.def Info: ./Images/LDN-JHB-DistL-2.png  used on input line 817.
-(pdftex.def)             Requested size: 155.99762pt x 139.06699pt.
+Package pdftex.def Info: ./Images/LDN-JHB-DistL-2.png  used on input line 870.
+(pdftex.def)             Requested size: 182.09486pt x 162.33452pt.
 PGFPlots: reading {"./Data/ConnectedComponentsLM1 - Results.csv"}
 PGFPlots: reading {"./Data/ConnectedComponentsLM2 - Results.csv"}
 PGFPlots: reading {"./Data/ConnectedComponentsLM3 - Results.csv"}
-[39] [40 <./Images/LDN-NY-DISTL-1.png> <./Images/LDN-NY-DISTL-2.png> <./Images/
-NY-BJ-DistL-1.png>] [41 <./Images/LDN-JHB-H-1-1.png> <./Images/LDN-JHB-DistL-1.
-png> <./Images/LDN-JHB-DistL-2.png>] [42]
+ [36] [37 <./Images/LDN-NY-DISTL-1.png> <./Images/LDN-NY-DISTL-2.png> <./Images
+/NY-BJ-DistL-1.png>] [38 <./Images/LDN-JHB-H-1-1.png> <./Images/LDN-JHB-DistL-1
+.png> <./Images/LDN-JHB-DistL-2.png>] [39]
 PGFPlots: reading {./Data/LondonNewYork1.csv}
 
 NOTE: coordinate (0.7083333333,) has been dropped because of a coordinate filte
@@ -1400,143 +1487,213 @@ PGFPlots: reading {./Data/LondonJohannesburg1.csv}
 PGFPlots: reading {./Data/LondonJohannesburg2.csv}
 PGFPlots: reading {./Data/LondonJohannesburg3.csv}
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 994--1042
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1047--1095
 [][] []
  []
 
-<./Images/NewYorkBeijing462Satellites.png, id=573, 473.97075pt x 404.10976pt>
+<./Images/NewYorkBeijing462Satellites.png, id=586, 473.97075pt x 404.10976pt>
 File: ./Images/NewYorkBeijing462Satellites.png Graphic file (type png)
 <use ./Images/NewYorkBeijing462Satellites.png>
 Package pdftex.def Info: ./Images/NewYorkBeijing462Satellites.png  used on inpu
-t line 1050.
-(pdftex.def)             Requested size: 155.99762pt x 132.99898pt.
+t line 1103.
+(pdftex.def)             Requested size: 182.09486pt x 155.25284pt.
 File: ./Images/NewYorkBeijing1320SatellitesLM2.png Graphic file (type png)
 <use ./Images/NewYorkBeijing1320SatellitesLM2.png>
 Package pdftex.def Info: ./Images/NewYorkBeijing1320SatellitesLM2.png  used on 
-input line 1055.
-(pdftex.def)             Requested size: 155.99762pt x 150.1923pt.
+input line 1108.
+(pdftex.def)             Requested size: 182.09486pt x 175.31667pt.
 File: ./Images/LondonJohannasburg1254SatellitesLM2.png Graphic file (type png)
 <use ./Images/LondonJohannasburg1254SatellitesLM2.png>
 Package pdftex.def Info: ./Images/LondonJohannasburg1254SatellitesLM2.png  used
- on input line 1060.
-(pdftex.def)             Requested size: 390.0pt x 365.95198pt.
-
-LaTeX Warning: Float too large for page by 60.44426pt on input line 1062.
-
-[43] [44] [45] [46 <./Images/NewYorkBeijing462Satellites.png>]
-Overfull \hbox (7.07513pt too wide) in paragraph at lines 1084--1085
-[]\OT1/cmr/m/n/12 The knowl-edge that SpaceX were will-ing to change their de-s
-igns so abruptly
- []
-
-[47]
-Chapter 7.
-[48
-
-] [49]
-Underfull \hbox (badness 6141) in paragraph at lines 1107--1109
-[]\OT1/cmr/m/n/12 Daniel Pflughoeft. High Speed Pri-or-ity Queue for C Sharp.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1107--1109
-\OT1/cmr/m/n/12 2013. Avail-able from: []$\OT1/cmtt/m/n/12 https : / / github .
- com / BlueRaja /
- []
-
-
-Underfull \hbox (badness 3364) in paragraph at lines 1121--1123
-\OT1/cmr/m/n/12 LOA2016111500118. 2018. Avail-able from: []$\OT1/cmtt/m/n/12 li
-censing . fcc . gov /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1121--1123
-\OT1/cmtt/m/n/12 cgi-[]bin / ws . exe / prod / ib / forms / reports / related _
- filing . hts ? f _
- []
-
-
-Underfull \hbox (badness 6380) in paragraph at lines 1123--1125
-[]\OT1/cmr/m/n/12 SpaceX. At-tatch-ment A: Tech-ni-cal In-for-ma-ton to Sup-ple
--ment
- []
-
-
-Underfull \hbox (badness 3635) in paragraph at lines 1123--1125
-\OT1/cmr/m/n/12 Sched-ule S. Fed-eral Com-mu-ni-ca-tions Com-mis-sion (FCC). 20
-16.
- []
-
-[50
+ on input line 1113.
+(pdftex.def)             Requested size: 455.24411pt x 427.16908pt.
+[40] [41] [42 <./Images/NewYorkBeijing462Satellites.png>] [43] [44
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1129
-[]\OT1/cmr/m/n/12 Hughes. Hughes High-Throughput Satel-lite Suc-cess-fully
+Chapter 5.
+[45] [46]
+Underfull \hbox (badness 2680) in paragraph at lines 1166--1168
+[]\OT1/cmr/m/n/12 Dr. James Mc-Caf-frey. Pri-or-ity Queues with C#. Vi-sual Stu
+-dio Mag-a-zine.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1129
-\OT1/cmr/m/n/12 Launched, Set-ting the Stage for the Next Gen-er-a-tion
+Underfull \hbox (badness 10000) in paragraph at lines 1178--1180
+[]\OT1/cmr/m/n/12 Federal Com-mu-ni-ca-tions Com-mis-sion (FCC). File Num-ber =
+ SAT-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1129
-\OT1/cmr/m/n/12 of Satel-lite In-ter-net. 2016. Avail-able From: []$\OT1/cmtt/m
-/n/12 https : / /
+Underfull \hbox (badness 2443) in paragraph at lines 1178--1180
+\OT1/cmr/m/n/12 LOA2016111500118. 2018. Avail-able from: []$\OT1/cmtt/m/n/12 li
+censing . fcc . gov / cgi-[]bin / ws .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1129
-\OT1/cmtt/m/n/12 www . hughes . com / who-[]we-[]are / resources / press-[]rele
-ases /
+Underfull \hbox (badness 10000) in paragraph at lines 1178--1180
+\OT1/cmtt/m/n/12 exe / prod / ib / forms / reports / related _ filing . hts ? f
+ _ key = -[]289550 & f _ number =
  []
 
 
-Overfull \hbox (26.17772pt too wide) in paragraph at lines 1127--1129
+Underfull \hbox (badness 5592) in paragraph at lines 1184--1186
+[]\OT1/cmr/m/n/12 Hughes. Hughes High-Throughput Satel-lite Suc-cess-fully Laun
+ched, Set-ting
+ []
+
+
+Underfull \hbox (badness 3724) in paragraph at lines 1184--1186
+\OT1/cmr/m/n/12 the Stage for the Next Gen-er-a-tion of Satel-lite In-ter-net. 
+2016. Avail-able
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1186
+\OT1/cmr/m/n/12 From: []$\OT1/cmtt/m/n/12 https : / / www . hughes . com / who-
+[]we-[]are / resources / press-[]releases /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1186
 \OT1/cmtt/m/n/12 hughes-[]high-[]throughput-[]satellite-[]successfully-[]launch
 ed-[]setting ?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1136--1138
-[]\OT1/cmr/m/n/12 VoIP Stu-dio, VoIP And How Much Jit-ter Is Ac-cept-
+Underfull \hbox (badness 1264) in paragraph at lines 1190--1192
+[]\OT1/cmr/m/n/12 Wikipedia. USGS ma-j-plate-color.png. 2012.Avail-able from: [
+]$\OT1/cmtt/m/n/12 https : / / commons .
+ []
+
+[47
+
+]
+Underfull \hbox (badness 1163) in paragraph at lines 1195--1197
+[]\OT1/cmr/m/n/12 Chris Davis, "As launch nears, SpaceX's Star-link satel-lite 
+in-ter-net gets big
  []
 
 
-Underfull \hbox (badness 3557) in paragraph at lines 1136--1138
-\OT1/cmr/m/n/12 able? 2015, Avail-able from: []$\OT1/cmtt/m/n/12 https : / / vo
-ipstudio . com / blog /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1138--1140
-[]\OT1/cmr/m/n/12 Chris Davis, "As launch nears, SpaceX's Star-link satel-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1138--1140
-\OT1/cmr/m/n/12 lite in-ter-net gets big change ap-proval" SlashGear,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1138--1140
-\OT1/cmr/m/n/12 2019, Avail-able from: []$\OT1/cmtt/m/n/12 https : / / www . sl
-ashgear . com /
- []
-
-
-Overfull \hbox (164.02779pt too wide) in paragraph at lines 1138--1140
+Overfull \hbox (98.78368pt too wide) in paragraph at lines 1195--1197
 \OT1/cmtt/m/n/12 as-[]launch-[]nearsspacexs-[]starlink-[]satellite-[]internet-[
 ]gets-[]big-[]change-[]approval-[]29574978/$[] 
  []
 
-[51]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1145.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1145.
+<Dissertation Proposal Final.pdf, id=653, 614.295pt x 794.97pt>
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf>
+Package pdftex.def Info: Dissertation Proposal Final.pdf  used on input line 11
+99.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf>
+Package pdftex.def Info: Dissertation Proposal Final.pdf  used on input line 11
+99.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+<Dissertation Proposal Final.pdf, id=656, page=2, 614.295pt x 794.97pt>
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 2>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page2 used on input 
+line 1199.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 2>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page2 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+[48]
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 2>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page2 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 2>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page2 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 2>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page2 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+ [49 <./Dissertation Proposal Final.pdf
+
+pdfTeX warning: miktex-pdftex.exe (file ./Dissertation Proposal Final.pdf): PDF
+ inclusion: invalid other resource which is no dict (key 'ProcSets', type <arra
+y>); ignored.
+>]
+<Dissertation Proposal Final.pdf, id=675, page=3, 614.295pt x 794.97pt>
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 3>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page3 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 3>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page3 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 3>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page3 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+ [50 <./Dissertation Proposal Final.pdf
+
+pdfTeX warning: miktex-pdftex.exe (file ./Dissertation Proposal Final.pdf): PDF
+ inclusion: invalid other resource which is no dict (key 'ProcSets', type <arra
+y>); ignored.
+>]
+<Dissertation Proposal Final.pdf, id=680, page=4, 614.295pt x 794.97pt>
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 4>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page4 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 4>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page4 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 4>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page4 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+ [51 <./Dissertation Proposal Final.pdf
+
+pdfTeX warning: miktex-pdftex.exe (file ./Dissertation Proposal Final.pdf): PDF
+ inclusion: invalid other resource which is no dict (key 'ProcSets', type <arra
+y>); ignored.
+>]
+<Dissertation Proposal Final.pdf, id=685, page=5, 614.295pt x 794.97pt>
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 5>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page5 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 5>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page5 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+File: Dissertation Proposal Final.pdf Graphic file (type pdf)
+<use Dissertation Proposal Final.pdf, page 5>
+Package pdftex.def Info: Dissertation Proposal Final.pdf , page5 used on input 
+line 1199.
+(pdftex.def)             Requested size: 514.78574pt x 666.19333pt.
+ [52 <./Dissertation Proposal Final.pdf
+
+pdfTeX warning: miktex-pdftex.exe (file ./Dissertation Proposal Final.pdf): PDF
+ inclusion: invalid other resource which is no dict (key 'ProcSets', type <arra
+y>); ignored.
+>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1201.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1201.
  (Dissertation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1145.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1145.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1201.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1201.
 
 
 
@@ -1545,43 +1702,43 @@ Package rerunfilecheck Warning: File `Dissertation.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Dissertation.out':
-(rerunfilecheck)             Before: B560CCD953DB2A4AD97E44669B65078E;3512
-(rerunfilecheck)             After:  F7B53FBC2D28641FC3CFA2116D558999;3464.
+(rerunfilecheck)             Before: 12A08619A6798630C64B08032B0D6828;3289
+(rerunfilecheck)             After:  E4FDE92A73D17F658A402A6634BBBF9C;3418.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1145.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1201.
  ) 
 Here is how much of TeX's memory you used:
- 35827 strings out of 492946
- 847242 string characters out of 3127154
- 1779719 words of memory out of 3000000
- 39051 multiletter control sequences out of 15000+200000
- 11235 words of font info for 41 fonts, out of 3000000 for 9000
+ 37200 strings out of 492946
+ 868814 string characters out of 3127154
+ 2124677 words of memory out of 3000000
+ 40378 multiletter control sequences out of 15000+200000
+ 11542 words of font info for 42 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,23n,108p,1363b,2836s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{appendix.A} has been referenced but does not exis
-t, replaced by a fixed one
-
-<C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmex10.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Joe/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Joe/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Joe/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Us
-ers/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.
-pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr6.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr7.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Joe/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Joe/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Dissertation.pdf (52 pages, 8775701 bytes).
+ 62i,23n,108p,1363b,2838s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmex10.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Joe/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Joe/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Joe/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
+Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
+7.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/Users/Joe/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Joe/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Joe/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Dissertation.pdf (52 pages, 9120697 bytes).
 PDF statistics:
- 732 PDF objects out of 1000 (max. 8388607)
- 172 named destinations out of 1000 (max. 500000)
- 520 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 774 PDF objects out of 1000 (max. 8388607)
+ 177 named destinations out of 1000 (max. 500000)
+ 528 words of extra memory for PDF output out of 10000 (max. 10000000)
 
