@@ -49,7 +49,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="QuitTheGame.cs" />
+    <Compile Include="Scripts\ColouringMehod\AllBlack.cs" />
     <Compile Include="Scripts\ColouringMehod\ColouringMethod.cs" />
     <Compile Include="Scripts\ColouringMehod\OrbitGradient.cs" />
     <Compile Include="Scripts\ColouringMehod\HighlightMarked.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="Scripts\Tests\RepeatedShortestPathTest.cs" />
     <Compile Include="Scripts\Tests\ShortestPathTest.cs" />
     <Compile Include="Scripts\Tests\Test.cs" />
+    <Compile Include="Scripts\Tests\QuitTheGame.cs" />
     <Compile Include="Scripts\UI\ConstellationDescription.cs" />
     <Compile Include="Scripts\UI\ConstellationDescriptionDatabase.cs" />
     <Compile Include="Scripts\UI\UI.cs" />

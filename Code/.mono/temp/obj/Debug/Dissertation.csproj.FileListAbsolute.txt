@@ -1,0 +1,6 @@
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\bin\Debug\Dissertation.dll
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\bin\Debug\Dissertation.pdb
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\obj\Debug\Dissertation.csprojAssemblyReference.cache
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\obj\Debug\Dissertation.csproj.CoreCompileInputs.cache
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\obj\Debug\Dissertation.dll
+C:\Users\Joe\Documents\Code\DissertationProject\Code\.mono\temp\obj\Debug\Dissertation.pdb

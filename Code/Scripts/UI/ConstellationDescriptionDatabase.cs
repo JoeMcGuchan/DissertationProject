@@ -55,6 +55,7 @@ public class ConstellationDescriptionDatabase
 		);
 		
 		ColouringMethod highlightMarked = new HighlightMarked();
+		ColouringMethod allBlack = new AllBlack();
 		ColouringMethod orbitGradient24 = new OrbitGradient(24);
 		
 		ConstellationDescriptionTemplate starLink = new ConstellationDescriptionTemplate(
@@ -74,11 +75,11 @@ public class ConstellationDescriptionDatabase
 			/*FOLLOWING SATELLITE*/
 			new ConstellationDescription(starLink, onlyForward, highlightMarked, new NearbySats("TestResults/NearbySats.csv")),
 			/*LM1*/
-			new ConstellationDescription(starLink, linkingMethod1, highlightMarked, new NoTest()),
+			new ConstellationDescription(starLink, linkingMethod1, allBlack, new NoTest()),
 			/*LM2*/
-			new ConstellationDescription(starLink, linkingMethod2, highlightMarked, new NoTest()),
+			new ConstellationDescription(starLink, linkingMethod2, allBlack, new NoTest()),
 			/*LM3*/
-			new ConstellationDescription(starLink, linkingMethod3, highlightMarked, new NoTest()),
+			new ConstellationDescription(starLink, linkingMethod3, allBlack, new NoTest()),
 			/*CONNECTED COMPONENTS LM1*/
 			new ConstellationDescription
 			(
